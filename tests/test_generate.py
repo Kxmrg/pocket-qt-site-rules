@@ -27,8 +27,12 @@ class GenerationTests(unittest.TestCase):
         manifest = json.loads(self.root.joinpath('manifest.json').read_bytes())
         self.assertNotIn('sites', manifest)
         self.assertFalse(self.root.joinpath('sites').exists())
-        record = manifest['global']
-        raw = self.root.joinpath(record['path']).read_bytes()
+        self.assertEqual(set(manifest), {'schemaVersion', 'code', 'publishedAt', 'url', 'size', 'sha256'})
+        self.assertEqual(manifest['schemaVersion'], 2)
+        self.assertEqual(manifest['code'], self.data['code'])
+        self.assertEqual(manifest['publishedAt'], self.data['publishedAt'])
+        record = manifest
+        raw = self.root.joinpath('global.json').read_bytes()
         self.assertEqual(raw, SOURCE.read_bytes())
         self.assertEqual(record['sha256'], hashlib.sha256(raw).hexdigest())
         self.assertEqual(record['size'], len(raw))

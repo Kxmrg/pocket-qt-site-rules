@@ -1,33 +1,34 @@
-# 更新索引契约 v1
+# 更新索引契约 v2
 
 入口：`https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json`
 
-此契约为后续 App 在线更新准备，当前 App 尚未接入。索引格式与规则格式分别版本化，不能混用。
+索引仅描述一个完整全局规则文件，保留 6 个字段：
 
 | 字段 | 含义 |
 | --- | --- |
-| schemaVersion | 索引结构版本，目前为 1；未知版本拒绝处理 |
-| release | 固定发布标签，例如 rules-v17；禁止移动、覆盖标签 |
-| publishedAt | 本次全局规则发布时间，Unix 秒 |
-| global | 完整全局规则的下载元信息 |
+| schemaVersion | 索引结构版本，目前为 2；不是规则文件的结构版本 |
+| code | 全局规则版本，与 global.json 的 code 一致 |
+| publishedAt | 规则发布时间，Unix 秒，仅用于显示 |
+| url | 固定发布标签下 global.json 的 HTTPS 下载地址 |
+| size | 文件字节数 |
+| sha256 | 完整文件字节的 SHA-256，小写十六进制 |
 
-`global` 文件条目包含 `id`、`schemaVersion`（规则格式）、`code`、`publishedAt`、`compatibility`、`path`、`url`、`size`、`sha256`。
-`size` 单位是字节，摘要针对下载文件的完整 UTF-8 字节（包含末尾换行），使用小写 SHA-256 十六进制。
+索引自动生成，不再重复规则 ID、相对路径、兼容性信息或发布标签字段，也没有 global 嵌套和站点单独下载索引。
+App 在线更新尚未接入；后续只需实现 v2。规则文件自身的 schemaVersion 不随索引格式变化。
 
-`path` 为仓库相对路径，`url` 固定到 `release` 标签，不能用 main 的实时文件代替。`global.json` 是完整包，包含所有站点补充，不是只包含通用规则。
+## 客户端处理
 
-后续客户端应先验证索引版本与字段，再比较相同 ID 的 code；下载后校验大小和 SHA-256，再用生产规则引擎检查 schemaVersion、compatibility、base、完整规则语义及同版本冲突。只在全部通过后原子替换。失败保留当前有效规则。
+1. 验证索引版本与字段，比较全局 code 判断更新；时间不参与版本比较。
+2. 仅允许受信 HTTPS 仓库及规定路径，下载 url 对应的文件，不使用 main 下实时文件替代。
+3. 校验字节数和 SHA-256（包含末尾换行），并核对文件内 code、publishedAt 与索引一致。
+4. 用生产规则引擎验证文件身份、schemaVersion、compatibility、base、规则语义及同版本冲突。
+5. 全部通过后原子替换，失败保留当前有效规则。
 
-时间戳只显示，不决定新旧。此仓库只提供完整全局规则下载，不提供站点单独下载索引。下载地址仅允许受信 HTTPS 仓库及规定路径；不从索引接受任意重定向或脚本。SHA-256 仅校验完整性，本版本未提供发布签名。
+SHA-256 用于完整性校验，不代替发布签名。
 
-## 发布一致性
+## 维护与发布
 
-1. 修改 global.json，按变化递增全局、架构和站点 code；更新时间戳。
-2. 在 Pocket Evo 项目用生产引擎验证和回归，再运行生成器、单测及 --check。
-3. 提交全部文件，以全局 code 创建 rules-vN 标签。
-4. 使用 `git push --atomic origin main rules-vN` 同时发布分支和标签。
-5. 验证远端索引、标签与全局规则摘要。禁止复用已发布 code 修改内容。
-
-只修改文档或分发结构且规则字节不变时，保留已有发布标签和全局 code，直接推送 main。
-
-README 与索引由脚本生成；修改 README 模板请编辑 scripts/generate.py 后重新生成。
+`global.json` 是唯一规则维护源。运行 `python3 scripts/generate.py` 更新索引和 README，再运行 `--check` 与单测。
+规则改变时递增相关 code、更新时间戳，在 App 生产引擎完成回归后提交，并创建 rules-vN 标签（N 为全局 code）。
+使用 `git push --atomic origin main rules-vN` 同时发布分支与标签，禁止移动或覆盖已发布标签。
+只修改文档或分发结构、规则字节不变时，沿用已有规则标签和 code，直接推送 main。

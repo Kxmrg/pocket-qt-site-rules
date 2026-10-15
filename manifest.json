@@ -1,19 +1,8 @@
 {
-  "schemaVersion": 1,
-  "release": "rules-v17",
+  "schemaVersion": 2,
+  "code": 17,
   "publishedAt": 1792028576,
-  "global": {
-    "id": "pocket-evo.web-rules",
-    "schemaVersion": 1,
-    "code": 17,
-    "publishedAt": 1792028576,
-    "compatibility": {
-      "engine": 1,
-      "features": []
-    },
-    "path": "global.json",
-    "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/global.json",
-    "size": 245005,
-    "sha256": "9cc8c0d055d130fc91cfc4fd62ce0107339d4bdfe736757fbb451d194fdbb6b9"
-  }
+  "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/global.json",
+  "size": 245005,
+  "sha256": "9cc8c0d055d130fc91cfc4fd62ce0107339d4bdfe736757fbb451d194fdbb6b9"
 }

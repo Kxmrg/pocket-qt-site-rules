@@ -74,18 +74,13 @@ def generate(root, check=False):
     tag = f"rules-v{data['code']}"
     files = {}
 
-    def record(document, path, content):
-        return {
-            'id': document['id'], 'schemaVersion': document['schemaVersion'],
-            'code': document['code'], 'publishedAt': document['publishedAt'],
-            'compatibility': document['compatibility'], 'path': path,
-            'url': f'{RAW}/{tag}/{path}', 'size': len(content),
-            'sha256': hashlib.sha256(content).hexdigest(),
-        }
-
     manifest = {
-        'schemaVersion': 1, 'release': tag, 'publishedAt': data['publishedAt'],
-        'global': record(data, 'global.json', raw),
+        'schemaVersion': 2,
+        'code': data['code'],
+        'publishedAt': data['publishedAt'],
+        'url': f'{RAW}/{tag}/global.json',
+        'size': len(raw),
+        'sha256': hashlib.sha256(raw).hexdigest(),
     }
     rows = []
     for site in sorted(data['sites'], key=lambda s: s['id']):
@@ -103,7 +98,7 @@ Pocket Evo 的全局站点规则与站点补充规则，用于 HTML 站点的解
 
 ## 下载地址
 
-- [全局规则 global.json]({manifest['global']['url']})
+- [全局规则 global.json]({manifest['url']})
 - [最新更新索引 manifest.json]({RAW}/main/manifest.json)
 
 只需下载 `global.json`，其中包含通用规则和全部站点补充规则，用于「设置 → 站点规则」导入。
@@ -173,6 +168,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
     try:
         result = generate(Path(__file__).resolve().parents[1], args.check)
-        print(f"Validated {result['release']}: global distribution")
+        print(f"Validated rules-v{result['code']}: global distribution")
     except (ValueError, KeyError, TypeError) as error:
         parser.exit(1, f'Error: {error}\n')
