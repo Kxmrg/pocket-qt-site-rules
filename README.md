@@ -16,7 +16,9 @@
 
 [官网](https://pocket.kxmrg.com/) · [Telegram 交流群](https://t.me/pocket_qt)
 
-独立 API 站点适配随 App 更新，不由规则文件更新。
+独立架构站点适配随 App 更新，不由规则文件更新。
+
+### NexusPHP 站点（61 个）
 
 | 站点 | 架构 |
 | --- | --- |
@@ -81,6 +83,11 @@
 | U2 | NexusPHP |
 | NicePT | NexusPHP |
 | 烧包 | NexusPHP |
+
+### 独立架构站点（6 个）
+
+| 站点 | 架构 |
+| --- | --- |
 | 朱雀 | 独立架构站点 |
 | M-Team（馒头） | 独立架构站点 |
 | 海胆 | 独立架构站点 |
