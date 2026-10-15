@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "type": "site",
+  "id": "tangpt",
+  "code": 6,
+  "publishedAt": 1792028576,
+  "architecture": "nexusphp",
+  "domains": [
+    "www.tangpt.top"
+  ],
+  "compatibility": {
+    "engine": 1,
+    "features": [
+      "tag-filter.v1"
+    ]
+  },
+  "base": {
+    "minCode": 9,
+    "maxCode": 17
+  },
+  "patches": [
+    {
+      "op": "replace",
+      "path": "/pages/list/request/query/resource-tag",
+      "value": {
+        "id": "resource-tag",
+        "input": "tag",
+        "param": "tag_id",
+        "map": {
+          "no-repost": 39,
+          "premiere": 45,
+          "official-release": 3,
+          "diy": 4,
+          "mandarin": 5,
+          "chinese-subtitles": 6,
+          "hdr": 7,
+          "cantonese": 10,
+          "completed": 19,
+          "episodic": 21,
+          "dolby": 9
+        }
+      }
+    }
+  ]
+}

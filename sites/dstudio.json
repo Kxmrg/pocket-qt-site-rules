@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "type": "site",
+  "id": "dstudio",
+  "code": 2,
+  "publishedAt": 1792028576,
+  "architecture": "nexusphp",
+  "domains": [
+    "dstudio.me"
+  ],
+  "compatibility": {
+    "engine": 1,
+    "features": [
+      "tag-filter.v1"
+    ]
+  },
+  "base": {
+    "minCode": 16,
+    "maxCode": 17
+  },
+  "patches": [
+    {
+      "op": "replace",
+      "path": "/pages/list/request/query/resource-tag",
+      "value": {
+        "id": "resource-tag",
+        "input": "tag",
+        "param": "tag_id",
+        "map": {
+          "official-release": "3",
+          "episodic": "13",
+          "premiere": "2",
+          "diy": "4",
+          "completed": "11",
+          "dolby": "8",
+          "mandarin": "5",
+          "hdr": "7",
+          "chinese-subtitles": "6"
+        }
+      }
+    }
+  ]
+}

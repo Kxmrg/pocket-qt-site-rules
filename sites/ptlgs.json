@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "type": "site",
+  "id": "ptlgs",
+  "code": 2,
+  "publishedAt": 1792028576,
+  "architecture": "nexusphp",
+  "domains": [
+    "ptlgs.org"
+  ],
+  "compatibility": {
+    "engine": 1,
+    "features": [
+      "tag-filter.v1"
+    ]
+  },
+  "base": {
+    "minCode": 16,
+    "maxCode": 17
+  },
+  "patches": [
+    {
+      "op": "replace",
+      "path": "/pages/list/request/query/resource-tag",
+      "value": {
+        "id": "resource-tag",
+        "input": "tag",
+        "param": "tag_id",
+        "map": {
+          "resident": "17",
+          "no-repost": "1",
+          "premiere": "2",
+          "official-release": "3",
+          "diy": "4",
+          "chinese-subtitles": "6",
+          "mandarin": "5",
+          "disc": "9",
+          "dolby": "8",
+          "hdr": "7",
+          "completed": "15",
+          "episodic": "16"
+        }
+      }
+    }
+  ]
+}

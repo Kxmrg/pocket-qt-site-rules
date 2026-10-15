@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "type": "site",
+  "id": "hdtime",
+  "code": 8,
+  "publishedAt": 1792028576,
+  "architecture": "nexusphp",
+  "domains": [
+    "hdtime.org"
+  ],
+  "compatibility": {
+    "engine": 1,
+    "features": [
+      "tag-filter.v1",
+      "map-merge.v1"
+    ]
+  },
+  "base": {
+    "minCode": 8,
+    "maxCode": 17
+  },
+  "patches": [
+    {
+      "op": "merge",
+      "path": "/pages/list/request/query/resource-tag/map",
+      "value": {
+        "dolby": 8
+      }
+    }
+  ]
+}

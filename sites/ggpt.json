@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "type": "site",
+  "id": "ggpt",
+  "code": 2,
+  "publishedAt": 1792028576,
+  "architecture": "nexusphp",
+  "domains": [
+    "www.gamegamept.com"
+  ],
+  "compatibility": {
+    "engine": 1,
+    "features": [
+      "tag-filter.v1"
+    ]
+  },
+  "base": {
+    "minCode": 16,
+    "maxCode": 17
+  },
+  "patches": [
+    {
+      "op": "replace",
+      "path": "/pages/list/request/query/resource-tag",
+      "value": {
+        "id": "resource-tag",
+        "input": "tag",
+        "param": "tag_id",
+        "map": {
+          "premiere": "2",
+          "no-repost": "1",
+          "chinese-localized": "22"
+        }
+      }
+    }
+  ]
+}

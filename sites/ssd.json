@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "type": "site",
+  "id": "ssd",
+  "code": 2,
+  "publishedAt": 1792028576,
+  "architecture": "nexusphp",
+  "domains": [
+    "springsunday.net"
+  ],
+  "compatibility": {
+    "engine": 1,
+    "features": [
+      "tag-filter.v1",
+      "tag-parameter.v1"
+    ]
+  },
+  "base": {
+    "minCode": 16,
+    "maxCode": 17
+  },
+  "patches": [
+    {
+      "op": "replace",
+      "path": "/pages/list/request/query/resource-tag",
+      "value": {
+        "id": "resource-tag",
+        "input": "tag",
+        "param": "tag",
+        "map": {
+          "official-release": "internal=1",
+          "no-repost": "exclusive=1",
+          "mandarin": "mandarin=1",
+          "chinese-subtitles": "subtitlezh=1",
+          "diy": "selfcraft=1",
+          "original": "selfrelease=1",
+          "disc": "untouched=1",
+          "dolby": "dovi=1",
+          "hdr": "hdr10=1"
+        },
+        "encoding": "parameter"
+      }
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/account/parsers/panel/fields/bonus/candidates",
+      "value": [
+        {
+          "id": "jasmine-exact",
+          "read": {
+            "css": "a[href*=\"mybonus.php\"][title]",
+            "mode": "attribute",
+            "attribute": "title"
+          },
+          "then": [
+            {
+              "regex": "([0-9][0-9,.]*)",
+              "group": 1
+            },
+            "decimal"
+          ]
+        }
+      ]
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/account/parsers/panel/fields/level/candidates",
+      "value": [
+        {
+          "id": "user-badge",
+          "read": {
+            "css": "#info_block .nowrap .user-badge[title]",
+            "mode": "attribute",
+            "attribute": "title"
+          },
+          "then": [
+            "trim"
+          ]
+        }
+      ]
+    }
+  ]
+}

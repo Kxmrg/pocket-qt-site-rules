@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "type": "site",
+  "id": "et8",
+  "code": 1,
+  "publishedAt": 1792028576,
+  "architecture": "nexusphp",
+  "domains": [
+    "et8.org"
+  ],
+  "compatibility": {
+    "engine": 1,
+    "features": [
+      "tag-filter.v1"
+    ]
+  },
+  "base": {
+    "minCode": 17,
+    "maxCode": 17
+  },
+  "patches": [
+    {
+      "op": "replace",
+      "path": "/pages/list/request/query/resource-tag",
+      "value": {
+        "id": "resource-tag",
+        "input": "tag",
+        "param": "tag_id",
+        "map": {}
+      }
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/list/parsers/semantic/fields/pinned/candidates",
+      "value": [
+        {
+          "id": "et8-text-sticky",
+          "read": {
+            "css": "table.torrentname td.embedded > font[color=\"red\"]",
+            "mode": "text"
+          },
+          "then": [
+            "trim",
+            {
+              "regex": "^\\[(置顶)\\+*\\]$",
+              "group": 1
+            },
+            {
+              "lookup": {
+                "置顶": true
+              },
+              "unknown": "missing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/list/parsers/anchor/fields/pinned/candidates",
+      "value": [
+        {
+          "id": "et8-text-sticky",
+          "read": {
+            "css": "table.torrentname td.embedded > font[color=\"red\"]",
+            "mode": "text"
+          },
+          "then": [
+            "trim",
+            {
+              "regex": "^\\[(置顶)\\+*\\]$",
+              "group": 1
+            },
+            {
+              "lookup": {
+                "置顶": true
+              },
+              "unknown": "missing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/list/parsers/np-div/fields/pinned/candidates",
+      "value": [
+        {
+          "id": "et8-text-sticky",
+          "read": {
+            "css": "table.torrentname td.embedded > font[color=\"red\"]",
+            "mode": "text"
+          },
+          "then": [
+            "trim",
+            {
+              "regex": "^\\[(置顶)\\+*\\]$",
+              "group": 1
+            },
+            {
+              "lookup": {
+                "置顶": true
+              },
+              "unknown": "missing"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

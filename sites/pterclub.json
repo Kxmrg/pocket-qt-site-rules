@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "type": "site",
+  "id": "pterclub",
+  "code": 2,
+  "publishedAt": 1792028576,
+  "architecture": "nexusphp",
+  "domains": [
+    "pterclub.net"
+  ],
+  "compatibility": {
+    "engine": 1,
+    "features": [
+      "tag-filter.v1",
+      "tag-parameter.v1"
+    ]
+  },
+  "base": {
+    "minCode": 16,
+    "maxCode": 17
+  },
+  "patches": [
+    {
+      "op": "replace",
+      "path": "/pages/list/request/query/resource-tag",
+      "value": {
+        "id": "resource-tag",
+        "input": "tag",
+        "param": "tag",
+        "map": {
+          "official-release": "tag_internal=yes",
+          "no-repost": "tag_exclusive=yes",
+          "mandarin": "tag_mandarin=yes",
+          "cantonese": "tag_cantonese=yes",
+          "chinese-subtitles": "tag_chinesesub=yes",
+          "diy": "tag_doityourself=yes",
+          "original": "tag_personalrip=yes"
+        },
+        "encoding": "parameter"
+      }
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/list/parsers/semantic/fields/subtitle/candidates",
+      "value": [
+        {
+          "id": "pter-description",
+          "read": {
+            "css": "table.torrentname td.embedded > div > div + div > span:not([class])",
+            "mode": "text"
+          },
+          "then": [
+            "trim"
+          ]
+        }
+      ]
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/account/parsers/panel/fields/bonus/candidates",
+      "value": [
+        {
+          "id": "cat-food",
+          "read": {
+            "css": "a[href=\"sitefreepool.php\"], a[href=\"/sitefreepool.php\"]",
+            "mode": "followingText"
+          },
+          "then": [
+            {
+              "regex": "([0-9][0-9,.]*)",
+              "group": 1
+            },
+            "decimal"
+          ]
+        }
+      ]
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/list/parsers/semantic/fields/resourceId/candidates",
+      "value": [
+        {
+          "id": "pter-game",
+          "read": {
+            "css": "table.torrentname a[href*=\"detailsgame.php?\"][title]",
+            "mode": "attribute",
+            "attribute": "href"
+          },
+          "then": [
+            {
+              "queryParam": "id"
+            },
+            "identifier"
+          ]
+        }
+      ]
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/list/parsers/semantic/fields/title/candidates",
+      "value": [
+        {
+          "id": "pter-game",
+          "read": {
+            "css": "table.torrentname a[href*=\"detailsgame.php?\"][title]",
+            "mode": "attribute",
+            "attribute": "title"
+          },
+          "then": [
+            "trim"
+          ]
+        }
+      ]
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/list/parsers/semantic/fields/detailUrl/candidates",
+      "value": [
+        {
+          "id": "pter-game",
+          "read": {
+            "css": "table.torrentname a[href*=\"detailsgame.php?\"][title]",
+            "mode": "attribute",
+            "attribute": "href"
+          },
+          "then": [
+            "url"
+          ]
+        }
+      ]
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/list/parsers/anchor/fields/resourceId/candidates",
+      "value": [
+        {
+          "id": "pter-game",
+          "read": {
+            "css": "table.torrentname a[href*=\"detailsgame.php?\"][title]",
+            "mode": "attribute",
+            "attribute": "href"
+          },
+          "then": [
+            {
+              "queryParam": "id"
+            },
+            "identifier"
+          ]
+        }
+      ]
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/list/parsers/anchor/fields/title/candidates",
+      "value": [
+        {
+          "id": "pter-game",
+          "read": {
+            "css": "table.torrentname a[href*=\"detailsgame.php?\"][title]",
+            "mode": "attribute",
+            "attribute": "title"
+          },
+          "then": [
+            "trim"
+          ]
+        }
+      ]
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/list/parsers/anchor/fields/detailUrl/candidates",
+      "value": [
+        {
+          "id": "pter-game",
+          "read": {
+            "css": "table.torrentname a[href*=\"detailsgame.php?\"][title]",
+            "mode": "attribute",
+            "attribute": "href"
+          },
+          "then": [
+            "url"
+          ]
+        }
+      ]
+    }
+  ]
+}

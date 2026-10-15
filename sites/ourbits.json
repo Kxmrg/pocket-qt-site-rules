@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "type": "site",
+  "id": "ourbits",
+  "code": 2,
+  "publishedAt": 1792028576,
+  "architecture": "nexusphp",
+  "domains": [
+    "ourbits.club"
+  ],
+  "compatibility": {
+    "engine": 1,
+    "features": [
+      "tag-filter.v1"
+    ]
+  },
+  "base": {
+    "minCode": 16,
+    "maxCode": 17
+  },
+  "patches": [
+    {
+      "op": "replace",
+      "path": "/pages/list/request/query/resource-tag",
+      "value": {
+        "id": "resource-tag",
+        "input": "tag",
+        "param": "tags",
+        "map": {
+          "official-release": "gf",
+          "premiere": "sf",
+          "diy": "diy",
+          "mandarin": "gy",
+          "chinese-subtitles": "zz",
+          "no-repost": "jz",
+          "dolby": "db",
+          "hdr": "hdr"
+        },
+        "encoding": "brackets"
+      }
+    }
+  ]
+}

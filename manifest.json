@@ -1,0 +1,1422 @@
+{
+  "schemaVersion": 1,
+  "release": "rules-v17",
+  "publishedAt": 1792028576,
+  "global": {
+    "id": "pocket-evo.web-rules",
+    "schemaVersion": 1,
+    "code": 17,
+    "publishedAt": 1792028576,
+    "compatibility": {
+      "engine": 1,
+      "features": []
+    },
+    "path": "global.json",
+    "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/global.json",
+    "size": 245005,
+    "sha256": "9cc8c0d055d130fc91cfc4fd62ce0107339d4bdfe736757fbb451d194fdbb6b9"
+  },
+  "sites": [
+    {
+      "id": "1ptba",
+      "schemaVersion": 1,
+      "code": 3,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/1ptba.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/1ptba.json",
+      "size": 813,
+      "sha256": "f49e4521c4465ad159214d23ee1ff5c2b11981e4a54459ff6f6adab39105f05d",
+      "architecture": "nexusphp",
+      "domains": [
+        "1ptba.com"
+      ],
+      "base": {
+        "minCode": 15,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "agsv",
+      "schemaVersion": 1,
+      "code": 6,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/agsv.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/agsv.json",
+      "size": 867,
+      "sha256": "45d19a94bdf68691b87ff3f542f7794a3774476379c769e2ebccc79db17a4229",
+      "architecture": "nexusphp",
+      "domains": [
+        "pt.agsvpt.cn"
+      ],
+      "base": {
+        "minCode": 9,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "aling",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/aling.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/aling.json",
+      "size": 746,
+      "sha256": "71299121ae17b8241f33c1fb9f10793b5c90d27b8f91d6d1bd9898c70a58eb47",
+      "architecture": "nexusphp",
+      "domains": [
+        "pt.aling.de"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "audiences",
+      "schemaVersion": 1,
+      "code": 4,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1",
+          "tag-key-suffix.v1"
+        ]
+      },
+      "path": "sites/audiences.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/audiences.json",
+      "size": 7434,
+      "sha256": "bccf27a87f719b708db1b1bd0d8f4ef48a31031f6a58656e52b9855b649c2aef",
+      "architecture": "nexusphp",
+      "domains": [
+        "audiences.me"
+      ],
+      "base": {
+        "minCode": 11,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "btschool",
+      "schemaVersion": 1,
+      "code": 4,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/btschool.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/btschool.json",
+      "size": 454,
+      "sha256": "8f66a3f15ad2c5742d4265cb1620b1f81dcdcccca9d75b30e965cc76980f4529",
+      "architecture": "nexusphp",
+      "domains": [
+        "pt.btschool.club"
+      ],
+      "base": {
+        "minCode": 13,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "chdbits",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/chdbits.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/chdbits.json",
+      "size": 551,
+      "sha256": "b00ccc1b36592020a07d12a817d605b1c59ff348209279852c8ef5516b7a6595",
+      "architecture": "nexusphp",
+      "domains": [
+        "ptchdbits.co"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "cpt",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/cpt.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/cpt.json",
+      "size": 746,
+      "sha256": "a882f60a997cb492cd9208091ed38dbdbd3d70202dbd6d5ac58e9805f548fea4",
+      "architecture": "nexusphp",
+      "domains": [
+        "cc.mypt.cc"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "crabpt",
+      "schemaVersion": 1,
+      "code": 6,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/crabpt.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/crabpt.json",
+      "size": 894,
+      "sha256": "3db2f8eccbe1f9c9d06e4ce2790f1bedfebade79dc9671f0d12967be4049972c",
+      "architecture": "nexusphp",
+      "domains": [
+        "crabpt.vip"
+      ],
+      "base": {
+        "minCode": 9,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "cspt",
+      "schemaVersion": 1,
+      "code": 6,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/cspt.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/cspt.json",
+      "size": 8592,
+      "sha256": "2907071dff8c05eae58ce243e6d703236015ef908d03f82ecb6a2cedde99f40f",
+      "architecture": "nexusphp",
+      "domains": [
+        "cspt.top"
+      ],
+      "base": {
+        "minCode": 11,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "cyanbug",
+      "schemaVersion": 1,
+      "code": 3,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/cyanbug.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/cyanbug.json",
+      "size": 763,
+      "sha256": "a2ed8c6de88a10215ec82753c3b78e176b785e1ec035d9b74a0185cfee5e6b2e",
+      "architecture": "nexusphp",
+      "domains": [
+        "cyanbug.net"
+      ],
+      "base": {
+        "minCode": 15,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "discfan",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/discfan.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/discfan.json",
+      "size": 808,
+      "sha256": "2dd4bca0a7640be642dcfc0c50a6e6c50c8619dcd9a0c8e63433fbd79bcd24c9",
+      "architecture": "nexusphp",
+      "domains": [
+        "discfan.net"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "dstudio",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/dstudio.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/dstudio.json",
+      "size": 807,
+      "sha256": "9a282ab12c66d7a1c69753f740450b5305c8be1d66d771315f4a77ff52196a84",
+      "architecture": "nexusphp",
+      "domains": [
+        "dstudio.me"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "dubhe",
+      "schemaVersion": 1,
+      "code": 4,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/dubhe.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/dubhe.json",
+      "size": 738,
+      "sha256": "5d01c3f663ee3fe3c4c87fd8494384473ad89353fa7039de47843c20c5614fc7",
+      "architecture": "nexusphp",
+      "domains": [
+        "dubhe.site"
+      ],
+      "base": {
+        "minCode": 12,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "eastgame",
+      "schemaVersion": 1,
+      "code": 1,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/eastgame.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/eastgame.json",
+      "size": 555,
+      "sha256": "c847d7cbd304f555e3c4590765eadbe3a79416addbd3221684a09052a0464233",
+      "architecture": "nexusphp",
+      "domains": [
+        "pt.eastgame.org"
+      ],
+      "base": {
+        "minCode": 17,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "et8",
+      "schemaVersion": 1,
+      "code": 1,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/et8.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/et8.json",
+      "size": 2371,
+      "sha256": "838e8b63b019dfac8ac2e239ce7abacf0837158119f905c39f462cdd4f182a31",
+      "architecture": "nexusphp",
+      "domains": [
+        "et8.org"
+      ],
+      "base": {
+        "minCode": 17,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "farmm",
+      "schemaVersion": 1,
+      "code": 3,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/farmm.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/farmm.json",
+      "size": 817,
+      "sha256": "2ff4a0595e569d671020bd79565ef919b623fc368befa77cd21f7d6b5a5c14e5",
+      "architecture": "nexusphp",
+      "domains": [
+        "pt.0ff.cc"
+      ],
+      "base": {
+        "minCode": 15,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "ggpt",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/ggpt.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ggpt.json",
+      "size": 654,
+      "sha256": "b59bdddafb26f5ed96ea5d85c2ca1967fc2c0c58197b1d2e52e7fc4bbde5bbcb",
+      "architecture": "nexusphp",
+      "domains": [
+        "www.gamegamept.com"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "hdarea",
+      "schemaVersion": 1,
+      "code": 3,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/hdarea.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hdarea.json",
+      "size": 549,
+      "sha256": "6c4a7220b5c2230bfd5cbab81fe7c0aac66c2261c922fe2105a25926f3aa5a4d",
+      "architecture": "nexusphp",
+      "domains": [
+        "hdarea.club"
+      ],
+      "base": {
+        "minCode": 15,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "hddolby",
+      "schemaVersion": 1,
+      "code": 6,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/hddolby.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hddolby.json",
+      "size": 905,
+      "sha256": "8d5585497a008cf5a3624eb72a281533bcc11e5a6877a991fc98b482a8dca2f9",
+      "architecture": "nexusphp",
+      "domains": [
+        "www.hddolby.com"
+      ],
+      "base": {
+        "minCode": 9,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "hdfans",
+      "schemaVersion": 1,
+      "code": 3,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/hdfans.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hdfans.json",
+      "size": 945,
+      "sha256": "280610ea8f59a0d89d5e94f67c5dbf2fc86989ff8efc25336ee0fb20780659ca",
+      "architecture": "nexusphp",
+      "domains": [
+        "hdfans.org"
+      ],
+      "base": {
+        "minCode": 15,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "hdhome",
+      "schemaVersion": 1,
+      "code": 6,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/hdhome.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hdhome.json",
+      "size": 924,
+      "sha256": "4e096bb3e0c4e98f90c581fb36f1ad6b8ebda390563843936a40e49ea67ddac8",
+      "architecture": "nexusphp",
+      "domains": [
+        "hdhome.org"
+      ],
+      "base": {
+        "minCode": 9,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "hdsky",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/hdsky.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hdsky.json",
+      "size": 972,
+      "sha256": "f5565537d6820c518b33bf5b277aba3c898a401eda1ac824a953150d7613375b",
+      "architecture": "nexusphp",
+      "domains": [
+        "hdsky.me"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "hdtime",
+      "schemaVersion": 1,
+      "code": 8,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1",
+          "map-merge.v1"
+        ]
+      },
+      "path": "sites/hdtime.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hdtime.json",
+      "size": 491,
+      "sha256": "037b81a5f8d2572c08a1f29261efb2dcd3ccee7df6dfe0d4af80aeef870e9e71",
+      "architecture": "nexusphp",
+      "domains": [
+        "hdtime.org"
+      ],
+      "base": {
+        "minCode": 8,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "hhanclub",
+      "schemaVersion": 1,
+      "code": 4,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1",
+          "tag-key-suffix.v1"
+        ]
+      },
+      "path": "sites/hhanclub.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hhanclub.json",
+      "size": 7122,
+      "sha256": "0264f5666c1eb5e7816f2d5ab8a708e77c6180c892db70a0cc3dda03e6005e78",
+      "architecture": "nexusphp",
+      "domains": [
+        "hhanclub.net"
+      ],
+      "base": {
+        "minCode": 11,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "htpt",
+      "schemaVersion": 1,
+      "code": 6,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/htpt.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/htpt.json",
+      "size": 546,
+      "sha256": "136fa950572cb2cd3c979253d9943868bd0aeebd276a7be2d83b13db37ae5ff6",
+      "architecture": "nexusphp",
+      "domains": [
+        "www.htpt.cc"
+      ],
+      "base": {
+        "minCode": 9,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "hxpt",
+      "schemaVersion": 1,
+      "code": 3,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/hxpt.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hxpt.json",
+      "size": 9622,
+      "sha256": "3bf44a56eb97cef14403def78e23faf6f93d7d281e10a3ff1740ba3596e3fff0",
+      "architecture": "nexusphp",
+      "domains": [
+        "www.hxpt.org"
+      ],
+      "base": {
+        "minCode": 15,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "keepfrds",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/keepfrds.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/keepfrds.json",
+      "size": 6863,
+      "sha256": "4e3c475c814d23a1b412886ef122a8fc523f9d4f6d0ab6e086ed1fa00fb47a90",
+      "architecture": "nexusphp",
+      "domains": [
+        "pt.keepfrds.com"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "kelu",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/kelu.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/kelu.json",
+      "size": 646,
+      "sha256": "bbaf61a78fa662e91fea6db7da47f24c90b594d9914a05fed3361e5e8d3262ab",
+      "architecture": "nexusphp",
+      "domains": [
+        "our.kelu.one"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "lajidui",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/lajidui.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/lajidui.json",
+      "size": 840,
+      "sha256": "01d716b031d97f6356fc1e9546168a90973cbc80314d163fc3178ec7d6e0e679",
+      "architecture": "nexusphp",
+      "domains": [
+        "pt.lajidui.top"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "march",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/march.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/march.json",
+      "size": 781,
+      "sha256": "86f4a9c4bfc6421b1c3722c257baa74333f77d470d71a291a6c811c580060254",
+      "architecture": "nexusphp",
+      "domains": [
+        "duckboobee.org"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "moment",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/moment.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/moment.json",
+      "size": 625,
+      "sha256": "895ea2dcd27ffcbfc2a906c00a178673adc08fc6abe7cdd950f69347d576a71f",
+      "architecture": "nexusphp",
+      "domains": [
+        "www.momentpt.top"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "musopia",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/musopia.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/musopia.json",
+      "size": 652,
+      "sha256": "aa3279ba94e045b9dd30c395eb08dc82daffa775caaae60204c081f2ea0ad175",
+      "architecture": "nexusphp",
+      "domains": [
+        "www.musopia.vip"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "nanyang",
+      "schemaVersion": 1,
+      "code": 1,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/nanyang.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/nanyang.json",
+      "size": 4684,
+      "sha256": "0251930ac3d9cfb1b91134bfe865c68fb76422eee8c1c1d84956b5f84afa14cf",
+      "architecture": "nexusphp",
+      "domains": [
+        "nanyangpt.com"
+      ],
+      "base": {
+        "minCode": 17,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "nicept",
+      "schemaVersion": 1,
+      "code": 1,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/nicept.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/nicept.json",
+      "size": 743,
+      "sha256": "d1a9b8e0e3519481c0135fa677bf5b5456c6ec5089f551bb17f51e7c73adc5da",
+      "architecture": "nexusphp",
+      "domains": [
+        "www.nicept.net"
+      ],
+      "base": {
+        "minCode": 17,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "novahd",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/novahd.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/novahd.json",
+      "size": 1585,
+      "sha256": "6c42e8794266972235835a3b2dd2c50a0d3c7fbed87928f6e29bb6c3395ef2e4",
+      "architecture": "nexusphp",
+      "domains": [
+        "pt.novahd.top"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "opencd",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/opencd.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/opencd.json",
+      "size": 986,
+      "sha256": "ac2e89fb9f2d7dbb13351a567722dee69e750966ec66ff501f033608c6336c71",
+      "architecture": "nexusphp",
+      "domains": [
+        "open.cd"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "ourbits",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/ourbits.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ourbits.json",
+      "size": 820,
+      "sha256": "269ef36880c9117cf8e50855fafbbb25d6625dc757732bfb40adc3164d31fbbb",
+      "architecture": "nexusphp",
+      "domains": [
+        "ourbits.club"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "piggo",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/piggo.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/piggo.json",
+      "size": 848,
+      "sha256": "aec15ce7f844a73a93f7023a097ce0862f55e5cf709d043e89d85a639e394e76",
+      "architecture": "nexusphp",
+      "domains": [
+        "piggo.me"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "ptcafe",
+      "schemaVersion": 1,
+      "code": 4,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/ptcafe.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ptcafe.json",
+      "size": 842,
+      "sha256": "fc4203a78a4bb57a765e55f9a66f39f5d09524470597b6ad027d430ffb1ee799",
+      "architecture": "nexusphp",
+      "domains": [
+        "ptcafe.club"
+      ],
+      "base": {
+        "minCode": 12,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "pterclub",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1",
+          "tag-parameter.v1"
+        ]
+      },
+      "path": "sites/pterclub.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/pterclub.json",
+      "size": 4390,
+      "sha256": "a6bb885a2f41c969cc35e0c0379cfefdf7e18092c34c75912973aba1e720687b",
+      "architecture": "nexusphp",
+      "domains": [
+        "pterclub.net"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "ptfans",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/ptfans.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ptfans.json",
+      "size": 741,
+      "sha256": "e9540e35077af16fd1fb07640b0349e28f6b397d2bd90ef2078fc668e17e3d0f",
+      "architecture": "nexusphp",
+      "domains": [
+        "ptfans.cc"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "pthome",
+      "schemaVersion": 1,
+      "code": 3,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/pthome.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/pthome.json",
+      "size": 843,
+      "sha256": "9d30ea40d60645619927403d7a0e6d755105cfb2df53055ecb8eb5f1a883daf5",
+      "architecture": "nexusphp",
+      "domains": [
+        "pthome.net"
+      ],
+      "base": {
+        "minCode": 15,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "ptlgs",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/ptlgs.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ptlgs.json",
+      "size": 883,
+      "sha256": "1ff6a8671d312ca0b2a5c76137d7c6abeb6ab3047d00c0865808cab00f6af47a",
+      "architecture": "nexusphp",
+      "domains": [
+        "ptlgs.org"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "ptskit",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/ptskit.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ptskit.json",
+      "size": 621,
+      "sha256": "7720b89560009e740f253edcebfd80c68c077d21ce420a7c932b5a095d035f2e",
+      "architecture": "nexusphp",
+      "domains": [
+        "www.ptskit.org"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "pttime",
+      "schemaVersion": 1,
+      "code": 6,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/pttime.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/pttime.json",
+      "size": 3531,
+      "sha256": "92485bd51f5df574ee4ffda57e2d427bcb402cdb0e6605ed72e037a7ca0ff1f1",
+      "architecture": "nexusphp",
+      "domains": [
+        "www.pttime.org"
+      ],
+      "base": {
+        "minCode": 9,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "qingwa",
+      "schemaVersion": 1,
+      "code": 3,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/qingwa.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/qingwa.json",
+      "size": 843,
+      "sha256": "92418798e8fba396dd6780bc997400d4a3b96a2560a942e3b8310f5bcb4be0eb",
+      "architecture": "nexusphp",
+      "domains": [
+        "qingwapt.com"
+      ],
+      "base": {
+        "minCode": 15,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "sewerpt",
+      "schemaVersion": 1,
+      "code": 6,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/sewerpt.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/sewerpt.json",
+      "size": 918,
+      "sha256": "7c7c4af0978b49bb4dfd437fa6519ccd0bea94bee429ff55b94560d86fa1a064",
+      "architecture": "nexusphp",
+      "domains": [
+        "sewerpt.com"
+      ],
+      "base": {
+        "minCode": 9,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "soulvoice",
+      "schemaVersion": 1,
+      "code": 3,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/soulvoice.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/soulvoice.json",
+      "size": 824,
+      "sha256": "cd21ce2fd298ce63dca395996a80503587781f5d0df367eed44775e8eef40f2d",
+      "architecture": "nexusphp",
+      "domains": [
+        "pt.soulvoice.club"
+      ],
+      "base": {
+        "minCode": 15,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "ssd",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1",
+          "tag-parameter.v1"
+        ]
+      },
+      "path": "sites/ssd.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ssd.json",
+      "size": 1820,
+      "sha256": "fa0cb04b209ec5abd05fb89dc6f3e6c0ac9aa89e19cde8eb5e495313989e1575",
+      "architecture": "nexusphp",
+      "domains": [
+        "springsunday.net"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "tangpt",
+      "schemaVersion": 1,
+      "code": 6,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/tangpt.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/tangpt.json",
+      "size": 846,
+      "sha256": "d318314d9f696e169c9b777aaddd115194468d849ea69fe3c38220686664d192",
+      "architecture": "nexusphp",
+      "domains": [
+        "www.tangpt.top"
+      ],
+      "base": {
+        "minCode": 9,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "tjupt",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/tjupt.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/tjupt.json",
+      "size": 1471,
+      "sha256": "e99cf31c79e60cccd0a6761c58712b0dd9af397306fae12aeb979e71776359b9",
+      "architecture": "nexusphp",
+      "domains": [
+        "www.tjupt.org"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "totheglory",
+      "schemaVersion": 1,
+      "code": 5,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "leading-text.v1",
+          "tag-search-token.v1",
+          "profile-page.v1"
+        ]
+      },
+      "path": "sites/totheglory.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/totheglory.json",
+      "size": 20467,
+      "sha256": "deab4f246b459aea8cca868b39a266afb6cdc4cf6d230b4b46d718254e2a7861",
+      "architecture": "nexusphp",
+      "domains": [
+        "totheglory.im"
+      ],
+      "base": {
+        "minCode": 13,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "u2",
+      "schemaVersion": 1,
+      "code": 1,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/u2.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/u2.json",
+      "size": 6524,
+      "sha256": "32fcd414970e6dbcae5e7bc117e469b11b1d77d3b2c7aae81f80ac871adfa0dc",
+      "architecture": "nexusphp",
+      "domains": [
+        "u2.dmhy.org"
+      ],
+      "base": {
+        "minCode": 17,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "ubits",
+      "schemaVersion": 1,
+      "code": 4,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1",
+          "tag-key-suffix.v1"
+        ]
+      },
+      "path": "sites/ubits.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ubits.json",
+      "size": 873,
+      "sha256": "80bd87420b61677c1b8ce9c3efa7e93e6fd352d08a9ca57faa830420658d2c39",
+      "architecture": "nexusphp",
+      "domains": [
+        "ubits.club"
+      ],
+      "base": {
+        "minCode": 12,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "upxin",
+      "schemaVersion": 1,
+      "code": 1,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/upxin.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/upxin.json",
+      "size": 549,
+      "sha256": "c57f80ec06a3ff84a91c7ea78818951528d0aced4f1561dffc940a456077226f",
+      "architecture": "nexusphp",
+      "domains": [
+        "pt.upxin.net"
+      ],
+      "base": {
+        "minCode": 17,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "xingwan",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/xingwan.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/xingwan.json",
+      "size": 836,
+      "sha256": "573b60102f73f21e67b337b7d75c21e6f0a3fad1d58fc9f03adff7c5c7a63e1d",
+      "architecture": "nexusphp",
+      "domains": [
+        "xingwan.cc"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "xloli",
+      "schemaVersion": 1,
+      "code": 2,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "path": "sites/xloli.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/xloli.json",
+      "size": 1339,
+      "sha256": "bd7560e12810b71acee2fbc8d9430acb973c57bc3363d53ea0f27bd389f7d0ee",
+      "architecture": "nexusphp",
+      "domains": [
+        "mua.xloli.cc"
+      ],
+      "base": {
+        "minCode": 16,
+        "maxCode": 17
+      }
+    },
+    {
+      "id": "zmpt",
+      "schemaVersion": 1,
+      "code": 9,
+      "publishedAt": 1792028576,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1",
+          "map-merge.v1"
+        ]
+      },
+      "path": "sites/zmpt.json",
+      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/zmpt.json",
+      "size": 739,
+      "sha256": "20abc654ca799af4f51ea65fda9a1a1b5f08115faf6da198671b6c5acee52a0c",
+      "architecture": "nexusphp",
+      "domains": [
+        "zmpt.cc"
+      ],
+      "base": {
+        "minCode": 8,
+        "maxCode": 17
+      }
+    }
+  ]
+}

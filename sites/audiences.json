@@ -1,0 +1,279 @@
+{
+  "schemaVersion": 1,
+  "type": "site",
+  "id": "audiences",
+  "code": 4,
+  "publishedAt": 1792028576,
+  "architecture": "nexusphp",
+  "domains": [
+    "audiences.me"
+  ],
+  "compatibility": {
+    "engine": 1,
+    "features": [
+      "tag-filter.v1",
+      "tag-key-suffix.v1"
+    ]
+  },
+  "base": {
+    "minCode": 11,
+    "maxCode": 17
+  },
+  "patches": [
+    {
+      "op": "replace",
+      "path": "/pages/list/request/query/resource-tag",
+      "value": {
+        "id": "resource-tag",
+        "param": "tag",
+        "input": "tag",
+        "encoding": "keySuffix",
+        "map": {
+          "official-release": 1,
+          "original": 2,
+          "mandarin": 3,
+          "cantonese": 4,
+          "chinese-subtitles": 5,
+          "diy": 7,
+          "completed": 9,
+          "dolby": 10,
+          "hdr": 11,
+          "no-repost": 13,
+          "premiere": 15
+        }
+      }
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/account/parsers",
+      "value": [
+        {
+          "id": "audiences-panel",
+          "scope": "#info_block",
+          "fields": {
+            "accountId": {
+              "candidates": [
+                {
+                  "id": "named-profile",
+                  "read": {
+                    "css": "a[href*=\"userdetails.php\"][class*=\"_Name\"]",
+                    "mode": "attribute",
+                    "attribute": "href"
+                  },
+                  "then": [
+                    {
+                      "queryParam": "id"
+                    },
+                    "identifier"
+                  ]
+                },
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": "a[href*=\"userdetails.php?id=\"]",
+                    "mode": "attribute",
+                    "attribute": "href"
+                  },
+                  "then": [
+                    {
+                      "queryParam": "id"
+                    },
+                    "identifier"
+                  ]
+                }
+              ]
+            },
+            "accountUrl": {
+              "candidates": [
+                {
+                  "id": "named-profile",
+                  "read": {
+                    "css": "a[href*=\"userdetails.php\"][class*=\"_Name\"]",
+                    "mode": "attribute",
+                    "attribute": "href"
+                  },
+                  "then": [
+                    "url"
+                  ]
+                },
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": "a[href*=\"userdetails.php?id=\"]",
+                    "mode": "attribute",
+                    "attribute": "href"
+                  },
+                  "then": [
+                    "url"
+                  ]
+                }
+              ]
+            },
+            "username": {
+              "candidates": [
+                {
+                  "id": "named-profile",
+                  "read": {
+                    "css": "a[href*=\"userdetails.php\"][class*=\"_Name\"]",
+                    "mode": "text"
+                  },
+                  "then": [
+                    "trim"
+                  ]
+                },
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": "a[href*=\"userdetails.php?id=\"]",
+                    "mode": "text"
+                  },
+                  "then": [
+                    "trim"
+                  ]
+                }
+              ]
+            },
+            "uploadedBytes": {
+              "candidates": [
+                {
+                  "id": "site",
+                  "read": {
+                    "css": ".site-userbar__compact-metric--uploaded",
+                    "mode": "text"
+                  },
+                  "then": [
+                    "trim",
+                    "bytes"
+                  ]
+                }
+              ]
+            },
+            "downloadedBytes": {
+              "candidates": [
+                {
+                  "id": "site",
+                  "read": {
+                    "css": ".site-userbar__compact-metric--downloaded",
+                    "mode": "text"
+                  },
+                  "then": [
+                    "trim",
+                    "bytes"
+                  ]
+                }
+              ]
+            },
+            "ratio": {
+              "candidates": [
+                {
+                  "id": "site",
+                  "read": {
+                    "css": ".site-userbar__compact-metric--ratio",
+                    "mode": "text"
+                  },
+                  "then": [
+                    "trim",
+                    "ratio"
+                  ]
+                }
+              ]
+            },
+            "seeding": {
+              "candidates": [
+                {
+                  "id": "site",
+                  "read": {
+                    "css": ".site-userbar__compact-metric-inline-link--seeding",
+                    "mode": "text"
+                  },
+                  "then": [
+                    {
+                      "regex": "([0-9,]+)",
+                      "group": 1
+                    },
+                    "integer"
+                  ]
+                }
+              ]
+            },
+            "bonus": {
+              "candidates": [
+                {
+                  "id": "site",
+                  "read": {
+                    "css": ".site-userbar__compact-metric--bonus",
+                    "mode": "text"
+                  },
+                  "then": [
+                    "trim",
+                    "decimal"
+                  ]
+                }
+              ]
+            },
+            "level": {
+              "candidates": [
+                {
+                  "id": "class",
+                  "read": {
+                    "css": "a[href*=\"userdetails.php\"][class*=\"_Name\"]",
+                    "mode": "attribute",
+                    "attribute": "class"
+                  },
+                  "then": [
+                    {
+                      "regex": "([A-Za-z_]+)_Name",
+                      "group": 1
+                    }
+                  ]
+                },
+                {
+                  "id": "label",
+                  "read": {
+                    "label": [
+                      "Class",
+                      "等级",
+                      "等級"
+                    ],
+                    "within": ":scope"
+                  },
+                  "then": [
+                    "trim"
+                  ]
+                }
+              ]
+            },
+            "leeching": {
+              "candidates": [
+                {
+                  "id": "site",
+                  "read": {
+                    "css": ".site-userbar__compact-metric-inline-link--leeching",
+                    "mode": "text"
+                  },
+                  "then": [
+                    {
+                      "regex": "([0-9,]+)",
+                      "group": 1
+                    },
+                    "integer"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/list/states/empty",
+      "value": [
+        {
+          "css": ".site-stdmsg__text",
+          "text": "^\\s*没有种子。请用准确的关键字重试。\\s*$"
+        }
+      ]
+    }
+  ]
+}

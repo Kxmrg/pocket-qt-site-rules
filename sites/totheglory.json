@@ -1,0 +1,772 @@
+{
+  "schemaVersion": 1,
+  "type": "site",
+  "id": "totheglory",
+  "code": 5,
+  "publishedAt": 1792028576,
+  "architecture": "nexusphp",
+  "domains": [
+    "totheglory.im"
+  ],
+  "compatibility": {
+    "engine": 1,
+    "features": [
+      "leading-text.v1",
+      "tag-search-token.v1",
+      "profile-page.v1"
+    ]
+  },
+  "base": {
+    "minCode": 13,
+    "maxCode": 17
+  },
+  "patches": [
+    {
+      "op": "replace",
+      "path": "/pages/list/parsers",
+      "value": [
+        {
+          "id": "ttg",
+          "layout": {
+            "kind": "table",
+            "root": "#torrent_table",
+            "rows": ":scope > tbody > tr, :scope > tr",
+            "columns": {
+              "size": {
+                "headers": [
+                  "大小"
+                ]
+              },
+              "completed": {
+                "headers": [
+                  "完成"
+                ]
+              },
+              "author": {
+                "headers": [
+                  "上传者"
+                ]
+              },
+              "time": {
+                "headers": [
+                  "添加于"
+                ]
+              },
+              "age": {
+                "headers": [
+                  "TTL"
+                ]
+              },
+              "peers": {
+                "headers": [
+                  "做种/下载"
+                ]
+              }
+            }
+          },
+          "fields": {
+            "resourceId": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": ".name_left > a[href^=\"/t/\"]",
+                    "mode": "attribute",
+                    "attribute": "href"
+                  },
+                  "then": [
+                    {
+                      "regex": "/t/(\\d+)/",
+                      "group": 1
+                    },
+                    "identifier"
+                  ]
+                }
+              ]
+            },
+            "title": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": ".name_left > a[href^=\"/t/\"] > b",
+                    "mode": "leadingText"
+                  },
+                  "then": [
+                    "trim"
+                  ]
+                }
+              ]
+            },
+            "detailUrl": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": ".name_left > a[href^=\"/t/\"]",
+                    "mode": "attribute",
+                    "attribute": "href"
+                  },
+                  "then": [
+                    "url"
+                  ]
+                }
+              ]
+            },
+            "downloadUrl": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": "a.dl_a",
+                    "mode": "attribute",
+                    "attribute": "href"
+                  },
+                  "then": [
+                    "url"
+                  ]
+                }
+              ]
+            },
+            "sizeBytes": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "column": "size"
+                  },
+                  "then": [
+                    "bytes"
+                  ]
+                }
+              ]
+            },
+            "seeders": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "column": "peers"
+                  },
+                  "then": [
+                    {
+                      "regex": "^\\s*([\\d,]+)",
+                      "group": 1
+                    },
+                    "integer"
+                  ]
+                }
+              ]
+            },
+            "leechers": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "column": "peers"
+                  },
+                  "then": [
+                    {
+                      "regex": "/\\s*([\\d,]+)",
+                      "group": 1
+                    },
+                    "integer"
+                  ]
+                }
+              ]
+            },
+            "completed": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "column": "completed"
+                  },
+                  "then": [
+                    {
+                      "regex": "([\\d,]+)",
+                      "group": 1
+                    },
+                    "integer"
+                  ]
+                }
+              ]
+            },
+            "tags": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": ".name_left > span > b",
+                    "mode": "texts"
+                  },
+                  "then": [
+                    "stringList"
+                  ]
+                }
+              ],
+              "strategy": "collect"
+            },
+            "downloadFactor": {
+              "candidates": [
+                {
+                  "id": "free",
+                  "read": {
+                    "css": ".name_left img[alt=\"free\"]",
+                    "mode": "exists"
+                  },
+                  "then": [
+                    {
+                      "lookup": {
+                        "true": 0
+                      },
+                      "unknown": "missing"
+                    }
+                  ]
+                },
+                {
+                  "id": "half",
+                  "read": {
+                    "css": ".name_left img[alt=\"50%\"]",
+                    "mode": "exists"
+                  },
+                  "then": [
+                    {
+                      "lookup": {
+                        "true": 0.5
+                      },
+                      "unknown": "missing"
+                    }
+                  ]
+                },
+                {
+                  "id": "thirty",
+                  "read": {
+                    "css": ".name_left img[alt=\"30%\"]",
+                    "mode": "exists"
+                  },
+                  "then": [
+                    {
+                      "lookup": {
+                        "true": 0.3
+                      },
+                      "unknown": "missing"
+                    }
+                  ]
+                }
+              ]
+            },
+            "uploadFactor": {
+              "candidates": [
+                {
+                  "id": "double",
+                  "read": {
+                    "css": ".twoup, .twoupfree, .twouphalfdown, .pro_2up, .pro_free2up, .pro_50pctdown2up, .promotion-tag-2xfree",
+                    "mode": "exists"
+                  },
+                  "then": [
+                    {
+                      "lookup": {
+                        "true": 2
+                      },
+                      "unknown": "missing"
+                    }
+                  ]
+                }
+              ]
+            },
+            "hot": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": ".hot",
+                    "mode": "exists"
+                  },
+                  "then": [
+                    {
+                      "lookup": {
+                        "true": true
+                      },
+                      "unknown": "missing"
+                    }
+                  ]
+                }
+              ]
+            },
+            "subtitle": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": ".name_left > a[href^=\"/t/\"] > b > br",
+                    "mode": "followingContent"
+                  },
+                  "then": [
+                    "trim"
+                  ]
+                }
+              ]
+            },
+            "cover": {
+              "candidates": [
+                {
+                  "id": "lazy",
+                  "read": {
+                    "css": "img.nexus-lazy-load[data-src], img.torrent-cover[data-src], img.cover[data-src], .torrentname img.lazy-image[data-src]",
+                    "mode": "attribute",
+                    "attribute": "data-src"
+                  },
+                  "then": [
+                    "url"
+                  ]
+                },
+                {
+                  "id": "original",
+                  "read": {
+                    "css": "img.torrent-cover[data-original], img.cover[data-original]",
+                    "mode": "attribute",
+                    "attribute": "data-original"
+                  },
+                  "then": [
+                    "url"
+                  ]
+                },
+                {
+                  "id": "src",
+                  "read": {
+                    "css": "img.torrent-cover:not([src*=\"spinner\"]):not([src*=\"trans.gif\"]), img.cover:not([src*=\"spinner\"]):not([src*=\"trans.gif\"]), .torrentname img.nexus-lazy-load:not([src*=\"spinner\"]):not([src*=\"trans.gif\"]), .cover-cell img[src]:not([src*=\"spinner\"]):not([src*=\"trans.gif\"])",
+                    "mode": "attribute",
+                    "attribute": "src"
+                  },
+                  "then": [
+                    "url"
+                  ]
+                }
+              ]
+            },
+            "publishedAt": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "column": "time"
+                  },
+                  "then": [
+                    {
+                      "date": {
+                        "formats": [
+                          "yyyy-MM-ddHH:mm:ss"
+                        ],
+                        "zone": "site"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "pinned": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": ".name_left img[alt=\"置顶\"]",
+                    "mode": "exists"
+                  },
+                  "then": [
+                    {
+                      "lookup": {
+                        "true": true
+                      },
+                      "unknown": "missing"
+                    }
+                  ]
+                }
+              ]
+            },
+            "hitAndRun": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": ".hitandrun, .hr, [title=\"H&R\"], [title=\"Hit and Run\"]",
+                    "mode": "exists"
+                  },
+                  "then": [
+                    {
+                      "lookup": {
+                        "true": true
+                      },
+                      "unknown": "missing"
+                    }
+                  ]
+                }
+              ]
+            },
+            "promotionRemainingSeconds": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": ".name_left > span[onclick]",
+                    "mode": "text"
+                  },
+                  "then": [
+                    "durationSeconds"
+                  ]
+                }
+              ]
+            },
+            "publishedAge": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "column": "age"
+                  },
+                  "then": [
+                    "trim"
+                  ]
+                }
+              ]
+            },
+            "author": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "column": "author"
+                  },
+                  "then": [
+                    "trim"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "op": "replace",
+      "path": "/pages/account/parsers",
+      "value": [
+        {
+          "id": "ttg-panel",
+          "scope": "td.bottom[align=\"left\"]",
+          "fields": {
+            "username": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": "a[href*=\"userdetails.php?id=\"]",
+                    "mode": "text"
+                  },
+                  "then": [
+                    "trim"
+                  ]
+                }
+              ]
+            },
+            "accountId": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": "a[href*=\"userdetails.php?id=\"]",
+                    "mode": "attribute",
+                    "attribute": "href"
+                  },
+                  "then": [
+                    {
+                      "queryParam": "id"
+                    },
+                    "identifier"
+                  ]
+                }
+              ]
+            },
+            "accountUrl": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": "a[href*=\"userdetails.php?id=\"]",
+                    "mode": "attribute",
+                    "attribute": "href"
+                  },
+                  "then": [
+                    "url"
+                  ]
+                }
+              ]
+            },
+            "ratio": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": ":scope",
+                    "mode": "text"
+                  },
+                  "then": [
+                    {
+                      "regex": "分享率\\s*:\\s*([\\d.,]+)",
+                      "group": 1
+                    },
+                    "decimal"
+                  ]
+                }
+              ]
+            },
+            "uploadedBytes": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": ":scope",
+                    "mode": "text"
+                  },
+                  "then": [
+                    {
+                      "regex": "上传量\\s*:\\s*([\\d.,]+\\s*[KMGTPE]?B)",
+                      "group": 1
+                    },
+                    "bytes"
+                  ]
+                }
+              ]
+            },
+            "downloadedBytes": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": ":scope",
+                    "mode": "text"
+                  },
+                  "then": [
+                    {
+                      "regex": "下载量\\s*:\\s*([\\d.,]+\\s*[KMGTPE]?B)",
+                      "group": 1
+                    },
+                    "bytes"
+                  ]
+                }
+              ]
+            },
+            "seeding": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": ":scope",
+                    "mode": "text"
+                  },
+                  "then": [
+                    {
+                      "regex": "做种活动\\s*:\\s*(\\d+)",
+                      "group": 1
+                    },
+                    "integer"
+                  ]
+                }
+              ]
+            },
+            "leeching": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": ":scope",
+                    "mode": "text"
+                  },
+                  "then": [
+                    {
+                      "regex": "做种活动\\s*:\\s*\\d+\\s+(\\d+)",
+                      "group": 1
+                    },
+                    "integer"
+                  ]
+                }
+              ]
+            },
+            "bonus": {
+              "candidates": [
+                {
+                  "id": "primary",
+                  "read": {
+                    "css": ":scope",
+                    "mode": "text"
+                  },
+                  "then": [
+                    {
+                      "regex": "积分\\s*:\\s*([\\d.,]+)",
+                      "group": 1
+                    },
+                    "decimal"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "op": "replace",
+      "path": "/pages/list/request/query",
+      "value": [
+        {
+          "param": "page",
+          "input": "page",
+          "offset": -1
+        },
+        {
+          "param": "search_field",
+          "input": "query"
+        },
+        {
+          "param": "sort",
+          "input": "sort",
+          "map": {
+            "publishedAt": 4,
+            "sizeBytes": 5,
+            "seeders": 7,
+            "leechers": 8,
+            "completed": 6
+          }
+        },
+        {
+          "param": "type",
+          "input": "direction"
+        },
+        {
+          "id": "resource-tag",
+          "input": "tag",
+          "param": "search_field",
+          "encoding": "searchToken",
+          "map": {
+            "no-repost": "+excl",
+            "hit-and-run": "+hr"
+          }
+        }
+      ]
+    },
+    {
+      "op": "replace",
+      "path": "/pages/list/parsers/ttg/fields/subtitle",
+      "value": {
+        "candidates": [
+          {
+            "id": "primary",
+            "read": {
+              "css": ".name_left > a[href^=\"/t/\"] > b br",
+              "mode": "followingContent"
+            },
+            "then": [
+              "trim"
+            ]
+          },
+          {
+            "id": "subtitle-span",
+            "read": {
+              "css": ".name_left > a[href^=\"/t/\"] > b span",
+              "mode": "text"
+            },
+            "then": [
+              "trim"
+            ]
+          },
+          {
+            "id": "multiline-subtitle",
+            "read": {
+              "css": ".name_left > a[href^=\"/t/\"] > b > span:not(:last-child)",
+              "mode": "text"
+            },
+            "then": [
+              "trim"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/pages/list/states/empty",
+      "value": [
+        {
+          "css": "h2",
+          "text": "^\\s*没找到任何内容！\\s*$"
+        }
+      ]
+    },
+    {
+      "op": "replace",
+      "path": "/pages/list/parsers/ttg/fields/title",
+      "value": {
+        "candidates": [
+          {
+            "id": "wrapped-font",
+            "read": {
+              "css": ".name_left > a[href^=\"/t/\"] > b > font",
+              "mode": "leadingText"
+            },
+            "then": [
+              "trim"
+            ]
+          },
+          {
+            "id": "primary",
+            "read": {
+              "css": ".name_left > a[href^=\"/t/\"] > b",
+              "mode": "leadingText"
+            },
+            "then": [
+              "trim"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/pages/profile",
+      "value": {
+        "request": {
+          "target": {
+            "from": "accountUrl"
+          }
+        },
+        "states": {},
+        "parsers": [
+          {
+            "id": "ttg-level",
+            "scope": "body",
+            "fields": {
+              "level": {
+                "candidates": [
+                  {
+                    "id": "level-row",
+                    "read": {
+                      "label": [
+                        "等级",
+                        "等級",
+                        "Class"
+                      ],
+                      "within": "td.rowhead"
+                    },
+                    "then": [
+                      "trim"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

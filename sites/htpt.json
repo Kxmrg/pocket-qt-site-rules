@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "type": "site",
+  "id": "htpt",
+  "code": 6,
+  "publishedAt": 1792028576,
+  "architecture": "nexusphp",
+  "domains": [
+    "www.htpt.cc"
+  ],
+  "compatibility": {
+    "engine": 1,
+    "features": [
+      "tag-filter.v1"
+    ]
+  },
+  "base": {
+    "minCode": 9,
+    "maxCode": 17
+  },
+  "patches": [
+    {
+      "op": "replace",
+      "path": "/pages/list/request/query/resource-tag",
+      "value": {
+        "id": "resource-tag",
+        "input": "tag",
+        "param": "tag_id",
+        "map": {}
+      }
+    }
+  ]
+}

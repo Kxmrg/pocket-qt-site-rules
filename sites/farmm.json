@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "type": "site",
+  "id": "farmm",
+  "code": 3,
+  "publishedAt": 1792028576,
+  "architecture": "nexusphp",
+  "domains": [
+    "pt.0ff.cc"
+  ],
+  "compatibility": {
+    "engine": 1,
+    "features": [
+      "tag-filter.v1"
+    ]
+  },
+  "base": {
+    "minCode": 15,
+    "maxCode": 17
+  },
+  "patches": [
+    {
+      "op": "replace",
+      "path": "/pages/list/request/query/resource-tag",
+      "value": {
+        "id": "resource-tag",
+        "input": "tag",
+        "param": "tag_id",
+        "map": {
+          "no-repost": 1,
+          "premiere": 2,
+          "official-release": 3,
+          "diy": 4,
+          "mandarin": 5,
+          "chinese-subtitles": 6,
+          "hdr": 7,
+          "short-drama": 8,
+          "completed": 10,
+          "ongoing": 12
+        }
+      }
+    }
+  ]
+}

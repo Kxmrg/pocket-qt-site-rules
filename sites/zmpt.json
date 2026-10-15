@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "type": "site",
+  "id": "zmpt",
+  "code": 9,
+  "publishedAt": 1792028576,
+  "architecture": "nexusphp",
+  "domains": [
+    "zmpt.cc"
+  ],
+  "compatibility": {
+    "engine": 1,
+    "features": [
+      "tag-filter.v1",
+      "map-merge.v1"
+    ]
+  },
+  "base": {
+    "minCode": 8,
+    "maxCode": 17
+  },
+  "patches": [
+    {
+      "op": "merge",
+      "path": "/pages/list/request/query/resource-tag/map",
+      "value": {
+        "original": 9,
+        "completed": 12,
+        "dolby": 14,
+        "cantonese": 15,
+        "episodic": 8,
+        "disc": 10,
+        "chinese-localized": 11,
+        "short-drama": 13,
+        "lossless": 16,
+        "resident": 17,
+        "pure-version": 18
+      }
+    }
+  ]
+}

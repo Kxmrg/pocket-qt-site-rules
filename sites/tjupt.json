@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "type": "site",
+  "id": "tjupt",
+  "code": 2,
+  "publishedAt": 1792028576,
+  "architecture": "nexusphp",
+  "domains": [
+    "www.tjupt.org"
+  ],
+  "compatibility": {
+    "engine": 1,
+    "features": [
+      "tag-filter.v1"
+    ]
+  },
+  "base": {
+    "minCode": 16,
+    "maxCode": 17
+  },
+  "patches": [
+    {
+      "op": "replace",
+      "path": "/pages/list/request/query/resource-tag",
+      "value": {
+        "id": "resource-tag",
+        "input": "tag",
+        "param": "tag",
+        "map": {
+          "no-repost": "exclusive",
+          "official-release": "tjuptrip",
+          "resident": "internal_team",
+          "chinese-subtitles": "chinese",
+          "hot": "hot"
+        },
+        "encoding": "brackets"
+      }
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/account/parsers/panel/fields/bonus/candidates",
+      "value": [
+        {
+          "id": "bonus-log",
+          "read": {
+            "css": "a[href*=\"bonus.php?show=log\"]",
+            "mode": "text"
+          },
+          "then": [
+            "decimal"
+          ]
+        }
+      ]
+    },
+    {
+      "op": "prepend",
+      "path": "/pages/account/parsers/panel/fields/level/candidates",
+      "value": [
+        {
+          "id": "cultivation-level",
+          "read": {
+            "css": "a[href*=\"classes.php\"] > span",
+            "mode": "text"
+          },
+          "then": [
+            "trim"
+          ]
+        }
+      ]
+    }
+  ]
+}
