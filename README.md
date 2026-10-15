@@ -8,6 +8,8 @@
 
 **更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
 
+**浏览器插件：** https://github.com/Kxmrg/pocket-evo-extension
+
 ## 已测试完美适配站点
 
 - **已测试站点**：下表 67 个站点均已测试并完美适配。
@@ -104,12 +106,6 @@
 - [MIT License](LICENSE)
 
 规则、索引和适配列表手动维护，不使用生成脚本。
-
-## 浏览器插件
-
-[下载 Pocket Evo 浏览器插件](https://github.com/Kxmrg/pocket-evo-extension)
-
-## 内测交流群
 
 使用微信扫描下方二维码加入内测群。二维码有效期至 2026 年 10 月 20 日。
 
