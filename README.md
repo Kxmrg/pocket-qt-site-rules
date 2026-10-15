@@ -4,13 +4,13 @@
 
 | 规则版本 | 更新时间（北京时间） | 已测试站点 |
 | --- | --- | --- |
-| version 17 | 2026-10-15 09:42:56 | 65 个 |
+| version 17 | 2026-10-15 09:42:56 | 67 个 |
 
 **更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
 
-## 已测试完美适配站点
+## 已测试适配站点
 
-以下 65 个站点已测试并完成适配，涵盖 NexusPHP 和独立 API 站点。
+以下 67 个站点已有适配和测试记录，涵盖 NexusPHP 和独立 API 站点。
 
 根据目前的适配经验，其他未单独适配的 NP 站点预计约 90% 可直接使用通用规则，但部分功能可能不完整。主要差异是缺少本站的标签 ID（tag ID），导致部分站点无法使用标签筛选。
 
@@ -43,6 +43,7 @@
 | 青蛙 | NexusPHP |
 | HDFans | NexusPHP |
 | 大青虫 | NexusPHP |
+| 车站 CarPT | NexusPHP |
 | 壹PT吧 | NexusPHP |
 | PTHOME | NexusPHP |
 | Farmm（农场） | NexusPHP |
@@ -62,6 +63,7 @@
 | PTFans | NexusPHP |
 | Moment | NexusPHP |
 | 垃圾堆 | NexusPHP |
+| PTGTK | NexusPHP |
 | PTLGS | NexusPHP |
 | CPT | NexusPHP |
 | 拾刻 | NexusPHP |
@@ -87,6 +89,8 @@
 | SunnyPT（阳光） | 独立架构站点 |
 | Rousi（肉丝） | 独立架构站点 |
 | Yema（野马） | 独立架构站点 |
+
+PTGTK 已完成 5 页采样，但部分服务器响应存在截断，缺失字段无法由规则恢复，尚不能视为全部字段验证通过。
 
 ## 文件说明
 
