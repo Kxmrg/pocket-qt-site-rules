@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "code": 19,
-  "publishedAt": 1792050306,
-  "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v19/global.json",
+  "code": 20,
+  "publishedAt": 1792052283,
+  "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v20/global.json",
   "size": 243672,
-  "sha256": "31e04dabe0b2aa4463f31bbc61918cedd1a5421c8112c6b67fcec2885322e739"
+  "sha256": "4f01133ef044b11887fb12b1b6c72f01a2b54aa7aedd3a5a79bbca9b8ebe32a3"
 }
