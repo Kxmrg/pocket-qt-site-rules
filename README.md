@@ -84,7 +84,7 @@
 
 - `global.json`：全量规则，含通用规则和站点补充规则。
 - `manifest.json`：更新索引。
-- [RULES.md](RULES.md)：全字段说明及单独配置站点规则的方法。
+- [rules.md](rules.md)：全字段说明及单独配置站点规则的方法。
 - [MIT License](LICENSE)
 
 规则、索引和适配列表手动维护，不使用生成脚本。
