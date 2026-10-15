@@ -19,24 +19,29 @@ class GenerationTests(unittest.TestCase):
         self.root.joinpath('global.json').write_bytes(SOURCE.read_bytes())
         self.data = json.loads(SOURCE.read_bytes())
 
-    def test_deterministic_and_importable_site_envelopes(self):
+    def test_deterministic_global_only_distribution(self):
         generate(self.root)
         before = {str(p.relative_to(self.root)): p.read_bytes() for p in self.root.rglob('*') if p.is_file()}
         generate(self.root)
         self.assertEqual(before, {str(p.relative_to(self.root)): p.read_bytes() for p in self.root.rglob('*') if p.is_file()})
         manifest = json.loads(self.root.joinpath('manifest.json').read_bytes())
-        self.assertEqual(len(manifest['sites']), len(self.data['sites']))
-        for record in [manifest['global'], *manifest['sites']]:
-            raw = self.root.joinpath(record['path']).read_bytes()
-            self.assertEqual(record['sha256'], hashlib.sha256(raw).hexdigest())
-            self.assertEqual(record['size'], len(raw))
-            self.assertIn('/rules-v' + str(self.data['code']) + '/', record['url'])
+        self.assertNotIn('sites', manifest)
+        self.assertFalse(self.root.joinpath('sites').exists())
+        record = manifest['global']
+        raw = self.root.joinpath(record['path']).read_bytes()
+        self.assertEqual(raw, SOURCE.read_bytes())
+        self.assertEqual(record['sha256'], hashlib.sha256(raw).hexdigest())
+        self.assertEqual(record['size'], len(raw))
+        self.assertIn('/rules-v' + str(self.data['code']) + '/', record['url'])
+        readme = self.root.joinpath('README.md').read_text()
         for site in self.data['sites']:
-            self.assertEqual(site, json.loads(self.root.joinpath('sites', site['id'] + '.json').read_bytes()))
+            self.assertIn('`' + site['id'] + '`', readme)
+        self.assertNotIn('(sites/', readme)
 
     def test_check_rejects_drift_and_stale_files(self):
         generate(self.root)
         generate(self.root, check=True)
+        self.root.joinpath('sites').mkdir()
         self.root.joinpath('sites/stale.json').write_text('{}')
         with self.assertRaises(ValueError): generate(self.root, check=True)
         generate(self.root)

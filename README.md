@@ -12,9 +12,8 @@ Pocket Evo 的全局站点规则与站点补充规则，用于 HTML 站点的解
 
 - [全局规则 global.json](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/global.json)
 - [最新更新索引 manifest.json](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json)
-- [站点补充规则目录](sites/)
 
-全局文件用于「设置 → 站点规则」导入；站点文件用于「站点适配诊断 → 导入站点规则」。
+只需下载 `global.json`，其中包含通用规则和全部站点补充规则，用于「设置 → 站点规则」导入。
 当前 App 使用文件导入；App 在线检查更新将另行接入，仓库提供文件不代表 App 已支持在线更新。
 
 独立 API 站点由 App 内置客户端处理，不通过本仓库更新。GZ、U3D 尚未包含在当前规则中。
@@ -22,71 +21,71 @@ Pocket Evo 的全局站点规则与站点补充规则，用于 HTML 站点的解
 
 ## 适配列表
 
-| 站点 ID | 域名 | 架构 | 版本 | 规则发布时间 | 补充规则 |
-| --- | --- | --- | --- | --- | --- |
-| `1ptba` | 1ptba.com | nexusphp | version 3 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/1ptba.json) |
-| `agsv` | pt.agsvpt.cn | nexusphp | version 6 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/agsv.json) |
-| `aling` | pt.aling.de | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/aling.json) |
-| `audiences` | audiences.me | nexusphp | version 4 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/audiences.json) |
-| `btschool` | pt.btschool.club | nexusphp | version 4 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/btschool.json) |
-| `chdbits` | ptchdbits.co | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/chdbits.json) |
-| `cpt` | cc.mypt.cc | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/cpt.json) |
-| `crabpt` | crabpt.vip | nexusphp | version 6 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/crabpt.json) |
-| `cspt` | cspt.top | nexusphp | version 6 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/cspt.json) |
-| `cyanbug` | cyanbug.net | nexusphp | version 3 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/cyanbug.json) |
-| `discfan` | discfan.net | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/discfan.json) |
-| `dstudio` | dstudio.me | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/dstudio.json) |
-| `dubhe` | dubhe.site | nexusphp | version 4 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/dubhe.json) |
-| `eastgame` | pt.eastgame.org | nexusphp | version 1 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/eastgame.json) |
-| `et8` | et8.org | nexusphp | version 1 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/et8.json) |
-| `farmm` | pt.0ff.cc | nexusphp | version 3 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/farmm.json) |
-| `ggpt` | www.gamegamept.com | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ggpt.json) |
-| `hdarea` | hdarea.club | nexusphp | version 3 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hdarea.json) |
-| `hddolby` | www.hddolby.com | nexusphp | version 6 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hddolby.json) |
-| `hdfans` | hdfans.org | nexusphp | version 3 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hdfans.json) |
-| `hdhome` | hdhome.org | nexusphp | version 6 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hdhome.json) |
-| `hdsky` | hdsky.me | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hdsky.json) |
-| `hdtime` | hdtime.org | nexusphp | version 8 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hdtime.json) |
-| `hhanclub` | hhanclub.net | nexusphp | version 4 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hhanclub.json) |
-| `htpt` | www.htpt.cc | nexusphp | version 6 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/htpt.json) |
-| `hxpt` | www.hxpt.org | nexusphp | version 3 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/hxpt.json) |
-| `keepfrds` | pt.keepfrds.com | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/keepfrds.json) |
-| `kelu` | our.kelu.one | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/kelu.json) |
-| `lajidui` | pt.lajidui.top | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/lajidui.json) |
-| `march` | duckboobee.org | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/march.json) |
-| `moment` | www.momentpt.top | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/moment.json) |
-| `musopia` | www.musopia.vip | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/musopia.json) |
-| `nanyang` | nanyangpt.com | nexusphp | version 1 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/nanyang.json) |
-| `nicept` | www.nicept.net | nexusphp | version 1 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/nicept.json) |
-| `novahd` | pt.novahd.top | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/novahd.json) |
-| `opencd` | open.cd | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/opencd.json) |
-| `ourbits` | ourbits.club | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ourbits.json) |
-| `piggo` | piggo.me | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/piggo.json) |
-| `ptcafe` | ptcafe.club | nexusphp | version 4 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ptcafe.json) |
-| `pterclub` | pterclub.net | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/pterclub.json) |
-| `ptfans` | ptfans.cc | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ptfans.json) |
-| `pthome` | pthome.net | nexusphp | version 3 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/pthome.json) |
-| `ptlgs` | ptlgs.org | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ptlgs.json) |
-| `ptskit` | www.ptskit.org | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ptskit.json) |
-| `pttime` | www.pttime.org | nexusphp | version 6 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/pttime.json) |
-| `qingwa` | qingwapt.com | nexusphp | version 3 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/qingwa.json) |
-| `sewerpt` | sewerpt.com | nexusphp | version 6 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/sewerpt.json) |
-| `soulvoice` | pt.soulvoice.club | nexusphp | version 3 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/soulvoice.json) |
-| `ssd` | springsunday.net | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ssd.json) |
-| `tangpt` | www.tangpt.top | nexusphp | version 6 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/tangpt.json) |
-| `tjupt` | www.tjupt.org | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/tjupt.json) |
-| `totheglory` | totheglory.im | nexusphp | version 5 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/totheglory.json) |
-| `u2` | u2.dmhy.org | nexusphp | version 1 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/u2.json) |
-| `ubits` | ubits.club | nexusphp | version 4 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/ubits.json) |
-| `upxin` | pt.upxin.net | nexusphp | version 1 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/upxin.json) |
-| `xingwan` | xingwan.cc | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/xingwan.json) |
-| `xloli` | mua.xloli.cc | nexusphp | version 2 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/xloli.json) |
-| `zmpt` | zmpt.cc | nexusphp | version 9 | 2026-10-15 01:42:56 UTC | [下载](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/sites/zmpt.json) |
+| 站点 ID | 域名 | 架构 | 版本 | 规则发布时间 |
+| --- | --- | --- | --- | --- |
+| `1ptba` | 1ptba.com | nexusphp | version 3 | 2026-10-15 01:42:56 UTC |
+| `agsv` | pt.agsvpt.cn | nexusphp | version 6 | 2026-10-15 01:42:56 UTC |
+| `aling` | pt.aling.de | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `audiences` | audiences.me | nexusphp | version 4 | 2026-10-15 01:42:56 UTC |
+| `btschool` | pt.btschool.club | nexusphp | version 4 | 2026-10-15 01:42:56 UTC |
+| `chdbits` | ptchdbits.co | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `cpt` | cc.mypt.cc | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `crabpt` | crabpt.vip | nexusphp | version 6 | 2026-10-15 01:42:56 UTC |
+| `cspt` | cspt.top | nexusphp | version 6 | 2026-10-15 01:42:56 UTC |
+| `cyanbug` | cyanbug.net | nexusphp | version 3 | 2026-10-15 01:42:56 UTC |
+| `discfan` | discfan.net | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `dstudio` | dstudio.me | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `dubhe` | dubhe.site | nexusphp | version 4 | 2026-10-15 01:42:56 UTC |
+| `eastgame` | pt.eastgame.org | nexusphp | version 1 | 2026-10-15 01:42:56 UTC |
+| `et8` | et8.org | nexusphp | version 1 | 2026-10-15 01:42:56 UTC |
+| `farmm` | pt.0ff.cc | nexusphp | version 3 | 2026-10-15 01:42:56 UTC |
+| `ggpt` | www.gamegamept.com | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `hdarea` | hdarea.club | nexusphp | version 3 | 2026-10-15 01:42:56 UTC |
+| `hddolby` | www.hddolby.com | nexusphp | version 6 | 2026-10-15 01:42:56 UTC |
+| `hdfans` | hdfans.org | nexusphp | version 3 | 2026-10-15 01:42:56 UTC |
+| `hdhome` | hdhome.org | nexusphp | version 6 | 2026-10-15 01:42:56 UTC |
+| `hdsky` | hdsky.me | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `hdtime` | hdtime.org | nexusphp | version 8 | 2026-10-15 01:42:56 UTC |
+| `hhanclub` | hhanclub.net | nexusphp | version 4 | 2026-10-15 01:42:56 UTC |
+| `htpt` | www.htpt.cc | nexusphp | version 6 | 2026-10-15 01:42:56 UTC |
+| `hxpt` | www.hxpt.org | nexusphp | version 3 | 2026-10-15 01:42:56 UTC |
+| `keepfrds` | pt.keepfrds.com | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `kelu` | our.kelu.one | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `lajidui` | pt.lajidui.top | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `march` | duckboobee.org | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `moment` | www.momentpt.top | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `musopia` | www.musopia.vip | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `nanyang` | nanyangpt.com | nexusphp | version 1 | 2026-10-15 01:42:56 UTC |
+| `nicept` | www.nicept.net | nexusphp | version 1 | 2026-10-15 01:42:56 UTC |
+| `novahd` | pt.novahd.top | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `opencd` | open.cd | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `ourbits` | ourbits.club | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `piggo` | piggo.me | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `ptcafe` | ptcafe.club | nexusphp | version 4 | 2026-10-15 01:42:56 UTC |
+| `pterclub` | pterclub.net | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `ptfans` | ptfans.cc | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `pthome` | pthome.net | nexusphp | version 3 | 2026-10-15 01:42:56 UTC |
+| `ptlgs` | ptlgs.org | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `ptskit` | www.ptskit.org | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `pttime` | www.pttime.org | nexusphp | version 6 | 2026-10-15 01:42:56 UTC |
+| `qingwa` | qingwapt.com | nexusphp | version 3 | 2026-10-15 01:42:56 UTC |
+| `sewerpt` | sewerpt.com | nexusphp | version 6 | 2026-10-15 01:42:56 UTC |
+| `soulvoice` | pt.soulvoice.club | nexusphp | version 3 | 2026-10-15 01:42:56 UTC |
+| `ssd` | springsunday.net | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `tangpt` | www.tangpt.top | nexusphp | version 6 | 2026-10-15 01:42:56 UTC |
+| `tjupt` | www.tjupt.org | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `totheglory` | totheglory.im | nexusphp | version 5 | 2026-10-15 01:42:56 UTC |
+| `u2` | u2.dmhy.org | nexusphp | version 1 | 2026-10-15 01:42:56 UTC |
+| `ubits` | ubits.club | nexusphp | version 4 | 2026-10-15 01:42:56 UTC |
+| `upxin` | pt.upxin.net | nexusphp | version 1 | 2026-10-15 01:42:56 UTC |
+| `xingwan` | xingwan.cc | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `xloli` | mua.xloli.cc | nexusphp | version 2 | 2026-10-15 01:42:56 UTC |
+| `zmpt` | zmpt.cc | nexusphp | version 9 | 2026-10-15 01:42:56 UTC |
 
 ## 维护与发布
 
-`global.json` 是唯一规则维护源。`sites/*.json`、`manifest.json` 和本 README 自动生成，不单独编辑。
-同一站点在全局和独立文件中的 JSON 内容完全一致；不包含账号、Cookie、API Key 或网页采样。
+`global.json` 是唯一规则维护源。`manifest.json` 和本 README 自动生成，不单独编辑。
+站点补充直接保留在全局文件内，不另外分发。仓库不包含账号、Cookie、API Key 或网页采样。
 
 ```sh
 python3 scripts/generate.py
@@ -107,5 +106,6 @@ python3 -m unittest discover -s tests -v
 ```
 
 索引从 main 获取，规则下载地址固定到对应发布标签。必须原子推送分支与标签，避免索引先上线而文件尚不可用。
+仅更新文档或分发结构、且规则内容不变时，沿用已有规则标签，直接推送 main。
 历史发布标签保留不变；SHA-256 和字节数用于下载完整性校验，不代替数字签名。
 详细索引契约见 [MANIFEST.md](MANIFEST.md)。CI 会拒绝自动生成文件与源规则不一致的提交。
