@@ -2,15 +2,23 @@
 
 提供 Pocket Evo App 的完整全局站点规则，包含通用规则与站点补充规则。
 
-**规则版本：17 · 更新时间：2026-10-15 01:42:56 UTC**
+| 规则版本 | 更新时间（北京时间） | 已测试站点 |
+| --- | --- | --- |
+| version 17 | 2026-10-15 09:42:56 | 65 个 |
 
-[下载全局规则](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v17/global.json) · [更新索引](https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json)
+**更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
 
-下载后在 App「设置 → 站点规则」中导入。在线更新功能后续接入。
+## 已测试完美适配站点
 
-## App 已适配站点
+以下 65 个站点已测试并完成适配，涵盖 NexusPHP 和独立 API 站点。
 
-共 **65 个**，包含 NexusPHP 和独立 API 站点。独立 API 适配随 App 更新，不由规则文件更新。
+根据目前的适配经验，其他未单独适配的 NP 站点预计约 90% 可直接使用通用规则，但部分功能可能不完整。主要差异是缺少本站的标签 ID（tag ID），导致部分站点无法使用标签筛选。
+
+如果遇到无法适配的 NP 站点，请联系我反馈。
+
+[官网](https://pocket.kxmrg.com/) · [Telegram 交流群](https://t.me/pocket_qt)
+
+独立 API 站点适配随 App 更新，不由规则文件更新。
 
 | 站点 | 架构 |
 | --- | --- |
