@@ -14,6 +14,10 @@
 
 **Telegram：** https://t.me/pocket_qt
 
+使用微信扫描下方二维码加入内测群。二维码有效期至 2026 年 10 月 20 日。
+
+<img src="images/beta-group-qr.jpg" alt="Pocket Evo 内测群微信二维码" width="360" />
+
 ## 已测试完美适配站点
 
 - **已测试站点**：下表 67 个站点均已测试并完美适配。
@@ -108,7 +112,3 @@
 - [MIT License](LICENSE)
 
 规则、索引和适配列表手动维护，不使用生成脚本。
-
-使用微信扫描下方二维码加入内测群。二维码有效期至 2026 年 10 月 20 日。
-
-<img src="images/beta-group-qr.jpg" alt="Pocket Evo 内测群微信二维码" width="360" />
