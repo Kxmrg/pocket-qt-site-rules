@@ -71,10 +71,10 @@
 | compatibility | 对象 | 必填，engine 与 features |
 | base | 对象 | 必填，对应通用架构规则的版本要求 |
 | base.minCode | 整数 | 必填，可兼容的最低架构 code，至少 1 |
-| base.maxCode | 整数 | 必填，可兼容的最高架构 code，不小于 minCode，不超过 2147483647 |
+| base.maxCode | 整数 | 可选；省略表示不限制最高架构 code。填写时不得小于 minCode，且不超过 2147483647；不能填 null |
 | patches | 数组 | 必填，完整补丁集合，可为空，最多 256 项 |
 
-**当前 App 的 minCode 和 maxCode 都必填。** 将最高版本改为可选只是讨论过的方向，尚未实现。它们比较的是架构 code，不是全局 code 或 App 版本。不要未经验证直接把 maxCode 扩大到未来版本。
+**minCode 必填，maxCode 可省略。** 它们比较的是架构 code，不是全局 code 或 App 版本。省略上限仍会校验结构、引擎能力和补丁编译，不代表任意未来结构都兼容；如已知不兼容边界，可显式填写上限。此格式需使用已支持可选上限的新版 App，旧版可能拒绝导入。
 
 domains 会规范化小写及国际化域名、去重；不同站点 ID 不能声明冲突域名。域名列表不授权跨域发送凭据。
 
@@ -122,7 +122,7 @@ domains 会规范化小写及国际化域名、去重；不同站点 ID 不能�
     "engine": 1,
     "features": ["tag-filter.v1"]
   },
-  "base": {"minCode": 17, "maxCode": 17},
+  "base": {"minCode": 17},
   "patches": [
     {
       "op": "replace",
