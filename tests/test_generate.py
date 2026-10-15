@@ -17,6 +17,7 @@ class GenerationTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
         self.root.joinpath('global.json').write_bytes(SOURCE.read_bytes())
+        self.root.joinpath('app-sites.json').write_bytes(SOURCE.with_name('app-sites.json').read_bytes())
         self.data = json.loads(SOURCE.read_bytes())
 
     def test_deterministic_global_only_distribution(self):
@@ -38,8 +39,12 @@ class GenerationTests(unittest.TestCase):
         self.assertEqual(record['size'], len(raw))
         self.assertIn('/rules-v' + str(self.data['code']) + '/', record['url'])
         readme = self.root.joinpath('README.md').read_text()
+        for site in json.loads(self.root.joinpath('app-sites.json').read_bytes()):
+            self.assertIn(site['name'], readme)
+        self.assertIn('# Pocket Evo App 站点规则官方更新源', readme)
         for site in self.data['sites']:
-            self.assertIn('`' + site['id'] + '`', readme)
+            for domain in site['domains']:
+                self.assertNotIn(domain, readme)
         self.assertNotIn('(sites/', readme)
 
     def test_check_rejects_drift_and_stale_files(self):
