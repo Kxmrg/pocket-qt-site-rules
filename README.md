@@ -109,3 +109,7 @@ python3 -m unittest discover -s tests -v
 仅更新文档或分发结构、且规则内容不变时，沿用已有规则标签，直接推送 main。
 历史发布标签保留不变；SHA-256 和字节数用于下载完整性校验，不代替数字签名。
 详细索引契约见 [MANIFEST.md](MANIFEST.md)。CI 会拒绝自动生成文件与源规则不一致的提交。
+
+## 许可证
+
+本项目采用 [MIT License](LICENSE)。
