@@ -10,14 +10,16 @@
 
 **浏览器插件：** https://github.com/Kxmrg/pocket-evo-extension
 
+**官网：** https://pocket.kxmrg.com/
+
+**Telegram：** https://t.me/pocket_qt
+
 ## 已测试完美适配站点
 
 - **已测试站点**：下表 67 个站点均已测试并完美适配。
 - **其他 NP 站点**：预计约 99% 可直接使用。未经单独适配的站点会在加载列表时自动获取标签 ID（tag_id），因此标签筛选项可能暂不完整，后续加载会继续补充。
 - **适配进度**：GZ、U3D 架构正在适配中。
 - **特殊站点**：部分改动较大的 NP 站点可能无法直接适配，遇到问题请联系我。
-
-[官网](https://pocket.kxmrg.com/) · [Telegram 交流群](https://t.me/pocket_qt)
 
 独立架构站点适配随 App 更新，不由规则文件更新。
 
