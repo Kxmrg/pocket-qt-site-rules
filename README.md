@@ -8,9 +8,9 @@
 
 **更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
 
-**浏览器插件：** https://github.com/Kxmrg/pocket-evo-extension
-
 **官网：** https://pocket.kxmrg.com/
+
+**浏览器插件：** https://github.com/Kxmrg/pocket-evo-extension
 
 **Telegram：** https://t.me/pocket_qt
 
