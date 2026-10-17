@@ -26,93 +26,93 @@
 - **独立架构站点**：适配随 App 更新，不由规则文件更新。
 - **特殊站点**：部分改动较大的 NP 站点可能无法直接适配，遇到问题请联系我。
 
-站点按名称首字母排序，中文名称按拼音排序。
+站点名称统一使用“英文（中文）”，只有一种名称时保留单名；按英文首字母排序，仅有中文的名称按拼音排序。
 
 ### NexusPHP 站点（69 个）
 
 | 站点 | 架构 |
 | --- | --- |
+| 1PTBA（壹PT吧） | NexusPHP |
 | AGSV | NexusPHP |
 | alingPT | NexusPHP |
-| 北洋园 | NexusPHP |
-| 比特校园 | NexusPHP |
-| 不可躺 | NexusPHP |
-| 财神 | NexusPHP |
+| Audiences（观众） | NexusPHP |
+| BTSchool（比特校园） | NexusPHP |
+| CarPT（车站） | NexusPHP |
 | CHDBits | NexusPHP |
-| 车站 CarPT | NexusPHP |
-| CPT | NexusPHP |
-| 大青虫 | NexusPHP |
+| CPT（我的PT） | NexusPHP |
+| CrabPT（蟹黄堡） | NexusPHP |
+| CSPT（财神） | NexusPHP |
+| CyanBug（大青虫） | NexusPHP |
 | 大香蕉 | NexusPHP |
 | Depth Studio | NexusPHP |
 | DiscFan | NexusPHP |
+| Dubhe（天枢） | NexusPHP |
 | Farmm（农场） | NexusPHP |
 | GGPT | NexusPHP |
-| 观众 | NexusPHP |
-| 海棠 | NexusPHP |
-| 憨憨 | NexusPHP |
-| 好学 | NexusPHP |
-| HDArea | NexusPHP |
-| HDDolby | NexusPHP |
-| HDFans | NexusPHP |
-| HDHome | NexusPHP |
-| HDSky | NexusPHP |
+| HDArea（高清视界） | NexusPHP |
+| HDDolby（HD杜比） | NexusPHP |
+| HDFans（红豆饭） | NexusPHP |
+| HDHome（家园） | NexusPHP |
+| HDSky（天空） | NexusPHP |
 | HDTIME | NexusPHP |
 | HDU | NexusPHP |
-| 咖啡 | NexusPHP |
-| KEEPFRDS | NexusPHP |
+| HhanClub（憨憨） | NexusPHP |
+| HTPT（海棠） | NexusPHP |
+| HXPT（好学） | NexusPHP |
+| KEEPFRDS（朋友） | NexusPHP |
 | Kelu | NexusPHP |
-| 垃圾堆 | NexusPHP |
-| 聆音Club | NexusPHP |
+| Lajidui（垃圾堆） | NexusPHP |
 | LONGPT | NexusPHP |
-| 猫站 PTerClub | NexusPHP |
 | March | NexusPHP |
 | Moment | NexusPHP |
-| 南洋 PT | NexusPHP |
+| Musopia（音乐乌托邦） | NexusPHP |
+| NanyangPT（南洋） | NexusPHP |
 | NicePT | NexusPHP |
 | NovaHD | NexusPHP |
 | OpenCD | NexusPHP |
-| OurBits | NexusPHP |
+| OurBits（我堡） | NexusPHP |
+| PigGo（猪猪） | NexusPHP |
 | PlayLet | NexusPHP |
+| PTCafe（咖啡） | NexusPHP |
+| PTerClub（猫站） | NexusPHP |
 | PTFans | NexusPHP |
 | PTGTK | NexusPHP |
 | PTHOME | NexusPHP |
 | PTLGS | NexusPHP |
+| PTSBAO（烧包） | NexusPHP |
+| PTSKIT（拾刻） | NexusPHP |
 | PTT | NexusPHP |
 | PTzone | NexusPHP |
-| 青蛙 | NexusPHP |
+| QingWaPT（青蛙） | NexusPHP |
 | RailgunPT | NexusPHP |
-| 烧包 | NexusPHP |
-| 拾刻 | NexusPHP |
-| SSD | NexusPHP |
+| SewerPT（下水道） | NexusPHP |
+| SoulVoice（聆音） | NexusPHP |
+| SSD（春天） | NexusPHP |
+| TangPT（不可躺） | NexusPHP |
 | TCCF / ET8 | NexusPHP |
-| 天枢 | NexusPHP |
+| TJUPT（北洋园） | NexusPHP |
 | TLFBits | NexusPHP |
-| TTG | NexusPHP |
+| TTG（听听歌） | NexusPHP |
 | U2 | NexusPHP |
 | UBits | NexusPHP |
 | VC-Lib | NexusPHP |
-| 下水道 | NexusPHP |
-| 蟹黄堡 | NexusPHP |
 | 星湾 | NexusPHP |
 | 星陨阁 | NexusPHP |
 | 修道院 | NexusPHP |
 | XLoli | NexusPHP |
-| 音乐乌托邦 | NexusPHP |
-| 壹PT吧 | NexusPHP |
-| 猪猪 | NexusPHP |
-| ZMPT | NexusPHP |
+| ZMPT（织梦） | NexusPHP |
 
 ### 独立架构站点（7 个）
 
 | 站点 | 架构 |
 | --- | --- |
-| 海胆 | 独立架构站点 |
-| 可乐 | 独立架构站点 |
+| Cola（可乐） | 独立架构站点 |
+| Haidan（海胆） | 独立架构站点 |
 | M-Team（馒头） | 独立架构站点 |
 | Rousi（肉丝） | 独立架构站点 |
 | SunnyPT（阳光） | 独立架构站点 |
 | Yema（野马） | 独立架构站点 |
-| 朱雀 | 独立架构站点 |
+| ZhuQue（朱雀） | 独立架构站点 |
 
 ## 文件说明
 
