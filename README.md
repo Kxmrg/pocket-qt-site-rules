@@ -29,7 +29,7 @@
 ### NexusPHP 站点（69 个）
 
 <table width="100%">
-  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br />1PTBA（壹PT吧）</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br />AGSV</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br />alingPT</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br />Audiences（观众）</td></tr>
+  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />1PTBA（壹PT吧）</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />AGSV</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />alingPT</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />Audiences（观众）</td></tr>
   <tr><td width="25%">BTSchool（比特校园）</td><td width="25%">CarPT（车站）</td><td width="25%">CHDBits</td><td width="25%">CPT（我的PT）</td></tr>
   <tr><td width="25%">CrabPT（蟹黄堡）</td><td width="25%">CSPT（财神）</td><td width="25%">CyanBug（大青虫）</td><td width="25%">大香蕉</td></tr>
   <tr><td width="25%">Depth Studio</td><td width="25%">DiscFan</td><td width="25%">Dubhe（天枢）</td><td width="25%">Farmm（农场）</td></tr>
@@ -52,19 +52,19 @@
 ### UNIT3D 站点（2 个）
 
 <table width="100%">
-  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br />AsianCinema</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br />Blutopia</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br /></td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br /></td></tr>
+  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />AsianCinema</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />Blutopia</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" /></td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" /></td></tr>
 </table>
 
 ### BtiTracker 站点（2 个）
 
 <table width="100%">
-  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br />HD-Space</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br />HD-Torrents</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br /></td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br /></td></tr>
+  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />HD-Space</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />HD-Torrents</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" /></td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" /></td></tr>
 </table>
 
 ### 独立架构站点（15 个）
 
 <table width="100%">
-  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br />BeyondHD</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br />Cinemageddon</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br />Cola（可乐）</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" alt="" /><br />ExoticaZ</td></tr>
+  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />BeyondHD</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />Cinemageddon</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />Cola（可乐）</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />ExoticaZ</td></tr>
   <tr><td width="25%">FileList</td><td width="25%">Haidan（海胆）</td><td width="25%">HDBits</td><td width="25%">KG</td></tr>
   <tr><td width="25%">M-Team（馒头）</td><td width="25%">Rousi（肉丝）</td><td width="25%">SunnyPT（阳光）</td><td width="25%">TorrentLeech</td></tr>
   <tr><td width="25%">Yema（野马）</td><td width="25%">Ying（影）</td><td width="25%">ZhuQue（朱雀）</td><td width="25%"></td></tr>
