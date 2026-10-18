@@ -55,7 +55,7 @@
   <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />A<wbr>s<wbr>i<wbr>a<wbr>n<wbr>C<wbr>i<wbr>n<wbr>e<wbr>m<wbr>a</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />B<wbr>l<wbr>u<wbr>t<wbr>o<wbr>p<wbr>i<wbr>a</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" /></td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" /></td></tr>
 </table>
 
-### BtiTracker 站点（2 个）
+### BtiTracker 及其衍生 XBTIT 站点（2 个）
 
 <table width="100%">
   <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />H<wbr>D<wbr>-<wbr>S<wbr>p<wbr>a<wbr>c<wbr>e</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />H<wbr>D<wbr>-<wbr>T<wbr>o<wbr>r<wbr>r<wbr>e<wbr>n<wbr>t<wbr>s</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" /></td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" /></td></tr>
