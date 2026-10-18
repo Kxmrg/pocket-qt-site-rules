@@ -29,45 +29,45 @@
 ### NexusPHP 站点（69 个）
 
 <table width="100%">
-  <tr><td width="25%">1PTBA（壹PT吧）</td><td width="25%">AGSV</td><td width="25%">alingPT</td><td width="25%">Audiences（观众）</td></tr>
-  <tr><td width="25%">BTSchool（比特校园）</td><td width="25%">CarPT（车站）</td><td width="25%">CHDBits</td><td width="25%">CPT（我的PT）</td></tr>
-  <tr><td width="25%">CrabPT（蟹黄堡）</td><td width="25%">CSPT（财神）</td><td width="25%">CyanBug（大青虫）</td><td width="25%">大香蕉</td></tr>
-  <tr><td width="25%">Depth Studio</td><td width="25%">DiscFan</td><td width="25%">Dubhe（天枢）</td><td width="25%">Farmm（农场）</td></tr>
-  <tr><td width="25%">GGPT</td><td width="25%">HDArea（高清视界）</td><td width="25%">HDDolby（HD杜比）</td><td width="25%">HDFans（红豆饭）</td></tr>
-  <tr><td width="25%">HDHome（家园）</td><td width="25%">HDSky（天空）</td><td width="25%">HDTIME</td><td width="25%">HDU</td></tr>
-  <tr><td width="25%">HhanClub（憨憨）</td><td width="25%">HTPT（海棠）</td><td width="25%">HXPT（好学）</td><td width="25%">KEEPFRDS（朋友）</td></tr>
-  <tr><td width="25%">Kelu</td><td width="25%">Lajidui（垃圾堆）</td><td width="25%">LONGPT</td><td width="25%">March</td></tr>
-  <tr><td width="25%">Moment</td><td width="25%">Musopia（音乐乌托邦）</td><td width="25%">NanyangPT（南洋）</td><td width="25%">NicePT</td></tr>
-  <tr><td width="25%">NovaHD</td><td width="25%">OpenCD</td><td width="25%">OurBits（我堡）</td><td width="25%">PigGo（猪猪）</td></tr>
-  <tr><td width="25%">PlayLet</td><td width="25%">PTCafe（咖啡）</td><td width="25%">PTerClub（猫站）</td><td width="25%">PTFans</td></tr>
-  <tr><td width="25%">PTGTK</td><td width="25%">PTHOME</td><td width="25%">PTLGS</td><td width="25%">PTSBAO（烧包）</td></tr>
-  <tr><td width="25%">PTSKIT（拾刻）</td><td width="25%">PTT</td><td width="25%">PTzone</td><td width="25%">QingWaPT（青蛙）</td></tr>
-  <tr><td width="25%">RailgunPT</td><td width="25%">SewerPT（下水道）</td><td width="25%">SoulVoice（聆音）</td><td width="25%">SSD（春天）</td></tr>
-  <tr><td width="25%">TangPT（不可躺）</td><td width="25%">TCCF / ET8</td><td width="25%">TJUPT（北洋园）</td><td width="25%">TLFBits</td></tr>
-  <tr><td width="25%">TTG（听听歌）</td><td width="25%">U2</td><td width="25%">UBits</td><td width="25%">VC-Lib</td></tr>
-  <tr><td width="25%">星湾</td><td width="25%">星陨阁</td><td width="25%">修道院</td><td width="25%">XLoli</td></tr>
-  <tr><td width="25%">ZMPT（织梦）</td><td width="25%"></td><td width="25%"></td><td width="25%"></td></tr>
+  <tr><td width="9999">1PTBA（壹PT吧）</td><td width="9999">AGSV</td><td width="9999">alingPT</td><td width="9999">Audiences（观众）</td></tr>
+  <tr><td width="9999">BTSchool（比特校园）</td><td width="9999">CarPT（车站）</td><td width="9999">CHDBits</td><td width="9999">CPT（我的PT）</td></tr>
+  <tr><td width="9999">CrabPT（蟹黄堡）</td><td width="9999">CSPT（财神）</td><td width="9999">CyanBug（大青虫）</td><td width="9999">大香蕉</td></tr>
+  <tr><td width="9999">Depth Studio</td><td width="9999">DiscFan</td><td width="9999">Dubhe（天枢）</td><td width="9999">Farmm（农场）</td></tr>
+  <tr><td width="9999">GGPT</td><td width="9999">HDArea（高清视界）</td><td width="9999">HDDolby（HD杜比）</td><td width="9999">HDFans（红豆饭）</td></tr>
+  <tr><td width="9999">HDHome（家园）</td><td width="9999">HDSky（天空）</td><td width="9999">HDTIME</td><td width="9999">HDU</td></tr>
+  <tr><td width="9999">HhanClub（憨憨）</td><td width="9999">HTPT（海棠）</td><td width="9999">HXPT（好学）</td><td width="9999">KEEPFRDS（朋友）</td></tr>
+  <tr><td width="9999">Kelu</td><td width="9999">Lajidui（垃圾堆）</td><td width="9999">LONGPT</td><td width="9999">March</td></tr>
+  <tr><td width="9999">Moment</td><td width="9999">Musopia（音乐乌托邦）</td><td width="9999">NanyangPT（南洋）</td><td width="9999">NicePT</td></tr>
+  <tr><td width="9999">NovaHD</td><td width="9999">OpenCD</td><td width="9999">OurBits（我堡）</td><td width="9999">PigGo（猪猪）</td></tr>
+  <tr><td width="9999">PlayLet</td><td width="9999">PTCafe（咖啡）</td><td width="9999">PTerClub（猫站）</td><td width="9999">PTFans</td></tr>
+  <tr><td width="9999">PTGTK</td><td width="9999">PTHOME</td><td width="9999">PTLGS</td><td width="9999">PTSBAO（烧包）</td></tr>
+  <tr><td width="9999">PTSKIT（拾刻）</td><td width="9999">PTT</td><td width="9999">PTzone</td><td width="9999">QingWaPT（青蛙）</td></tr>
+  <tr><td width="9999">RailgunPT</td><td width="9999">SewerPT（下水道）</td><td width="9999">SoulVoice（聆音）</td><td width="9999">SSD（春天）</td></tr>
+  <tr><td width="9999">TangPT（不可躺）</td><td width="9999">TCCF / ET8</td><td width="9999">TJUPT（北洋园）</td><td width="9999">TLFBits</td></tr>
+  <tr><td width="9999">TTG（听听歌）</td><td width="9999">U2</td><td width="9999">UBits</td><td width="9999">VC-Lib</td></tr>
+  <tr><td width="9999">星湾</td><td width="9999">星陨阁</td><td width="9999">修道院</td><td width="9999">XLoli</td></tr>
+  <tr><td width="9999">ZMPT（织梦）</td><td width="9999"></td><td width="9999"></td><td width="9999"></td></tr>
 </table>
 
 ### UNIT3D 站点（2 个）
 
 <table width="100%">
-  <tr><td width="25%">AsianCinema</td><td width="25%">Blutopia</td><td width="25%"></td><td width="25%"></td></tr>
+  <tr><td width="9999">AsianCinema</td><td width="9999">Blutopia</td><td width="9999"></td><td width="9999"></td></tr>
 </table>
 
 ### BtiTracker 站点（2 个）
 
 <table width="100%">
-  <tr><td width="25%">HD-Space</td><td width="25%">HD-Torrents</td><td width="25%"></td><td width="25%"></td></tr>
+  <tr><td width="9999">HD-Space</td><td width="9999">HD-Torrents</td><td width="9999"></td><td width="9999"></td></tr>
 </table>
 
 ### 独立架构站点（15 个）
 
 <table width="100%">
-  <tr><td width="25%">BeyondHD</td><td width="25%">Cinemageddon</td><td width="25%">Cola（可乐）</td><td width="25%">ExoticaZ</td></tr>
-  <tr><td width="25%">FileList</td><td width="25%">Haidan（海胆）</td><td width="25%">HDBits</td><td width="25%">KG</td></tr>
-  <tr><td width="25%">M-Team（馒头）</td><td width="25%">Rousi（肉丝）</td><td width="25%">SunnyPT（阳光）</td><td width="25%">TorrentLeech</td></tr>
-  <tr><td width="25%">Yema（野马）</td><td width="25%">Ying（影）</td><td width="25%">ZhuQue（朱雀）</td><td width="25%"></td></tr>
+  <tr><td width="9999">BeyondHD</td><td width="9999">Cinemageddon</td><td width="9999">Cola（可乐）</td><td width="9999">ExoticaZ</td></tr>
+  <tr><td width="9999">FileList</td><td width="9999">Haidan（海胆）</td><td width="9999">HDBits</td><td width="9999">KG</td></tr>
+  <tr><td width="9999">M-Team（馒头）</td><td width="9999">Rousi（肉丝）</td><td width="9999">SunnyPT（阳光）</td><td width="9999">TorrentLeech</td></tr>
+  <tr><td width="9999">Yema（野马）</td><td width="9999">Ying（影）</td><td width="9999">ZhuQue（朱雀）</td><td width="9999"></td></tr>
 </table>
 
 ## 文件说明
