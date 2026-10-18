@@ -4,7 +4,7 @@
 
 | 规则版本 | 更新时间（北京时间） | 已测试站点 |
 | --- | --- | --- |
-| version 24 | 2026-10-18 20:54:51 | 81 个 |
+| version 24 | 2026-10-18 20:54:51 | 88 个 |
 
 **更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
 
@@ -20,7 +20,7 @@
 
 ## 已测试完美适配站点
 
-- **已测试站点**：下表 81 个站点均已测试并完美适配。
+- **已测试站点**：下表 88 个站点均已测试并完美适配。
 - **其他 NP 站点**：预计约 99% 可直接使用。未经单独适配的站点会在加载列表时自动获取标签 ID（tag_id），因此标签筛选项可能暂不完整，后续加载会继续补充。
 - **适配进度**：GZ 架构正在适配中；UNIT3D 已接入，使用清单模式。
 - **规则更新**：NP、UNIT3D 与 BtiTracker 使用本仓库的通用规则和站点补充规则；独立架构站点适配随 App 更新。
@@ -28,104 +28,42 @@
 
 ### NexusPHP 站点（69 个）
 
-| 站点 | 架构 |
-| --- | --- |
-| 1PTBA（壹PT吧） | NexusPHP |
-| AGSV | NexusPHP |
-| alingPT | NexusPHP |
-| Audiences（观众） | NexusPHP |
-| BTSchool（比特校园） | NexusPHP |
-| CarPT（车站） | NexusPHP |
-| CHDBits | NexusPHP |
-| CPT（我的PT） | NexusPHP |
-| CrabPT（蟹黄堡） | NexusPHP |
-| CSPT（财神） | NexusPHP |
-| CyanBug（大青虫） | NexusPHP |
-| 大香蕉 | NexusPHP |
-| Depth Studio | NexusPHP |
-| DiscFan | NexusPHP |
-| Dubhe（天枢） | NexusPHP |
-| Farmm（农场） | NexusPHP |
-| GGPT | NexusPHP |
-| HDArea（高清视界） | NexusPHP |
-| HDDolby（HD杜比） | NexusPHP |
-| HDFans（红豆饭） | NexusPHP |
-| HDHome（家园） | NexusPHP |
-| HDSky（天空） | NexusPHP |
-| HDTIME | NexusPHP |
-| HDU | NexusPHP |
-| HhanClub（憨憨） | NexusPHP |
-| HTPT（海棠） | NexusPHP |
-| HXPT（好学） | NexusPHP |
-| KEEPFRDS（朋友） | NexusPHP |
-| Kelu | NexusPHP |
-| Lajidui（垃圾堆） | NexusPHP |
-| LONGPT | NexusPHP |
-| March | NexusPHP |
-| Moment | NexusPHP |
-| Musopia（音乐乌托邦） | NexusPHP |
-| NanyangPT（南洋） | NexusPHP |
-| NicePT | NexusPHP |
-| NovaHD | NexusPHP |
-| OpenCD | NexusPHP |
-| OurBits（我堡） | NexusPHP |
-| PigGo（猪猪） | NexusPHP |
-| PlayLet | NexusPHP |
-| PTCafe（咖啡） | NexusPHP |
-| PTerClub（猫站） | NexusPHP |
-| PTFans | NexusPHP |
-| PTGTK | NexusPHP |
-| PTHOME | NexusPHP |
-| PTLGS | NexusPHP |
-| PTSBAO（烧包） | NexusPHP |
-| PTSKIT（拾刻） | NexusPHP |
-| PTT | NexusPHP |
-| PTzone | NexusPHP |
-| QingWaPT（青蛙） | NexusPHP |
-| RailgunPT | NexusPHP |
-| SewerPT（下水道） | NexusPHP |
-| SoulVoice（聆音） | NexusPHP |
-| SSD（春天） | NexusPHP |
-| TangPT（不可躺） | NexusPHP |
-| TCCF / ET8 | NexusPHP |
-| TJUPT（北洋园） | NexusPHP |
-| TLFBits | NexusPHP |
-| TTG（听听歌） | NexusPHP |
-| U2 | NexusPHP |
-| UBits | NexusPHP |
-| VC-Lib | NexusPHP |
-| 星湾 | NexusPHP |
-| 星陨阁 | NexusPHP |
-| 修道院 | NexusPHP |
-| XLoli | NexusPHP |
-| ZMPT（织梦） | NexusPHP |
+| 站点 | 站点 | 站点 | 站点 | 站点 |
+| --- | --- | --- | --- | --- |
+| 1PTBA（壹PT吧） | AGSV | alingPT | Audiences（观众） | BTSchool（比特校园） |
+| CarPT（车站） | CHDBits | CPT（我的PT） | CrabPT（蟹黄堡） | CSPT（财神） |
+| CyanBug（大青虫） | 大香蕉 | Depth Studio | DiscFan | Dubhe（天枢） |
+| Farmm（农场） | GGPT | HDArea（高清视界） | HDDolby（HD杜比） | HDFans（红豆饭） |
+| HDHome（家园） | HDSky（天空） | HDTIME | HDU | HhanClub（憨憨） |
+| HTPT（海棠） | HXPT（好学） | KEEPFRDS（朋友） | Kelu | Lajidui（垃圾堆） |
+| LONGPT | March | Moment | Musopia（音乐乌托邦） | NanyangPT（南洋） |
+| NicePT | NovaHD | OpenCD | OurBits（我堡） | PigGo（猪猪） |
+| PlayLet | PTCafe（咖啡） | PTerClub（猫站） | PTFans | PTGTK |
+| PTHOME | PTLGS | PTSBAO（烧包） | PTSKIT（拾刻） | PTT |
+| PTzone | QingWaPT（青蛙） | RailgunPT | SewerPT（下水道） | SoulVoice（聆音） |
+| SSD（春天） | TangPT（不可躺） | TCCF / ET8 | TJUPT（北洋园） | TLFBits |
+| TTG（听听歌） | U2 | UBits | VC-Lib | 星湾 |
+| 星陨阁 | 修道院 | XLoli | ZMPT（织梦） |  |
 
 ### UNIT3D 站点（2 个）
 
-| 站点 | 架构 |
-| --- | --- |
-| AsianCinema | UNIT3D |
-| Blutopia | UNIT3D |
+| 站点 | 站点 | 站点 | 站点 | 站点 |
+| --- | --- | --- | --- | --- |
+| AsianCinema | Blutopia |  |  |  |
 
 ### BtiTracker 站点（2 个）
 
-| 站点 | 架构 |
-| --- | --- |
-| HD-Space | BtiTracker |
-| HD-Torrents | BtiTracker 衍生 |
+| 站点 | 站点 | 站点 | 站点 | 站点 |
+| --- | --- | --- | --- | --- |
+| HD-Space | HD-Torrents |  |  |  |
 
-### 独立架构站点（8 个）
+### 独立架构站点（15 个）
 
-| 站点 | 架构 |
-| --- | --- |
-| BeyondHD | 独立架构站点 |
-| Cola（可乐） | 独立架构站点 |
-| Haidan（海胆） | 独立架构站点 |
-| M-Team（馒头） | 独立架构站点 |
-| Rousi（肉丝） | 独立架构站点 |
-| SunnyPT（阳光） | 独立架构站点 |
-| Yema（野马） | 独立架构站点 |
-| ZhuQue（朱雀） | 独立架构站点 |
+| 站点 | 站点 | 站点 | 站点 | 站点 |
+| --- | --- | --- | --- | --- |
+| BeyondHD | Cinemageddon | Cola（可乐） | ExoticaZ | FileList |
+| Haidan（海胆） | HDBits | KG | M-Team（馒头） | Rousi（肉丝） |
+| SunnyPT（阳光） | TorrentLeech | Yema（野马） | Ying（影） | ZhuQue（朱雀） |
 
 ## 文件说明
 
