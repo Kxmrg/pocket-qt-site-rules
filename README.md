@@ -28,52 +28,46 @@
 
 ### NexusPHP 站点（69 个）
 
-<table>
-  <tr><td>1PTBA（壹PT吧）</td><td>AGSV</td><td>alingPT</td></tr>
-  <tr><td>Audiences（观众）</td><td>BTSchool（比特校园）</td><td>CarPT（车站）</td></tr>
-  <tr><td>CHDBits</td><td>CPT（我的PT）</td><td>CrabPT（蟹黄堡）</td></tr>
-  <tr><td>CSPT（财神）</td><td>CyanBug（大青虫）</td><td>大香蕉</td></tr>
-  <tr><td>Depth Studio</td><td>DiscFan</td><td>Dubhe（天枢）</td></tr>
-  <tr><td>Farmm（农场）</td><td>GGPT</td><td>HDArea（高清视界）</td></tr>
-  <tr><td>HDDolby（HD杜比）</td><td>HDFans（红豆饭）</td><td>HDHome（家园）</td></tr>
-  <tr><td>HDSky（天空）</td><td>HDTIME</td><td>HDU</td></tr>
-  <tr><td>HhanClub（憨憨）</td><td>HTPT（海棠）</td><td>HXPT（好学）</td></tr>
-  <tr><td>KEEPFRDS（朋友）</td><td>Kelu</td><td>Lajidui（垃圾堆）</td></tr>
-  <tr><td>LONGPT</td><td>March</td><td>Moment</td></tr>
-  <tr><td>Musopia（音乐乌托邦）</td><td>NanyangPT（南洋）</td><td>NicePT</td></tr>
-  <tr><td>NovaHD</td><td>OpenCD</td><td>OurBits（我堡）</td></tr>
-  <tr><td>PigGo（猪猪）</td><td>PlayLet</td><td>PTCafe（咖啡）</td></tr>
-  <tr><td>PTerClub（猫站）</td><td>PTFans</td><td>PTGTK</td></tr>
-  <tr><td>PTHOME</td><td>PTLGS</td><td>PTSBAO（烧包）</td></tr>
-  <tr><td>PTSKIT（拾刻）</td><td>PTT</td><td>PTzone</td></tr>
-  <tr><td>QingWaPT（青蛙）</td><td>RailgunPT</td><td>SewerPT（下水道）</td></tr>
-  <tr><td>SoulVoice（聆音）</td><td>SSD（春天）</td><td>TangPT（不可躺）</td></tr>
-  <tr><td>TCCF / ET8</td><td>TJUPT（北洋园）</td><td>TLFBits</td></tr>
-  <tr><td>TTG（听听歌）</td><td>U2</td><td>UBits</td></tr>
-  <tr><td>VC-Lib</td><td>星湾</td><td>星陨阁</td></tr>
-  <tr><td>修道院</td><td>XLoli</td><td>ZMPT（织梦）</td></tr>
+<table width="100%">
+  <tr><td width="25%">1PTBA（壹PT吧）</td><td width="25%">AGSV</td><td width="25%">alingPT</td><td width="25%">Audiences（观众）</td></tr>
+  <tr><td width="25%">BTSchool（比特校园）</td><td width="25%">CarPT（车站）</td><td width="25%">CHDBits</td><td width="25%">CPT（我的PT）</td></tr>
+  <tr><td width="25%">CrabPT（蟹黄堡）</td><td width="25%">CSPT（财神）</td><td width="25%">CyanBug（大青虫）</td><td width="25%">大香蕉</td></tr>
+  <tr><td width="25%">Depth Studio</td><td width="25%">DiscFan</td><td width="25%">Dubhe（天枢）</td><td width="25%">Farmm（农场）</td></tr>
+  <tr><td width="25%">GGPT</td><td width="25%">HDArea（高清视界）</td><td width="25%">HDDolby（HD杜比）</td><td width="25%">HDFans（红豆饭）</td></tr>
+  <tr><td width="25%">HDHome（家园）</td><td width="25%">HDSky（天空）</td><td width="25%">HDTIME</td><td width="25%">HDU</td></tr>
+  <tr><td width="25%">HhanClub（憨憨）</td><td width="25%">HTPT（海棠）</td><td width="25%">HXPT（好学）</td><td width="25%">KEEPFRDS（朋友）</td></tr>
+  <tr><td width="25%">Kelu</td><td width="25%">Lajidui（垃圾堆）</td><td width="25%">LONGPT</td><td width="25%">March</td></tr>
+  <tr><td width="25%">Moment</td><td width="25%">Musopia（音乐乌托邦）</td><td width="25%">NanyangPT（南洋）</td><td width="25%">NicePT</td></tr>
+  <tr><td width="25%">NovaHD</td><td width="25%">OpenCD</td><td width="25%">OurBits（我堡）</td><td width="25%">PigGo（猪猪）</td></tr>
+  <tr><td width="25%">PlayLet</td><td width="25%">PTCafe（咖啡）</td><td width="25%">PTerClub（猫站）</td><td width="25%">PTFans</td></tr>
+  <tr><td width="25%">PTGTK</td><td width="25%">PTHOME</td><td width="25%">PTLGS</td><td width="25%">PTSBAO（烧包）</td></tr>
+  <tr><td width="25%">PTSKIT（拾刻）</td><td width="25%">PTT</td><td width="25%">PTzone</td><td width="25%">QingWaPT（青蛙）</td></tr>
+  <tr><td width="25%">RailgunPT</td><td width="25%">SewerPT（下水道）</td><td width="25%">SoulVoice（聆音）</td><td width="25%">SSD（春天）</td></tr>
+  <tr><td width="25%">TangPT（不可躺）</td><td width="25%">TCCF / ET8</td><td width="25%">TJUPT（北洋园）</td><td width="25%">TLFBits</td></tr>
+  <tr><td width="25%">TTG（听听歌）</td><td width="25%">U2</td><td width="25%">UBits</td><td width="25%">VC-Lib</td></tr>
+  <tr><td width="25%">星湾</td><td width="25%">星陨阁</td><td width="25%">修道院</td><td width="25%">XLoli</td></tr>
+  <tr><td width="25%">ZMPT（织梦）</td><td width="25%"></td><td width="25%"></td><td width="25%"></td></tr>
 </table>
 
 ### UNIT3D 站点（2 个）
 
-<table>
-  <tr><td>AsianCinema</td><td>Blutopia</td><td></td></tr>
+<table width="100%">
+  <tr><td width="25%">AsianCinema</td><td width="25%">Blutopia</td><td width="25%"></td><td width="25%"></td></tr>
 </table>
 
 ### BtiTracker 站点（2 个）
 
-<table>
-  <tr><td>HD-Space</td><td>HD-Torrents</td><td></td></tr>
+<table width="100%">
+  <tr><td width="25%">HD-Space</td><td width="25%">HD-Torrents</td><td width="25%"></td><td width="25%"></td></tr>
 </table>
 
 ### 独立架构站点（15 个）
 
-<table>
-  <tr><td>BeyondHD</td><td>Cinemageddon</td><td>Cola（可乐）</td></tr>
-  <tr><td>ExoticaZ</td><td>FileList</td><td>Haidan（海胆）</td></tr>
-  <tr><td>HDBits</td><td>KG</td><td>M-Team（馒头）</td></tr>
-  <tr><td>Rousi（肉丝）</td><td>SunnyPT（阳光）</td><td>TorrentLeech</td></tr>
-  <tr><td>Yema（野马）</td><td>Ying（影）</td><td>ZhuQue（朱雀）</td></tr>
+<table width="100%">
+  <tr><td width="25%">BeyondHD</td><td width="25%">Cinemageddon</td><td width="25%">Cola（可乐）</td><td width="25%">ExoticaZ</td></tr>
+  <tr><td width="25%">FileList</td><td width="25%">Haidan（海胆）</td><td width="25%">HDBits</td><td width="25%">KG</td></tr>
+  <tr><td width="25%">M-Team（馒头）</td><td width="25%">Rousi（肉丝）</td><td width="25%">SunnyPT（阳光）</td><td width="25%">TorrentLeech</td></tr>
+  <tr><td width="25%">Yema（野马）</td><td width="25%">Ying（影）</td><td width="25%">ZhuQue（朱雀）</td><td width="25%"></td></tr>
 </table>
 
 ## 文件说明
