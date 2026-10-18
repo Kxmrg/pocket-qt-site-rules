@@ -1,6 +1,6 @@
 # 规则文件字段与站点单独配置
 
-本文对应当前 Pocket Evo 规则格式 `schemaVersion: 1`、引擎 `engine: 1`。全量文件为 `global.json`，当前架构为 `nexusphp`。独立 API 站点不使用此规则文件。
+本文对应当前 Pocket Evo 规则格式 `schemaVersion: 1`、引擎 `engine: 1`。全量文件为 `global.json`，当前已实现 `nexusphp` 与 `unit3d`；`gazelle` 保留扩展设计，尚未开放。独立架构站点（包括 BeyondHD）不使用此规则文件。
 
 ## 1. 全量文件
 
@@ -12,7 +12,7 @@
 | code | 整数 | 必填，整个文件的内容版本，范围 1–2147483647 |
 | publishedAt | 整数 | 必填，Unix 秒时间戳，范围 0–253402300799；仅用于显示 |
 | compatibility | 对象 | 必填，引擎兼容性，见下表 |
-| architectures | 对象 | 必填，按架构 ID 分组的通用规则；当前只支持 nexusphp |
+| architectures | 对象 | 必填，按架构 ID 分组的通用规则；当前支持 nexusphp、unit3d |
 | sites | 数组 | 必填，站点补充规则，可为空；每个元素是第 3 节的完整站点文件结构 |
 
 不允许增加 name、description、备注等未定义字段；JSON 不支持注释。不要把 Cookie、Passkey、API Key、账号或个人信息写入规则。
@@ -41,13 +41,17 @@
 | tag-search-token.v1 | 标签作为搜索词标记 |
 | profile-page.v1 | 额外个人资料页 |
 | map-merge.v1 | 对象浅合并补丁 |
+| native-filter-controls.v1 | 从规则指定的原生控件识别标签请求参数与真实 ID |
+| attribute-pagination.v1 | 从分页按钮属性读取页码，不执行 JavaScript |
+| array-tag-parameter.v1 | 标签参数映射支持 resolutionIds[] 等数组键 |
+| resource-link-identity.v1 | 资源详情和下载链接必须匹配当前资源 ID |
 | hr-days.v1 | H&R 天数标签，例如 H&R 3DAY |
 
 能力标识不代表可执行任意代码。站点新增能力应在自身 compatibility 中声明；编译时与通用规则能力合并。未知能力会被拒绝。v22 包含 `hr-days.v1`，旧版 App 如提示不支持规则能力，需要先更新 App；更新失败会保留原规则。
 
 ## 2. 通用架构规则
 
-每个 `architectures.nexusphp` 对象包含且只包含：
+每个 `architectures.nexusphp` / `architectures.unit3d` 对象包含且只包含：
 
 | 字段 | 类型 | 含义 |
 | --- | --- | --- |
@@ -67,7 +71,7 @@
 | id | 字符串 | 必填，稳定站点 ID；1–128 字符，首字符为小写字母或数字，后续允许小写字母、数字、下划线、点、连字符 |
 | code | 整数 | 必填，该站点内容版本；同 ID 比较，范围同全局 |
 | publishedAt | 整数 | 必填，该站点规则发布时间，Unix 秒 |
-| architecture | 字符串 | 必填，当前 nexusphp |
+| architecture | 字符串 | 必填，nexusphp 或 unit3d |
 | domains | 字符串数组 | 必填，1–32 个域名；不写协议、路径、端口或通配符；精确匹配，www 不自动等同根域名 |
 | compatibility | 对象 | 必填，engine 与 features |
 | base | 对象 | 必填，对应通用架构规则的版本要求 |
@@ -333,3 +337,19 @@ date 不是任意时间格式执行器；当前实现只对支持的紧凑日期
 发布规则时手动同步 code、时间、大小和摘要，修改全局/架构/站点内容时分别递增对应版本。以全局 code 创建 rules-vN 标签，分支与新标签同时推送；已发布标签禁止移动或覆盖。仅修改文档而规则字节不变时无需升级规则版本。
 
 下载后先核对大小、摘要及文件内版本，再用生产引擎检查格式和兼容性，全部通过才替换。SHA-256 用于完整性校验，不是签名。当前 App 在线更新仍待接入。
+
+
+## UNIT3D 通用规则与原生控件
+
+UNIT3D 与 NP 使用同一规则库、版本选择、导入、在线更新和诊断链路。普通 HTTP 与增强浏览器得到的 HTML 使用同一份不可变规则快照。`architectures.unit3d` 包含账号、个人资料、资源清单、原生请求参数和分页规则；`sites` 内的 AsianCinema / Blutopia 补充只保存实测标签 ID 映射。清单视图固定 `view=list`，卡片/分组入口在保存和请求时统一转换。
+
+新增声明式能力（旧 App 不识别时拒绝整包并保留原有效规则）：
+
+- `pages.list.tagDiscovery`（最多32项，需 `native-filter-controls.v1`）：每项有唯一 `id`、容器 `selector`、容器内 `control`、请求键 `parameter`；`tag` 固定语义与 `labels` 文本→语义映射二选一；固定数字 `value` 与 `valueAttribute`（仅 value/data-value）二选一。标签文字按空白归一、去首尾空白和小写匹配。没有控件、非法值或同一标签多个冲突 ID 不产生筛选项。后续页面补充或修正已发现映射；只有显示文字不会生成筛选。
+- `encoding=parameter` 的标签 map 可写 `"4k":"resolutionIds[]=1"`，数组键需 `array-tag-parameter.v1`。真实 ID 放站点补充或从控件读取，不写入通用规则。参数中禁止凭据名称。
+- `pagination.kind=attributeNumber`（需 `attribute-pagination.v1`）：声明 `selector`、`attribute`、`pattern`（最多256字符）、`group`（0–8）。只读取属性中的下一页号码；忽略 disabled/aria-disabled。比如读取 `wire:click` 的 gotoPage 数字，再通过已声明的 GET page 参数分页，绝不执行页面脚本。
+- `pages.list.recordIdentity`（需 `resource-link-identity.v1`）：`marker` 标记资源行；`detailUrl`、`downloadUrl` 可分别声明 `regex` 与 `group`，从同源链接路径提取 ID，必须与该行 resourceId 一致。详情身份不合法的行计入部分解析失败；下载身份不匹配则不返回下载地址。
+
+多个普通 query 绑定可以引用同一个输入，例如 `promotion=double-free` 同时映射 `free[0]=100` 与 `doubleup=1`，无须在代码中写死优惠组合。资源显示标签使用字段 candidates/collect；4k、8k 也是有效规范标签标识。
+
+运行时安全边界仍由 App 控制：同源、Cookie 隔离、超时、解析线程/执行预算、下载验证不由远程规则关闭。规则不能携带凭据或脚本，也不能将尚未实现的 Gazelle 架构声明为可用。

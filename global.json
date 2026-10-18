@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 22,
-  "publishedAt": 1792294812,
+  "code": 23,
+  "publishedAt": 1792313706,
   "compatibility": {
     "engine": 1,
     "features": []
@@ -2728,6 +2728,1182 @@
               }
             ]
           }
+        }
+      }
+    },
+    "unit3d": {
+      "code": 2,
+      "publishedAt": 1792313706,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "promotion-time.v1",
+          "resource-link-identity.v1",
+          "semantic-table.v1",
+          "profile-page.v1",
+          "tag-filter.v1",
+          "tag-parameter.v1",
+          "native-filter-controls.v1",
+          "attribute-pagination.v1",
+          "array-tag-parameter.v1"
+        ]
+      },
+      "pages": {
+        "account": {
+          "states": {
+            "challengeRequired": [
+              {
+                "css": "title",
+                "text": "Just a moment|Checking your browser"
+              }
+            ],
+            "authRequired": [
+              {
+                "css": "form[action*=\"login\"] input[type=\"password\"]"
+              }
+            ]
+          },
+          "request": {
+            "target": "/torrents",
+            "query": [
+              {
+                "param": "view",
+                "literal": "list"
+              }
+            ]
+          },
+          "parsers": [
+            {
+              "id": "account",
+              "scope": ".top-nav__right",
+              "fields": {
+                "accountId": {
+                  "candidates": [
+                    {
+                      "id": "profile-id",
+                      "read": {
+                        "css": ".top-nav__username--highresolution, .top-nav__username",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        {
+                          "regex": "/users/([^/?#]+)/?$",
+                          "group": 1
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "accountUrl": {
+                  "candidates": [
+                    {
+                      "id": "profile",
+                      "read": {
+                        "css": ".top-nav__username--highresolution, .top-nav__username",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "username": {
+                  "candidates": [
+                    {
+                      "id": "username",
+                      "read": {
+                        "css": ".top-nav__username--highresolution, .top-nav__username",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "uploadedBytes": {
+                  "candidates": [
+                    {
+                      "id": "uploadedbytes",
+                      "read": {
+                        "css": ".ratio-bar__uploaded",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "bytes"
+                      ]
+                    }
+                  ]
+                },
+                "downloadedBytes": {
+                  "candidates": [
+                    {
+                      "id": "downloadedbytes",
+                      "read": {
+                        "css": ".ratio-bar__downloaded",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "bytes"
+                      ]
+                    }
+                  ]
+                },
+                "ratio": {
+                  "candidates": [
+                    {
+                      "id": "ratio",
+                      "read": {
+                        "css": ".ratio-bar__ratio",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "ratio"
+                      ]
+                    }
+                  ]
+                },
+                "seeding": {
+                  "candidates": [
+                    {
+                      "id": "seeding",
+                      "read": {
+                        "css": ".ratio-bar__seeding",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "integer"
+                      ]
+                    }
+                  ]
+                },
+                "leeching": {
+                  "candidates": [
+                    {
+                      "id": "leeching",
+                      "read": {
+                        "css": ".ratio-bar__leeching",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "integer"
+                      ]
+                    }
+                  ]
+                },
+                "bonus": {
+                  "candidates": [
+                    {
+                      "id": "bonus",
+                      "read": {
+                        "css": ".ratio-bar__points",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "decimal"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "profile": {
+          "states": {
+            "challengeRequired": [
+              {
+                "css": "title",
+                "text": "Just a moment|Checking your browser"
+              }
+            ],
+            "authRequired": [
+              {
+                "css": "form[action*=\"login\"] input[type=\"password\"]"
+              }
+            ]
+          },
+          "request": {
+            "target": {
+              "from": "accountUrl"
+            }
+          },
+          "parsers": [
+            {
+              "id": "profile",
+              "scope": ".profile__username",
+              "fields": {
+                "level": {
+                  "candidates": [
+                    {
+                      "id": "class",
+                      "read": {
+                        "css": ".user-tag__link[title]",
+                        "mode": "attribute",
+                        "attribute": "title"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "list": {
+          "request": {
+            "target": {
+              "from": "entry"
+            },
+            "query": [
+              {
+                "param": "view",
+                "literal": "list"
+              },
+              {
+                "param": "name",
+                "input": "query"
+              },
+              {
+                "param": "page",
+                "input": "page"
+              },
+              {
+                "param": "perPage",
+                "input": "pageSize",
+                "map": {
+                  "1": 25,
+                  "2": 25,
+                  "3": 25,
+                  "4": 25,
+                  "5": 25,
+                  "6": 25,
+                  "7": 25,
+                  "8": 25,
+                  "9": 25,
+                  "10": 25,
+                  "11": 25,
+                  "12": 25,
+                  "13": 25,
+                  "14": 25,
+                  "15": 25,
+                  "16": 25,
+                  "17": 25,
+                  "18": 25,
+                  "19": 25,
+                  "20": 25,
+                  "21": 25,
+                  "22": 25,
+                  "23": 25,
+                  "24": 25,
+                  "25": 25,
+                  "26": 50,
+                  "27": 50,
+                  "28": 50,
+                  "29": 50,
+                  "30": 50,
+                  "31": 50,
+                  "32": 50,
+                  "33": 50,
+                  "34": 50,
+                  "35": 50,
+                  "36": 50,
+                  "37": 50,
+                  "38": 50,
+                  "39": 50,
+                  "40": 50,
+                  "41": 50,
+                  "42": 50,
+                  "43": 50,
+                  "44": 50,
+                  "45": 50,
+                  "46": 50,
+                  "47": 50,
+                  "48": 50,
+                  "49": 50,
+                  "50": 50,
+                  "51": 75,
+                  "52": 75,
+                  "53": 75,
+                  "54": 75,
+                  "55": 75,
+                  "56": 75,
+                  "57": 75,
+                  "58": 75,
+                  "59": 75,
+                  "60": 75,
+                  "61": 75,
+                  "62": 75,
+                  "63": 75,
+                  "64": 75,
+                  "65": 75,
+                  "66": 75,
+                  "67": 75,
+                  "68": 75,
+                  "69": 75,
+                  "70": 75,
+                  "71": 75,
+                  "72": 75,
+                  "73": 75,
+                  "74": 75,
+                  "75": 75,
+                  "76": 100,
+                  "77": 100,
+                  "78": 100,
+                  "79": 100,
+                  "80": 100,
+                  "81": 100,
+                  "82": 100,
+                  "83": 100,
+                  "84": 100,
+                  "85": 100,
+                  "86": 100,
+                  "87": 100,
+                  "88": 100,
+                  "89": 100,
+                  "90": 100,
+                  "91": 100,
+                  "92": 100,
+                  "93": 100,
+                  "94": 100,
+                  "95": 100,
+                  "96": 100,
+                  "97": 100,
+                  "98": 100,
+                  "99": 100,
+                  "100": 100
+                }
+              },
+              {
+                "param": "sortField",
+                "input": "sort",
+                "map": {
+                  "publishedAt": "created_at",
+                  "sizeBytes": "size",
+                  "seeders": "seeders",
+                  "leechers": "leechers",
+                  "completed": "times_completed"
+                }
+              },
+              {
+                "param": "sortDirection",
+                "input": "direction"
+              },
+              {
+                "param": "free[0]",
+                "input": "promotion",
+                "map": {
+                  "free": 100,
+                  "half-download": 50,
+                  "double-free": 100,
+                  "double-half": 50
+                }
+              },
+              {
+                "param": "doubleup",
+                "input": "promotion",
+                "map": {
+                  "double-upload": 1,
+                  "double-free": 1,
+                  "double-half": 1
+                }
+              },
+              {
+                "id": "resource-tag",
+                "param": "tag",
+                "input": "tag",
+                "encoding": "parameter",
+                "map": {
+                  "official-release": "internal=1",
+                  "original": "personalRelease=1"
+                }
+              }
+            ]
+          },
+          "states": {
+            "challengeRequired": [
+              {
+                "css": "title",
+                "text": "Just a moment|Checking your browser"
+              }
+            ],
+            "authRequired": [
+              {
+                "css": "form[action*=\"login\"] input[type=\"password\"]"
+              }
+            ],
+            "empty": [
+              {
+                "css": "table, .torrent-search--list, .panelV2",
+                "text": "查询结果为空|没有种子|No torrents|No results|Nothing found"
+              }
+            ]
+          },
+          "recordIdentity": {
+            "marker": ":scope[data-torrent-id], a.torrent-search--list__name",
+            "detailUrl": {
+              "regex": "^/torrents/([1-9][0-9]*)/?$",
+              "group": 1
+            },
+            "downloadUrl": {
+              "regex": "^/torrents/(?:download/)?([1-9][0-9]*)(?:/download)?/?$",
+              "group": 1
+            }
+          },
+          "tagDiscovery": [
+            {
+              "id": "internal",
+              "selector": "input[wire\\:model\\.live=\"internal\"], input[wire\\:model=\"internal\"], input[name=\"internal\"], input[name=\"internal[]\"]",
+              "control": ":scope",
+              "parameter": "internal",
+              "tag": "official-release",
+              "value": "1"
+            },
+            {
+              "id": "personalRelease",
+              "selector": "input[wire\\:model\\.live=\"personalRelease\"], input[wire\\:model=\"personalRelease\"], input[name=\"personalRelease\"], input[name=\"personalRelease[]\"]",
+              "control": ":scope",
+              "parameter": "personalRelease",
+              "tag": "original",
+              "value": "1"
+            },
+            {
+              "id": "featured",
+              "selector": "input[wire\\:model\\.live=\"featured\"], input[wire\\:model=\"featured\"], input[name=\"featured\"], input[name=\"featured[]\"]",
+              "control": ":scope",
+              "parameter": "featured",
+              "tag": "featured",
+              "value": "1"
+            },
+            {
+              "id": "highspeed",
+              "selector": "input[wire\\:model\\.live=\"highspeed\"], input[wire\\:model=\"highspeed\"], input[name=\"highspeed\"], input[name=\"highspeed[]\"]",
+              "control": ":scope",
+              "parameter": "highspeed",
+              "tag": "high-speed",
+              "value": "1"
+            },
+            {
+              "id": "refundable",
+              "selector": "input[wire\\:model\\.live=\"refundable\"], input[wire\\:model=\"refundable\"], input[name=\"refundable\"], input[name=\"refundable[]\"]",
+              "control": ":scope",
+              "parameter": "refundable",
+              "tag": "refundable",
+              "value": "1"
+            },
+            {
+              "id": "trumpable",
+              "selector": "input[wire\\:model\\.live=\"trumpable\"], input[wire\\:model=\"trumpable\"], input[name=\"trumpable\"], input[name=\"trumpable[]\"]",
+              "control": ":scope",
+              "parameter": "trumpable",
+              "tag": "trumpable",
+              "value": "1"
+            },
+            {
+              "id": "resolutionIds",
+              "selector": "label",
+              "control": "input[wire\\:model\\.live=\"resolutionIds\"], input[wire\\:model=\"resolutionIds\"], input[name=\"resolutionIds\"], input[name=\"resolutionIds[]\"]",
+              "parameter": "resolutionIds[]",
+              "labels": {
+                "2160p": "4k",
+                "4k": "4k",
+                "4320p": "8k",
+                "8k": "8k"
+              },
+              "valueAttribute": "value"
+            },
+            {
+              "id": "typeIds",
+              "selector": "label",
+              "control": "input[wire\\:model\\.live=\"typeIds\"], input[wire\\:model=\"typeIds\"], input[name=\"typeIds\"], input[name=\"typeIds[]\"]",
+              "parameter": "typeIds[]",
+              "labels": {
+                "full disc": "disc",
+                "Full Disc": "disc"
+              },
+              "valueAttribute": "value"
+            }
+          ],
+          "parsers": [
+            {
+              "id": "list",
+              "layout": {
+                "kind": "table",
+                "root": "table.data-table, table",
+                "rows": "tbody > tr",
+                "columns": {
+                  "format": {
+                    "cellCss": ".torrent-search--list__format",
+                    "headers": [
+                      "Format",
+                      "格式"
+                    ],
+                    "headerCss": ".torrent-search--list__format-header"
+                  },
+                  "size": {
+                    "cellCss": ".torrent-search--list__size",
+                    "headers": [
+                      "Size",
+                      "体积",
+                      "大小"
+                    ],
+                    "headerCss": ".torrent-search--list__size-header"
+                  },
+                  "seeders": {
+                    "cellCss": ".torrent-search--list__seeders",
+                    "headers": [
+                      "Seeders",
+                      "做种"
+                    ],
+                    "headerCss": ".torrent-search--list__seeders-header"
+                  },
+                  "leechers": {
+                    "cellCss": ".torrent-search--list__leechers",
+                    "headers": [
+                      "Leechers",
+                      "下载"
+                    ],
+                    "headerCss": ".torrent-search--list__leechers-header"
+                  },
+                  "completed": {
+                    "cellCss": ".torrent-search--list__completed",
+                    "headers": [
+                      "Completed",
+                      "完成"
+                    ],
+                    "headerCss": ".torrent-search--list__completed-header"
+                  },
+                  "age": {
+                    "cellCss": ".torrent-search--list__age",
+                    "headers": [
+                      "Age",
+                      "时间"
+                    ],
+                    "headerCss": ".torrent-search--list__age-header"
+                  }
+                }
+              },
+              "fields": {
+                "resourceId": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": "a.torrent-search--list__name",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        {
+                          "regex": "^(?:https?://[^/?#]+)?/torrents/([1-9][0-9]*)/?(?:[?#].*)?$",
+                          "group": 1
+                        }
+                      ]
+                    },
+                    {
+                      "id": "id",
+                      "read": {
+                        "css": "a.torrent-search--list__name, a[href^=\"/torrents/\"]:not([href*=\"/download\"]):not([href*=\"/peers\"]):not([href*=\"/history\"])",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        {
+                          "regex": "^(?:https?://[^/?#]+)?/torrents/([1-9][0-9]*)/?(?:[?#].*)?$",
+                          "group": 1
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "title": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": "a.torrent-search--list__name",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    },
+                    {
+                      "id": "name",
+                      "read": {
+                        "css": "a.torrent-search--list__name, a[href^=\"/torrents/\"]:not([href*=\"/download\"]):not([href*=\"/peers\"]):not([href*=\"/history\"])",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "detailUrl": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": "a.torrent-search--list__name",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    },
+                    {
+                      "id": "detail",
+                      "read": {
+                        "css": "a.torrent-search--list__name, a[href^=\"/torrents/\"]:not([href*=\"/download\"]):not([href*=\"/peers\"]):not([href*=\"/history\"])",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "downloadUrl": {
+                  "candidates": [
+                    {
+                      "id": "download",
+                      "read": {
+                        "css": "a[href^=\"/torrents/download/\"], a[href$=\"/download\"]",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "subtitle": {
+                  "candidates": [
+                    {
+                      "id": "format",
+                      "read": {
+                        "css": ".torrent-search--list__type",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "sizeBytes": {
+                  "candidates": [
+                    {
+                      "id": "size",
+                      "read": {
+                        "column": "size"
+                      },
+                      "then": [
+                        "bytes"
+                      ]
+                    }
+                  ]
+                },
+                "seeders": {
+                  "candidates": [
+                    {
+                      "id": "seeders",
+                      "read": {
+                        "column": "seeders"
+                      },
+                      "then": [
+                        "integer"
+                      ]
+                    }
+                  ]
+                },
+                "leechers": {
+                  "candidates": [
+                    {
+                      "id": "leechers",
+                      "read": {
+                        "column": "leechers"
+                      },
+                      "then": [
+                        "integer"
+                      ]
+                    }
+                  ]
+                },
+                "completed": {
+                  "candidates": [
+                    {
+                      "id": "completed",
+                      "read": {
+                        "column": "completed"
+                      },
+                      "then": [
+                        "integer"
+                      ]
+                    }
+                  ]
+                },
+                "publishedAt": {
+                  "candidates": [
+                    {
+                      "id": "datetime",
+                      "read": {
+                        "css": "time[datetime]",
+                        "mode": "attribute",
+                        "attribute": "datetime"
+                      }
+                    },
+                    {
+                      "id": "time-title",
+                      "read": {
+                        "css": "time[title]",
+                        "mode": "attribute",
+                        "attribute": "title"
+                      }
+                    }
+                  ]
+                },
+                "publishedAge": {
+                  "candidates": [
+                    {
+                      "id": "age",
+                      "read": {
+                        "css": "time",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    },
+                    {
+                      "id": "age-cell",
+                      "read": {
+                        "column": "age"
+                      }
+                    }
+                  ]
+                },
+                "author": {
+                  "candidates": [
+                    {
+                      "id": "uploader",
+                      "read": {
+                        "css": ".torrent-search--list__uploader",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "cover": {
+                  "candidates": [
+                    {
+                      "id": "poster",
+                      "read": {
+                        "css": ".torrent-search--list__poster img[data-src]",
+                        "mode": "attribute",
+                        "attribute": "data-src"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    },
+                    {
+                      "id": "poster-src",
+                      "read": {
+                        "css": ".torrent-search--list__poster img[src]",
+                        "mode": "attribute",
+                        "attribute": "src"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "downloadFactor": {
+                  "candidates": [
+                    {
+                      "id": "featured-free",
+                      "read": {
+                        "css": ".torrent-icons__featured",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": 0
+                          },
+                          "unknown": "missing"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "percent",
+                      "read": {
+                        "css": ".torrent-icons__freeleech[title]",
+                        "mode": "attribute",
+                        "attribute": "title"
+                      },
+                      "then": [
+                        {
+                          "regex": "([0-9]{1,3})\\s*%",
+                          "group": 1
+                        },
+                        {
+                          "lookup": {
+                            "0": 1.0,
+                            "1": 0.99,
+                            "2": 0.98,
+                            "3": 0.97,
+                            "4": 0.96,
+                            "5": 0.95,
+                            "6": 0.94,
+                            "7": 0.93,
+                            "8": 0.92,
+                            "9": 0.91,
+                            "10": 0.9,
+                            "11": 0.89,
+                            "12": 0.88,
+                            "13": 0.87,
+                            "14": 0.86,
+                            "15": 0.85,
+                            "16": 0.84,
+                            "17": 0.83,
+                            "18": 0.82,
+                            "19": 0.81,
+                            "20": 0.8,
+                            "21": 0.79,
+                            "22": 0.78,
+                            "23": 0.77,
+                            "24": 0.76,
+                            "25": 0.75,
+                            "26": 0.74,
+                            "27": 0.73,
+                            "28": 0.72,
+                            "29": 0.71,
+                            "30": 0.7,
+                            "31": 0.69,
+                            "32": 0.68,
+                            "33": 0.67,
+                            "34": 0.66,
+                            "35": 0.65,
+                            "36": 0.64,
+                            "37": 0.63,
+                            "38": 0.62,
+                            "39": 0.61,
+                            "40": 0.6,
+                            "41": 0.59,
+                            "42": 0.58,
+                            "43": 0.57,
+                            "44": 0.56,
+                            "45": 0.55,
+                            "46": 0.54,
+                            "47": 0.53,
+                            "48": 0.52,
+                            "49": 0.51,
+                            "50": 0.5,
+                            "51": 0.49,
+                            "52": 0.48,
+                            "53": 0.47,
+                            "54": 0.46,
+                            "55": 0.45,
+                            "56": 0.44,
+                            "57": 0.43,
+                            "58": 0.42,
+                            "59": 0.41,
+                            "60": 0.4,
+                            "61": 0.39,
+                            "62": 0.38,
+                            "63": 0.37,
+                            "64": 0.36,
+                            "65": 0.35,
+                            "66": 0.34,
+                            "67": 0.33,
+                            "68": 0.32,
+                            "69": 0.31,
+                            "70": 0.3,
+                            "71": 0.29,
+                            "72": 0.28,
+                            "73": 0.27,
+                            "74": 0.26,
+                            "75": 0.25,
+                            "76": 0.24,
+                            "77": 0.23,
+                            "78": 0.22,
+                            "79": 0.21,
+                            "80": 0.2,
+                            "81": 0.19,
+                            "82": 0.18,
+                            "83": 0.17,
+                            "84": 0.16,
+                            "85": 0.15,
+                            "86": 0.14,
+                            "87": 0.13,
+                            "88": 0.12,
+                            "89": 0.11,
+                            "90": 0.1,
+                            "91": 0.09,
+                            "92": 0.08,
+                            "93": 0.07,
+                            "94": 0.06,
+                            "95": 0.05,
+                            "96": 0.04,
+                            "97": 0.03,
+                            "98": 0.02,
+                            "99": 0.01,
+                            "100": 0.0
+                          },
+                          "unknown": "missing"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "free",
+                      "read": {
+                        "css": ".torrent-icons__freeleech:not([title])",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": 0
+                          },
+                          "unknown": "missing"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "uploadFactor": {
+                  "candidates": [
+                    {
+                      "id": "featured-upload",
+                      "read": {
+                        "css": ".torrent-icons__featured",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": 2
+                          },
+                          "unknown": "missing"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "double",
+                      "read": {
+                        "css": ".torrent-icons__double-upload, .torrent-icons__doubleup, i[title=\"Double Upload\"]",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": 2
+                          },
+                          "unknown": "missing"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "pinned": {
+                  "candidates": [
+                    {
+                      "id": "pin",
+                      "read": {
+                        "css": ":scope.bg-pinned, :scope.sticky, .torrent-icons__sticky, .torrent-icons__pinned",
+                        "mode": "exists"
+                      }
+                    }
+                  ]
+                },
+                "hot": {
+                  "candidates": [
+                    {
+                      "id": "hot",
+                      "read": {
+                        "css": ".torrent-icons__hot",
+                        "mode": "exists"
+                      }
+                    }
+                  ]
+                },
+                "tags": {
+                  "candidates": [
+                    {
+                      "id": "format-labels",
+                      "read": {
+                        "css": ".torrent-search--list__resolution, .torrent-search--list__type",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        {
+                          "tagAliases": {
+                            "2160p": "4k",
+                            "4320p": "8k",
+                            "full disc": "disc",
+                            "Full Disc": "disc"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "internal",
+                      "read": {
+                        "css": ".torrent-icons__internal, i[title=\"Internal\"]",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": "official-release"
+                          },
+                          "unknown": "missing"
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "personal",
+                      "read": {
+                        "css": ".torrent-icons__personal-release",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": "original"
+                          },
+                          "unknown": "missing"
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "featured",
+                      "read": {
+                        "css": ".torrent-icons__featured",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": "featured"
+                          },
+                          "unknown": "missing"
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "highspeed",
+                      "read": {
+                        "css": ".torrent-icons__highspeed",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": "high-speed"
+                          },
+                          "unknown": "missing"
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "refundable",
+                      "read": {
+                        "css": ".torrent-icons__refundable",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": "refundable"
+                          },
+                          "unknown": "missing"
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "trumpable",
+                      "read": {
+                        "css": ".torrent-icons__trumpable",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": "trumpable"
+                          },
+                          "unknown": "missing"
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "other-labels",
+                      "read": {
+                        "css": ".torrent-icons [title]:not([class*=\"comments\"]):not([class*=\"freeleech\"]):not([class*=\"double-upload\"]):not([class*=\"sticky\"]):not([class*=\"internal\"]):not([class*=\"personal-release\"]):not([class*=\"featured\"]):not([class*=\"highspeed\"]):not([class*=\"refundable\"]):not([class*=\"trumpable\"])",
+                        "mode": "attributes",
+                        "attribute": "title"
+                      }
+                    }
+                  ],
+                  "strategy": "collect"
+                },
+                "promotionRemainingSeconds": {
+                  "candidates": [
+                    {
+                      "id": "free-expiry",
+                      "read": {
+                        "css": ".torrent-icons__freeleech[title]",
+                        "mode": "attribute",
+                        "attribute": "title"
+                      },
+                      "then": [
+                        {
+                          "regex": "\\(expires ([^)]+)\\)",
+                          "group": 1
+                        },
+                        "durationSeconds"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "pagination": [
+            {
+              "kind": "numberedLinks",
+              "selector": "a[href*=\"page=\"]",
+              "parameter": "page"
+            },
+            {
+              "kind": "attributeNumber",
+              "selector": "button[wire\\:click]:not([disabled])",
+              "attribute": "wire:click",
+              "pattern": "^(?:gotoPage|setPage)\\(([0-9]+)(?:,|\\))",
+              "group": 1
+            }
+          ]
         }
       }
     }
@@ -8215,6 +9391,69 @@
               "no-repost": 1,
               "official-release": 3
             }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "site",
+      "id": "asiancinema",
+      "code": 1,
+      "publishedAt": 1792313706,
+      "architecture": "unit3d",
+      "domains": [
+        "eiga.moi"
+      ],
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "map-merge.v1",
+          "array-tag-parameter.v1"
+        ]
+      },
+      "base": {
+        "minCode": 1
+      },
+      "patches": [
+        {
+          "op": "merge",
+          "path": "/pages/list/request/query/resource-tag/map",
+          "value": {
+            "disc": "typeIds[]=1",
+            "4k": "resolutionIds[]=1"
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "site",
+      "id": "blutopia",
+      "code": 1,
+      "publishedAt": 1792313706,
+      "architecture": "unit3d",
+      "domains": [
+        "blutopia.cc"
+      ],
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "map-merge.v1",
+          "array-tag-parameter.v1"
+        ]
+      },
+      "base": {
+        "minCode": 1
+      },
+      "patches": [
+        {
+          "op": "merge",
+          "path": "/pages/list/request/query/resource-tag/map",
+          "value": {
+            "disc": "typeIds[]=1",
+            "8k": "resolutionIds[]=11",
+            "4k": "resolutionIds[]=1"
           }
         }
       ]
