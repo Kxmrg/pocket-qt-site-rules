@@ -29,45 +29,45 @@
 ### NexusPHP 站点（69 个）
 
 <table width="100%">
-  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />1PTBA（壹PT吧）</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />AGSV</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />alingPT</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />Audiences（观众）</td></tr>
-  <tr><td width="25%">BTSchool（比特校园）</td><td width="25%">CarPT（车站）</td><td width="25%">CHDBits</td><td width="25%">CPT（我的PT）</td></tr>
-  <tr><td width="25%">CrabPT（蟹黄堡）</td><td width="25%">CSPT（财神）</td><td width="25%">CyanBug（大青虫）</td><td width="25%">大香蕉</td></tr>
-  <tr><td width="25%">Depth Studio</td><td width="25%">DiscFan</td><td width="25%">Dubhe（天枢）</td><td width="25%">Farmm（农场）</td></tr>
-  <tr><td width="25%">GGPT</td><td width="25%">HDArea（高清视界）</td><td width="25%">HDDolby（HD杜比）</td><td width="25%">HDFans（红豆饭）</td></tr>
-  <tr><td width="25%">HDHome（家园）</td><td width="25%">HDSky（天空）</td><td width="25%">HDTIME</td><td width="25%">HDU</td></tr>
-  <tr><td width="25%">HhanClub（憨憨）</td><td width="25%">HTPT（海棠）</td><td width="25%">HXPT（好学）</td><td width="25%">KEEPFRDS（朋友）</td></tr>
-  <tr><td width="25%">Kelu</td><td width="25%">Lajidui（垃圾堆）</td><td width="25%">LONGPT</td><td width="25%">March</td></tr>
-  <tr><td width="25%">Moment</td><td width="25%">Musopia（音乐乌托邦）</td><td width="25%">NanyangPT（南洋）</td><td width="25%">NicePT</td></tr>
-  <tr><td width="25%">NovaHD</td><td width="25%">OpenCD</td><td width="25%">OurBits（我堡）</td><td width="25%">PigGo（猪猪）</td></tr>
-  <tr><td width="25%">PlayLet</td><td width="25%">PTCafe（咖啡）</td><td width="25%">PTerClub（猫站）</td><td width="25%">PTFans</td></tr>
-  <tr><td width="25%">PTGTK</td><td width="25%">PTHOME</td><td width="25%">PTLGS</td><td width="25%">PTSBAO（烧包）</td></tr>
-  <tr><td width="25%">PTSKIT（拾刻）</td><td width="25%">PTT</td><td width="25%">PTzone</td><td width="25%">QingWaPT（青蛙）</td></tr>
-  <tr><td width="25%">RailgunPT</td><td width="25%">SewerPT（下水道）</td><td width="25%">SoulVoice（聆音）</td><td width="25%">SSD（春天）</td></tr>
-  <tr><td width="25%">TangPT（不可躺）</td><td width="25%">TCCF / ET8</td><td width="25%">TJUPT（北洋园）</td><td width="25%">TLFBits</td></tr>
-  <tr><td width="25%">TTG（听听歌）</td><td width="25%">U2</td><td width="25%">UBits</td><td width="25%">VC-Lib</td></tr>
-  <tr><td width="25%">星湾</td><td width="25%">星陨阁</td><td width="25%">修道院</td><td width="25%">XLoli</td></tr>
-  <tr><td width="25%">ZMPT（织梦）</td><td width="25%"></td><td width="25%"></td><td width="25%"></td></tr>
+  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />1<wbr>P<wbr>T<wbr>B<wbr>A<wbr>（<wbr>壹<wbr>P<wbr>T<wbr>吧<wbr>）</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />A<wbr>G<wbr>S<wbr>V</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />a<wbr>l<wbr>i<wbr>n<wbr>g<wbr>P<wbr>T</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />A<wbr>u<wbr>d<wbr>i<wbr>e<wbr>n<wbr>c<wbr>e<wbr>s<wbr>（<wbr>观<wbr>众<wbr>）</td></tr>
+  <tr><td width="25%">B<wbr>T<wbr>S<wbr>c<wbr>h<wbr>o<wbr>o<wbr>l<wbr>（<wbr>比<wbr>特<wbr>校<wbr>园<wbr>）</td><td width="25%">C<wbr>a<wbr>r<wbr>P<wbr>T<wbr>（<wbr>车<wbr>站<wbr>）</td><td width="25%">C<wbr>H<wbr>D<wbr>B<wbr>i<wbr>t<wbr>s</td><td width="25%">C<wbr>P<wbr>T<wbr>（<wbr>我<wbr>的<wbr>P<wbr>T<wbr>）</td></tr>
+  <tr><td width="25%">C<wbr>r<wbr>a<wbr>b<wbr>P<wbr>T<wbr>（<wbr>蟹<wbr>黄<wbr>堡<wbr>）</td><td width="25%">C<wbr>S<wbr>P<wbr>T<wbr>（<wbr>财<wbr>神<wbr>）</td><td width="25%">C<wbr>y<wbr>a<wbr>n<wbr>B<wbr>u<wbr>g<wbr>（<wbr>大<wbr>青<wbr>虫<wbr>）</td><td width="25%">大<wbr>香<wbr>蕉</td></tr>
+  <tr><td width="25%">D<wbr>e<wbr>p<wbr>t<wbr>h<wbr> <wbr>S<wbr>t<wbr>u<wbr>d<wbr>i<wbr>o</td><td width="25%">D<wbr>i<wbr>s<wbr>c<wbr>F<wbr>a<wbr>n</td><td width="25%">D<wbr>u<wbr>b<wbr>h<wbr>e<wbr>（<wbr>天<wbr>枢<wbr>）</td><td width="25%">F<wbr>a<wbr>r<wbr>m<wbr>m<wbr>（<wbr>农<wbr>场<wbr>）</td></tr>
+  <tr><td width="25%">G<wbr>G<wbr>P<wbr>T</td><td width="25%">H<wbr>D<wbr>A<wbr>r<wbr>e<wbr>a<wbr>（<wbr>高<wbr>清<wbr>视<wbr>界<wbr>）</td><td width="25%">H<wbr>D<wbr>D<wbr>o<wbr>l<wbr>b<wbr>y<wbr>（<wbr>H<wbr>D<wbr>杜<wbr>比<wbr>）</td><td width="25%">H<wbr>D<wbr>F<wbr>a<wbr>n<wbr>s<wbr>（<wbr>红<wbr>豆<wbr>饭<wbr>）</td></tr>
+  <tr><td width="25%">H<wbr>D<wbr>H<wbr>o<wbr>m<wbr>e<wbr>（<wbr>家<wbr>园<wbr>）</td><td width="25%">H<wbr>D<wbr>S<wbr>k<wbr>y<wbr>（<wbr>天<wbr>空<wbr>）</td><td width="25%">H<wbr>D<wbr>T<wbr>I<wbr>M<wbr>E</td><td width="25%">H<wbr>D<wbr>U</td></tr>
+  <tr><td width="25%">H<wbr>h<wbr>a<wbr>n<wbr>C<wbr>l<wbr>u<wbr>b<wbr>（<wbr>憨<wbr>憨<wbr>）</td><td width="25%">H<wbr>T<wbr>P<wbr>T<wbr>（<wbr>海<wbr>棠<wbr>）</td><td width="25%">H<wbr>X<wbr>P<wbr>T<wbr>（<wbr>好<wbr>学<wbr>）</td><td width="25%">K<wbr>E<wbr>E<wbr>P<wbr>F<wbr>R<wbr>D<wbr>S<wbr>（<wbr>朋<wbr>友<wbr>）</td></tr>
+  <tr><td width="25%">K<wbr>e<wbr>l<wbr>u</td><td width="25%">L<wbr>a<wbr>j<wbr>i<wbr>d<wbr>u<wbr>i<wbr>（<wbr>垃<wbr>圾<wbr>堆<wbr>）</td><td width="25%">L<wbr>O<wbr>N<wbr>G<wbr>P<wbr>T</td><td width="25%">M<wbr>a<wbr>r<wbr>c<wbr>h</td></tr>
+  <tr><td width="25%">M<wbr>o<wbr>m<wbr>e<wbr>n<wbr>t</td><td width="25%">M<wbr>u<wbr>s<wbr>o<wbr>p<wbr>i<wbr>a<wbr>（<wbr>音<wbr>乐<wbr>乌<wbr>托<wbr>邦<wbr>）</td><td width="25%">N<wbr>a<wbr>n<wbr>y<wbr>a<wbr>n<wbr>g<wbr>P<wbr>T<wbr>（<wbr>南<wbr>洋<wbr>）</td><td width="25%">N<wbr>i<wbr>c<wbr>e<wbr>P<wbr>T</td></tr>
+  <tr><td width="25%">N<wbr>o<wbr>v<wbr>a<wbr>H<wbr>D</td><td width="25%">O<wbr>p<wbr>e<wbr>n<wbr>C<wbr>D</td><td width="25%">O<wbr>u<wbr>r<wbr>B<wbr>i<wbr>t<wbr>s<wbr>（<wbr>我<wbr>堡<wbr>）</td><td width="25%">P<wbr>i<wbr>g<wbr>G<wbr>o<wbr>（<wbr>猪<wbr>猪<wbr>）</td></tr>
+  <tr><td width="25%">P<wbr>l<wbr>a<wbr>y<wbr>L<wbr>e<wbr>t</td><td width="25%">P<wbr>T<wbr>C<wbr>a<wbr>f<wbr>e<wbr>（<wbr>咖<wbr>啡<wbr>）</td><td width="25%">P<wbr>T<wbr>e<wbr>r<wbr>C<wbr>l<wbr>u<wbr>b<wbr>（<wbr>猫<wbr>站<wbr>）</td><td width="25%">P<wbr>T<wbr>F<wbr>a<wbr>n<wbr>s</td></tr>
+  <tr><td width="25%">P<wbr>T<wbr>G<wbr>T<wbr>K</td><td width="25%">P<wbr>T<wbr>H<wbr>O<wbr>M<wbr>E</td><td width="25%">P<wbr>T<wbr>L<wbr>G<wbr>S</td><td width="25%">P<wbr>T<wbr>S<wbr>B<wbr>A<wbr>O<wbr>（<wbr>烧<wbr>包<wbr>）</td></tr>
+  <tr><td width="25%">P<wbr>T<wbr>S<wbr>K<wbr>I<wbr>T<wbr>（<wbr>拾<wbr>刻<wbr>）</td><td width="25%">P<wbr>T<wbr>T</td><td width="25%">P<wbr>T<wbr>z<wbr>o<wbr>n<wbr>e</td><td width="25%">Q<wbr>i<wbr>n<wbr>g<wbr>W<wbr>a<wbr>P<wbr>T<wbr>（<wbr>青<wbr>蛙<wbr>）</td></tr>
+  <tr><td width="25%">R<wbr>a<wbr>i<wbr>l<wbr>g<wbr>u<wbr>n<wbr>P<wbr>T</td><td width="25%">S<wbr>e<wbr>w<wbr>e<wbr>r<wbr>P<wbr>T<wbr>（<wbr>下<wbr>水<wbr>道<wbr>）</td><td width="25%">S<wbr>o<wbr>u<wbr>l<wbr>V<wbr>o<wbr>i<wbr>c<wbr>e<wbr>（<wbr>聆<wbr>音<wbr>）</td><td width="25%">S<wbr>S<wbr>D<wbr>（<wbr>春<wbr>天<wbr>）</td></tr>
+  <tr><td width="25%">T<wbr>a<wbr>n<wbr>g<wbr>P<wbr>T<wbr>（<wbr>不<wbr>可<wbr>躺<wbr>）</td><td width="25%">T<wbr>C<wbr>C<wbr>F<wbr> <wbr>/<wbr> <wbr>E<wbr>T<wbr>8</td><td width="25%">T<wbr>J<wbr>U<wbr>P<wbr>T<wbr>（<wbr>北<wbr>洋<wbr>园<wbr>）</td><td width="25%">T<wbr>L<wbr>F<wbr>B<wbr>i<wbr>t<wbr>s</td></tr>
+  <tr><td width="25%">T<wbr>T<wbr>G<wbr>（<wbr>听<wbr>听<wbr>歌<wbr>）</td><td width="25%">U<wbr>2</td><td width="25%">U<wbr>B<wbr>i<wbr>t<wbr>s</td><td width="25%">V<wbr>C<wbr>-<wbr>L<wbr>i<wbr>b</td></tr>
+  <tr><td width="25%">星<wbr>湾</td><td width="25%">星<wbr>陨<wbr>阁</td><td width="25%">修<wbr>道<wbr>院</td><td width="25%">X<wbr>L<wbr>o<wbr>l<wbr>i</td></tr>
+  <tr><td width="25%">Z<wbr>M<wbr>P<wbr>T<wbr>（<wbr>织<wbr>梦<wbr>）</td><td width="25%"></td><td width="25%"></td><td width="25%"></td></tr>
 </table>
 
 ### UNIT3D 站点（2 个）
 
 <table width="100%">
-  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />AsianCinema</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />Blutopia</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" /></td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" /></td></tr>
+  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />A<wbr>s<wbr>i<wbr>a<wbr>n<wbr>C<wbr>i<wbr>n<wbr>e<wbr>m<wbr>a</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />B<wbr>l<wbr>u<wbr>t<wbr>o<wbr>p<wbr>i<wbr>a</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" /></td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" /></td></tr>
 </table>
 
 ### BtiTracker 站点（2 个）
 
 <table width="100%">
-  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />HD-Space</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />HD-Torrents</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" /></td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" /></td></tr>
+  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />H<wbr>D<wbr>-<wbr>S<wbr>p<wbr>a<wbr>c<wbr>e</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />H<wbr>D<wbr>-<wbr>T<wbr>o<wbr>r<wbr>r<wbr>e<wbr>n<wbr>t<wbr>s</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" /></td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" /></td></tr>
 </table>
 
 ### 独立架构站点（15 个）
 
 <table width="100%">
-  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />BeyondHD</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />Cinemageddon</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />Cola（可乐）</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="1" align="left" alt="" />ExoticaZ</td></tr>
-  <tr><td width="25%">FileList</td><td width="25%">Haidan（海胆）</td><td width="25%">HDBits</td><td width="25%">KG</td></tr>
-  <tr><td width="25%">M-Team（馒头）</td><td width="25%">Rousi（肉丝）</td><td width="25%">SunnyPT（阳光）</td><td width="25%">TorrentLeech</td></tr>
-  <tr><td width="25%">Yema（野马）</td><td width="25%">Ying（影）</td><td width="25%">ZhuQue（朱雀）</td><td width="25%"></td></tr>
+  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />B<wbr>e<wbr>y<wbr>o<wbr>n<wbr>d<wbr>H<wbr>D</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />C<wbr>i<wbr>n<wbr>e<wbr>m<wbr>a<wbr>g<wbr>e<wbr>d<wbr>d<wbr>o<wbr>n</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />C<wbr>o<wbr>l<wbr>a<wbr>（<wbr>可<wbr>乐<wbr>）</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />E<wbr>x<wbr>o<wbr>t<wbr>i<wbr>c<wbr>a<wbr>Z</td></tr>
+  <tr><td width="25%">F<wbr>i<wbr>l<wbr>e<wbr>L<wbr>i<wbr>s<wbr>t</td><td width="25%">H<wbr>a<wbr>i<wbr>d<wbr>a<wbr>n<wbr>（<wbr>海<wbr>胆<wbr>）</td><td width="25%">H<wbr>D<wbr>B<wbr>i<wbr>t<wbr>s</td><td width="25%">K<wbr>G</td></tr>
+  <tr><td width="25%">M<wbr>-<wbr>T<wbr>e<wbr>a<wbr>m<wbr>（<wbr>馒<wbr>头<wbr>）</td><td width="25%">R<wbr>o<wbr>u<wbr>s<wbr>i<wbr>（<wbr>肉<wbr>丝<wbr>）</td><td width="25%">S<wbr>u<wbr>n<wbr>n<wbr>y<wbr>P<wbr>T<wbr>（<wbr>阳<wbr>光<wbr>）</td><td width="25%">T<wbr>o<wbr>r<wbr>r<wbr>e<wbr>n<wbr>t<wbr>L<wbr>e<wbr>e<wbr>c<wbr>h</td></tr>
+  <tr><td width="25%">Y<wbr>e<wbr>m<wbr>a<wbr>（<wbr>野<wbr>马<wbr>）</td><td width="25%">Y<wbr>i<wbr>n<wbr>g<wbr>（<wbr>影<wbr>）</td><td width="25%">Z<wbr>h<wbr>u<wbr>Q<wbr>u<wbr>e<wbr>（<wbr>朱<wbr>雀<wbr>）</td><td width="25%"></td></tr>
 </table>
 
 ## 文件说明
