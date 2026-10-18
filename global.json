@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 20,
-  "publishedAt": 1792052283,
+  "code": 22,
+  "publishedAt": 1792294812,
   "compatibility": {
     "engine": 1,
     "features": []
   },
   "architectures": {
     "nexusphp": {
-      "code": 17,
-      "publishedAt": 1792028576,
+      "code": 18,
+      "publishedAt": 1792254902,
       "compatibility": {
         "engine": 1,
         "features": [
@@ -1134,7 +1134,7 @@
                     {
                       "id": "span",
                       "read": {
-                        "css": "span.tags, span.torrent-tag, span.torrent_tag, span.tag, span:not([alt=\"Free\"]):not([alt=\"50%\"])[style*=\"background-color\"][style*=\"border-radius\"][style*=\"padding\"]:not([title*=\"评分\"]):not([title*=\"rating\"]):not([title*=\"Rating\"]), table.torrentname td.embedded > span.label",
+                        "css": "span.tags, span.torrent-tag, span.torrent_tag, span.tag, span:not([alt=\"Free\"]):not([alt=\"50%\"])[style*=\"background\"][style*=\"border-radius\"][style*=\"padding\"]:not([title*=\"评分\"]):not([title*=\"rating\"]):not([title*=\"Rating\"]), table.torrentname td.embedded > span.label",
                         "mode": "texts"
                       },
                       "then": [
@@ -1268,7 +1268,7 @@
                         "css": ".small_descr, .small-description, .subtitle, .torrent_title_desc, .torrent-small-description, .torrent-smalldescr",
                         "mode": "text",
                         "exclude": [
-                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background-color\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
+                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
                           "span.label.label-primary, span.label.label-warning, span.label.label-info, span.label.label-danger, span.label.label-success, span.label.label-default",
                           ".torrent-content-tag, .torrent-sticky-level-tag, .optiontag, .chs_tag, .circle, .torrent-tag",
                           ".imdbRatingPlugin"
@@ -1295,7 +1295,7 @@
                         "css": "table.torrentname td.embedded > span[title=\"通过\"] + br, table.torrentname td.embedded > span[title=\"未审\"] + br",
                         "mode": "followingContent",
                         "exclude": [
-                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background-color\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
+                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
                           "span.label.label-primary, span.label.label-warning, span.label.label-info, span.label.label-danger, span.label.label-success, span.label.label-default",
                           ".torrent-content-tag, .torrent-sticky-level-tag, .optiontag, .chs_tag, .circle, .torrent-tag",
                           ".imdbRatingPlugin"
@@ -1311,7 +1311,7 @@
                         "css": "table.torrentname td.embedded > br",
                         "mode": "followingContent",
                         "exclude": [
-                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background-color\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
+                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
                           "span.label.label-primary, span.label.label-warning, span.label.label-info, span.label.label-danger, span.label.label-success, span.label.label-default",
                           ".torrent-content-tag, .torrent-sticky-level-tag, .optiontag, .chs_tag, .circle, .torrent-tag",
                           ".imdbRatingPlugin"
@@ -1327,7 +1327,7 @@
                         "css": "td > a[href*=\"details.php?id=\"] ~ br",
                         "mode": "followingContent",
                         "exclude": [
-                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background-color\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
+                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
                           "span.label.label-primary, span.label.label-warning, span.label.label-info, span.label.label-danger, span.label.label-success, span.label.label-default",
                           ".torrent-content-tag, .torrent-sticky-level-tag, .optiontag, .chs_tag, .circle, .torrent-tag",
                           ".imdbRatingPlugin"
@@ -1752,7 +1752,7 @@
                     {
                       "id": "span",
                       "read": {
-                        "css": "span.tags, span.torrent-tag, span.torrent_tag, span.tag, span:not([alt=\"Free\"]):not([alt=\"50%\"])[style*=\"background-color\"][style*=\"border-radius\"][style*=\"padding\"]:not([title*=\"评分\"]):not([title*=\"rating\"]):not([title*=\"Rating\"]), table.torrentname td.embedded > span.label",
+                        "css": "span.tags, span.torrent-tag, span.torrent_tag, span.tag, span:not([alt=\"Free\"]):not([alt=\"50%\"])[style*=\"background\"][style*=\"border-radius\"][style*=\"padding\"]:not([title*=\"评分\"]):not([title*=\"rating\"]):not([title*=\"Rating\"]), table.torrentname td.embedded > span.label",
                         "mode": "texts"
                       },
                       "then": [
@@ -1886,7 +1886,7 @@
                         "css": ".small_descr, .small-description, .subtitle, .torrent_title_desc, .torrent-small-description, .torrent-smalldescr",
                         "mode": "text",
                         "exclude": [
-                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background-color\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
+                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
                           "span.label.label-primary, span.label.label-warning, span.label.label-info, span.label.label-danger, span.label.label-success, span.label.label-default",
                           ".torrent-content-tag, .torrent-sticky-level-tag, .optiontag, .chs_tag, .circle, .torrent-tag",
                           ".imdbRatingPlugin"
@@ -1913,7 +1913,7 @@
                         "css": "table.torrentname td.embedded > span[title=\"通过\"] + br, table.torrentname td.embedded > span[title=\"未审\"] + br",
                         "mode": "followingContent",
                         "exclude": [
-                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background-color\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
+                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
                           "span.label.label-primary, span.label.label-warning, span.label.label-info, span.label.label-danger, span.label.label-success, span.label.label-default",
                           ".torrent-content-tag, .torrent-sticky-level-tag, .optiontag, .chs_tag, .circle, .torrent-tag",
                           ".imdbRatingPlugin"
@@ -1929,7 +1929,7 @@
                         "css": "table.torrentname td.embedded > br",
                         "mode": "followingContent",
                         "exclude": [
-                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background-color\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
+                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
                           "span.label.label-primary, span.label.label-warning, span.label.label-info, span.label.label-danger, span.label.label-success, span.label.label-default",
                           ".torrent-content-tag, .torrent-sticky-level-tag, .optiontag, .chs_tag, .circle, .torrent-tag",
                           ".imdbRatingPlugin"
@@ -1945,7 +1945,7 @@
                         "css": "td > a[href*=\"details.php?id=\"] ~ br",
                         "mode": "followingContent",
                         "exclude": [
-                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background-color\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
+                          ".tag, .tags, .torrent-tag, .torrent_tag, a[href*=\"tag_id=\"], span[style*=\"background\"][style*=\"padding\"], a[href*=\"download.php\"], a[href^=\"javascript:\"], img",
                           "span.label.label-primary, span.label.label-warning, span.label.label-info, span.label.label-danger, span.label.label-success, span.label.label-default",
                           ".torrent-content-tag, .torrent-sticky-level-tag, .optiontag, .chs_tag, .circle, .torrent-tag",
                           ".imdbRatingPlugin"
@@ -2385,7 +2385,7 @@
                     {
                       "id": "span",
                       "read": {
-                        "css": "span.tags, span.torrent-tag, span.torrent_tag, span.tag, span:not([alt=\"Free\"]):not([alt=\"50%\"])[style*=\"background-color\"][style*=\"border-radius\"][style*=\"padding\"]:not([title*=\"评分\"]):not([title*=\"rating\"]):not([title*=\"Rating\"]), table.torrentname td.embedded > span.label",
+                        "css": "span.tags, span.torrent-tag, span.torrent_tag, span.tag, span:not([alt=\"Free\"]):not([alt=\"50%\"])[style*=\"background\"][style*=\"border-radius\"][style*=\"padding\"]:not([title*=\"评分\"]):not([title*=\"rating\"]):not([title*=\"Rating\"]), table.torrentname td.embedded > span.label",
                         "mode": "texts"
                       },
                       "then": [
@@ -2721,6 +2721,10 @@
               {
                 "css": "table.main td.text",
                 "text": "^\\s*没有种子\\s*[:：]\\(\\s*$"
+              },
+              {
+                "css": "table.main td.text",
+                "text": "^\\s*沒有種子。請用準確的關鍵字重試。\\s*$"
               }
             ]
           }
@@ -5860,8 +5864,8 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "chdbits",
-      "code": 3,
-      "publishedAt": 1792046231,
+      "code": 4,
+      "publishedAt": 1792294812,
       "architecture": "nexusphp",
       "domains": [
         "ptchdbits.co"
@@ -5869,7 +5873,9 @@
       "compatibility": {
         "engine": 1,
         "features": [
-          "tag-filter.v1"
+          "tag-filter.v1",
+          "hr-days.v1",
+          "map-merge.v1"
         ]
       },
       "base": {
@@ -5884,6 +5890,81 @@
             "input": "tag",
             "param": "tag_id",
             "map": {}
+          }
+        },
+        {
+          "op": "merge",
+          "path": "/pages/list/parsers/semantic/fields",
+          "value": {
+            "hitAndRunDays": {
+              "candidates": [
+                {
+                  "id": "chd-hr-days",
+                  "read": {
+                    "css": ".circle > .circle-text",
+                    "mode": "text"
+                  },
+                  "then": [
+                    "trim",
+                    {
+                      "regex": "^[hH]([1-9][0-9]{0,2})$",
+                      "group": 1
+                    },
+                    "integer"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "op": "merge",
+          "path": "/pages/list/parsers/anchor/fields",
+          "value": {
+            "hitAndRunDays": {
+              "candidates": [
+                {
+                  "id": "chd-hr-days",
+                  "read": {
+                    "css": ".circle > .circle-text",
+                    "mode": "text"
+                  },
+                  "then": [
+                    "trim",
+                    {
+                      "regex": "^[hH]([1-9][0-9]{0,2})$",
+                      "group": 1
+                    },
+                    "integer"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "op": "merge",
+          "path": "/pages/list/parsers/np-div/fields",
+          "value": {
+            "hitAndRunDays": {
+              "candidates": [
+                {
+                  "id": "chd-hr-days",
+                  "read": {
+                    "css": ".circle > .circle-text",
+                    "mode": "text"
+                  },
+                  "then": [
+                    "trim",
+                    {
+                      "regex": "^[hH]([1-9][0-9]{0,2})$",
+                      "group": 1
+                    },
+                    "integer"
+                  ]
+                }
+              ]
+            }
           }
         }
       ]
@@ -7899,6 +7980,240 @@
               "mandarin": 5,
               "chinese-subtitles": 6,
               "hdr": 7
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "site",
+      "id": "ptzone",
+      "code": 1,
+      "publishedAt": 1792254902,
+      "architecture": "nexusphp",
+      "domains": [
+        "ptzone.xyz"
+      ],
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "base": {
+        "minCode": 18
+      },
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/pages/list/request/query/resource-tag",
+          "value": {
+            "id": "resource-tag",
+            "param": "tag_id",
+            "input": "tag",
+            "map": {
+              "no-repost": 1,
+              "premiere": 2,
+              "official-release": 3,
+              "diy": 4,
+              "mandarin": 5,
+              "chinese-subtitles": 6,
+              "hdr": 7,
+              "episodic": 8,
+              "completed": 9
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "site",
+      "id": "xingyungept",
+      "code": 1,
+      "publishedAt": 1792254902,
+      "architecture": "nexusphp",
+      "domains": [
+        "pt.xingyungept.org"
+      ],
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "base": {
+        "minCode": 18
+      },
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/pages/list/request/query/resource-tag",
+          "value": {
+            "id": "resource-tag",
+            "param": "tag_id",
+            "input": "tag",
+            "map": {
+              "no-repost": 1,
+              "premiere": 2,
+              "official-release": 3,
+              "diy": 4,
+              "mandarin": 5,
+              "chinese-subtitles": 6,
+              "hdr": 7,
+              "dolby": 8,
+              "episodic": 10,
+              "completed": 11,
+              "cantonese": 12,
+              "resident": 23,
+              "pure-version": 25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "site",
+      "id": "vclib",
+      "code": 1,
+      "publishedAt": 1792254902,
+      "architecture": "nexusphp",
+      "domains": [
+        "pt.vclib.online"
+      ],
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "base": {
+        "minCode": 18
+      },
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/pages/list/request/query/resource-tag",
+          "value": {
+            "id": "resource-tag",
+            "param": "tag_id",
+            "input": "tag",
+            "map": {
+              "no-repost": 1,
+              "original": 15
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "site",
+      "id": "daxiangjiao",
+      "code": 1,
+      "publishedAt": 1792254902,
+      "architecture": "nexusphp",
+      "domains": [
+        "pt.daxiangjiao.org"
+      ],
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "base": {
+        "minCode": 18
+      },
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/pages/list/request/query/resource-tag",
+          "value": {
+            "id": "resource-tag",
+            "param": "tag_id",
+            "input": "tag",
+            "map": {}
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "site",
+      "id": "longpt",
+      "code": 1,
+      "publishedAt": 1792254902,
+      "architecture": "nexusphp",
+      "domains": [
+        "longpt.org"
+      ],
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "base": {
+        "minCode": 18
+      },
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/pages/list/request/query/resource-tag",
+          "value": {
+            "id": "resource-tag",
+            "param": "tag_id",
+            "input": "tag",
+            "map": {
+              "no-repost": 1,
+              "premiere": 2,
+              "official-release": 3,
+              "diy": 4,
+              "mandarin": 5,
+              "chinese-subtitles": 6,
+              "hdr": 7,
+              "completed": 8,
+              "dolby": 10,
+              "episodic": 12,
+              "pure-version": 17
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "site",
+      "id": "playlet",
+      "code": 1,
+      "publishedAt": 1792254902,
+      "architecture": "nexusphp",
+      "domains": [
+        "playlet.cc"
+      ],
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "base": {
+        "minCode": 18
+      },
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/pages/list/request/query/resource-tag",
+          "value": {
+            "id": "resource-tag",
+            "param": "tag_id",
+            "input": "tag",
+            "map": {
+              "no-repost": 1,
+              "official-release": 3
             }
           }
         }
