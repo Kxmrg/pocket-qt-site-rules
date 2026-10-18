@@ -1,6 +1,6 @@
 # 规则文件字段与站点单独配置
 
-本文对应当前 Pocket Evo 规则格式 `schemaVersion: 1`、引擎 `engine: 1`。全量文件为 `global.json`，当前已实现 `nexusphp` 与 `unit3d`；`gazelle` 保留扩展设计，尚未开放。独立架构站点（包括 BeyondHD）不使用此规则文件。
+本文对应当前 Pocket Evo 规则格式 `schemaVersion: 1`、引擎 `engine: 1`。全量文件为 `global.json`，当前已实现 `nexusphp`、`unit3d` 与 `btitracker`；`gazelle` 保留扩展设计，尚未开放。独立架构站点（包括 BeyondHD）不使用此规则文件。
 
 ## 1. 全量文件
 
@@ -353,3 +353,13 @@ UNIT3D 与 NP 使用同一规则库、版本选择、导入、在线更新和诊
 多个普通 query 绑定可以引用同一个输入，例如 `promotion=double-free` 同时映射 `free[0]=100` 与 `doubleup=1`，无须在代码中写死优惠组合。资源显示标签使用字段 candidates/collect；4k、8k 也是有效规范标签标识。
 
 运行时安全边界仍由 App 控制：同源、Cookie 隔离、超时、解析线程/执行预算、下载验证不由远程规则关闭。规则不能携带凭据或脚本，也不能将尚未实现的 Gazelle 架构声明为可用。
+
+### BtiTracker / xbtit
+
+`architectures.btitracker` 定义通用 HTML 解析；HD-Torrents 等衍生结构通过站点补充覆盖。HD-Space 路由参数 `page=torrents` 保持不变，分页参数为 `pages`（从 0 开始）；HD-Torrents 使用 `page`（从 0 开始）。下载链接使用同源 `download.php?id=<40位十六进制ID>`。
+
+`scoped-element-position.v1` 表示 `:scope > td:nth-child(N)` 按元素计数，不受文本空白影响。原生标签参数允许数字开头（例如 `3d=1`），仍禁止凭据字段。新架构规则需要支持 BtiTracker 的 App 版本。
+
+### 日期格式转换
+
+`formatted-date.v1` 支持将规则声明的日期格式转换成 ISO 发布时间，由 App 显示存活时间。HD-Torrents 使用 `HH:mm:ss dd/MM/yyyy`（兼容时间与日期紧连），HD-Space 使用 `MMMM d, yyyy, HH:mm:ss` 和 `relative-day HH:mm:ss`；后者读取 `Today at` / `Yesterday at`，在解析时固定日期，避免缓存跨日漂移。非法日期返回缺失值。`zone: site` 保留站点墙上时间，不臆造站点未提供的时区偏移。

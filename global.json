@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 23,
-  "publishedAt": 1792313706,
+  "code": 24,
+  "publishedAt": 1792328091,
   "compatibility": {
     "engine": 1,
     "features": []
@@ -3902,6 +3902,579 @@
               "attribute": "wire:click",
               "pattern": "^(?:gotoPage|setPage)\\(([0-9]+)(?:,|\\))",
               "group": 1
+            }
+          ]
+        }
+      }
+    },
+    "btitracker": {
+      "code": 2,
+      "publishedAt": 1792328091,
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "scoped-element-position.v1",
+          "semantic-table.v1",
+          "resource-link-identity.v1",
+          "tag-filter.v1",
+          "tag-parameter.v1",
+          "formatted-date.v1"
+        ]
+      },
+      "pages": {
+        "account": {
+          "states": {
+            "authRequired": [
+              {
+                "css": "input[type=\"password\"]"
+              }
+            ],
+            "challengeRequired": [
+              {
+                "css": "title",
+                "text": "Just a moment|Checking your browser"
+              }
+            ]
+          },
+          "request": {
+            "target": "/index.php",
+            "query": [
+              {
+                "param": "page",
+                "literal": "torrents"
+              }
+            ]
+          },
+          "parsers": [
+            {
+              "id": "header",
+              "scope": "body",
+              "fields": {
+                "username": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "Welcome back\\s+(.*?)\\s*\\(Logout\\)",
+                          "group": 1
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "accountId": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": "a[href*=\"page=usercp\"]:not([href*=\"action=\"])",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        {
+                          "regex": "(?:uid|id)=([0-9]+)",
+                          "group": 1
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "uploadedBytes": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "UP:\\s*([0-9.,]+\\s*[KMGT]B)",
+                          "group": 1
+                        },
+                        "bytes"
+                      ]
+                    }
+                  ]
+                },
+                "downloadedBytes": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "DL:\\s*([0-9.,]+\\s*[KMGT]B)",
+                          "group": 1
+                        },
+                        "bytes"
+                      ]
+                    }
+                  ]
+                },
+                "bonus": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "Bonus:\\s*([0-9.,]+)",
+                          "group": 1
+                        },
+                        "decimal"
+                      ]
+                    }
+                  ]
+                },
+                "level": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "Rank:\\s*([A-Za-z][A-Za-z ]*?)(?:\\s*(?:UP:|Ratio:|↑|↓|\\d)|$)",
+                          "group": 1
+                        },
+                        "trim"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "list": {
+          "request": {
+            "target": {
+              "from": "entry"
+            },
+            "query": [
+              {
+                "param": "search",
+                "input": "query"
+              },
+              {
+                "param": "pages",
+                "input": "page",
+                "offset": -1
+              },
+              {
+                "param": "order",
+                "input": "sort",
+                "map": {
+                  "publishedAt": "3",
+                  "sizeBytes": "4",
+                  "seeders": "5",
+                  "leechers": "6",
+                  "completed": "7"
+                }
+              },
+              {
+                "param": "by",
+                "input": "direction",
+                "map": {
+                  "asc": "1",
+                  "desc": "2"
+                }
+              }
+            ]
+          },
+          "states": {
+            "authRequired": [
+              {
+                "css": "input[type=\"password\"]"
+              }
+            ],
+            "challengeRequired": [
+              {
+                "css": "title",
+                "text": "Just a moment|Checking your browser"
+              }
+            ],
+            "empty": [
+              {
+                "css": "table.lista:not([cellspacing]):not([align]) > tbody > tr:only-child",
+                "text": "Cat[.]\\s*Name"
+              }
+            ]
+          },
+          "recordIdentity": {
+            "marker": ":scope > td:nth-child(2) > a[href*=\"page=torrent-details\"]"
+          },
+          "parsers": [
+            {
+              "id": "torrents",
+              "layout": {
+                "kind": "table",
+                "root": "table.lista:not([cellspacing]):not([align])",
+                "rows": ":scope > tbody > tr",
+                "columns": {}
+              },
+              "fields": {
+                "resourceId": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope > td:nth-child(2) > a[href*=\"page=torrent-details\"]",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        {
+                          "regex": "[?&]id=([a-fA-F0-9]{40})(?:&|$)",
+                          "group": 1
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "title": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope > td:nth-child(2) > a[href*=\"page=torrent-details\"]",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "detailUrl": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope > td:nth-child(2) > a[href*=\"page=torrent-details\"]",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "downloadUrl": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope > td:nth-child(4) > a[href*=\"download.php?id=\"]",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "sizeBytes": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope > td:nth-child(6)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "bytes"
+                      ]
+                    }
+                  ]
+                },
+                "seeders": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope > td:nth-child(8)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "integer"
+                      ]
+                    }
+                  ]
+                },
+                "leechers": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope > td:nth-child(9)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "integer"
+                      ]
+                    }
+                  ]
+                },
+                "completed": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope > td:nth-child(10)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "integer"
+                      ]
+                    }
+                  ]
+                },
+                "author": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope > td:nth-child(7)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "tags": {
+                  "strategy": "collect",
+                  "candidates": [
+                    {
+                      "id": "flag-internal",
+                      "read": {
+                        "css": ":scope > td:nth-child(2) > img[src$=\"internal.png\"]",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": "official-release"
+                          },
+                          "unknown": "missing"
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "flag-hdr",
+                      "read": {
+                        "css": ":scope > td:nth-child(2) > img[src$=\"hdr.png\"]",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": "hdr"
+                          },
+                          "unknown": "missing"
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "flag-dolby",
+                      "read": {
+                        "css": ":scope > td:nth-child(2) > img[src$=\"dolby.png\"]",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": "dolby"
+                          },
+                          "unknown": "missing"
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "flag-3d",
+                      "read": {
+                        "css": ":scope > td:nth-child(2) > img[src$=\"3d.png\"]",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": "3d"
+                          },
+                          "unknown": "missing"
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "flag-atmos",
+                      "read": {
+                        "css": ":scope > td:nth-child(2) > img[src$=\"atmos.png\"]",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": "atmos"
+                          },
+                          "unknown": "missing"
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "flag-hdr10",
+                      "read": {
+                        "css": ":scope > td:nth-child(2) > img[src$=\"hdr10.png\"]",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": "hdr-plus"
+                          },
+                          "unknown": "missing"
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "flag-pack",
+                      "read": {
+                        "css": ":scope > td:nth-child(2) > img[src$=\"pack.png\"]",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": "season-pack"
+                          },
+                          "unknown": "missing"
+                        },
+                        "stringList"
+                      ]
+                    }
+                  ]
+                },
+                "downloadFactor": {
+                  "candidates": [
+                    {
+                      "id": "promo-gold",
+                      "read": {
+                        "css": ":scope > td:nth-child(2) > img[src$=\"gold.png\"]",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": 0
+                          },
+                          "unknown": "missing"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "promo-silver",
+                      "read": {
+                        "css": ":scope > td:nth-child(2) > img[src$=\"silver.png\"]",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": 0.5
+                          },
+                          "unknown": "missing"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "cover": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope > td:nth-child(2) > a[href*=\"page=torrent-details\"]",
+                        "mode": "attribute",
+                        "attribute": "onmouseover"
+                      },
+                      "then": [
+                        {
+                          "regex": "(\\./(?:cache/)?imdb(?:php)?/images/[0-9]+\\.jpg)",
+                          "group": 1
+                        },
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "subtitle": {
+                  "candidates": [
+                    {
+                      "id": "primary",
+                      "read": {
+                        "css": ":scope > td:nth-child(2) > span",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "publishedAt": {
+                  "candidates": [
+                    {
+                      "id": "calendar-time",
+                      "read": {
+                        "css": ":scope > td:nth-child(5)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "date": {
+                            "formats": [
+                              "relative-day HH:mm:ss",
+                              "MMMM d, yyyy, HH:mm:ss"
+                            ],
+                            "zone": "site"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "pagination": [
+            {
+              "kind": "numberedLinks",
+              "selector": "a[href*=\"pages=\"]",
+              "parameter": "pages"
             }
           ]
         }
@@ -9454,6 +10027,713 @@
             "disc": "typeIds[]=1",
             "8k": "resolutionIds[]=11",
             "4k": "resolutionIds[]=1"
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "site",
+      "id": "hdspace",
+      "code": 1,
+      "publishedAt": 1792326644,
+      "architecture": "btitracker",
+      "domains": [
+        "hd-space.org"
+      ],
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "map-merge.v1"
+        ]
+      },
+      "base": {
+        "minCode": 1
+      },
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/pages/account/request",
+          "value": {
+            "target": "/index.php",
+            "query": [
+              {
+                "param": "page",
+                "literal": "torrents"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "site",
+      "id": "hdtorrents",
+      "code": 3,
+      "publishedAt": 1792328091,
+      "architecture": "btitracker",
+      "domains": [
+        "hd-torrents.org"
+      ],
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "map-merge.v1"
+        ]
+      },
+      "base": {
+        "minCode": 1
+      },
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/pages/account",
+          "value": {
+            "states": {
+              "authRequired": [
+                {
+                  "css": "input[type=\"password\"]"
+                }
+              ],
+              "challengeRequired": [
+                {
+                  "css": "title",
+                  "text": "Just a moment|Checking your browser"
+                }
+              ]
+            },
+            "request": {
+              "target": "/torrents.php",
+              "query": []
+            },
+            "parsers": [
+              {
+                "id": "header",
+                "scope": "body",
+                "fields": {
+                  "accountId": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": "td.navmenu > a[href*=\"usercp.php?uid=\"]:not([href*=\"action=\"])",
+                          "mode": "attribute",
+                          "attribute": "href"
+                        },
+                        "then": [
+                          {
+                            "regex": "uid=([0-9]+)",
+                            "group": 1
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "username": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": ":scope",
+                          "mode": "text"
+                        },
+                        "then": [
+                          {
+                            "regex": "Welcome back,\\s*(.*?)\\s*!",
+                            "group": 1
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "uploadedBytes": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": "td.hdgreen",
+                          "mode": "text"
+                        },
+                        "then": [
+                          "bytes"
+                        ]
+                      }
+                    ]
+                  },
+                  "downloadedBytes": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": "td.hdred",
+                          "mode": "text"
+                        },
+                        "then": [
+                          "bytes"
+                        ]
+                      }
+                    ]
+                  },
+                  "bonus": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": "a[href=\"seedbonus.php\"]",
+                          "mode": "text"
+                        },
+                        "then": [
+                          "decimal"
+                        ]
+                      }
+                    ]
+                  },
+                  "seeding": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": "td[title=\"Active-Torrents\"] span[title=\"Seed\"]",
+                          "mode": "text"
+                        },
+                        "then": [
+                          "integer"
+                        ]
+                      }
+                    ]
+                  },
+                  "leeching": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": "td[title=\"Active-Torrents\"] span[title=\"Leech\"]",
+                          "mode": "text"
+                        },
+                        "then": [
+                          "integer"
+                        ]
+                      }
+                    ]
+                  },
+                  "level": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": ":scope",
+                          "mode": "text"
+                        },
+                        "then": [
+                          {
+                            "regex": "Rank:\\s*([A-Za-z][A-Za-z ]*?)(?:\\s*(?:UP:|Ratio:|↑|↓|\\d)|$)",
+                            "group": 1
+                          },
+                          "trim"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/pages/list",
+          "value": {
+            "request": {
+              "target": {
+                "from": "entry"
+              },
+              "query": [
+                {
+                  "param": "search",
+                  "input": "query"
+                },
+                {
+                  "param": "page",
+                  "input": "page",
+                  "offset": -1
+                },
+                {
+                  "param": "order",
+                  "input": "sort",
+                  "map": {
+                    "publishedAt": "data",
+                    "sizeBytes": "size",
+                    "seeders": "seeds",
+                    "leechers": "leechers",
+                    "completed": "finished"
+                  }
+                },
+                {
+                  "param": "by",
+                  "input": "direction",
+                  "map": {
+                    "asc": "ASC",
+                    "desc": "DESC"
+                  }
+                },
+                {
+                  "param": "active",
+                  "input": "promotion",
+                  "map": {
+                    "all": "0",
+                    "free": "5",
+                    "half-download": "6"
+                  }
+                },
+                {
+                  "id": "resource-tag",
+                  "input": "tag",
+                  "param": "tag",
+                  "encoding": "parameter",
+                  "map": {
+                    "official-release": "internal=1",
+                    "hdr": "HDR10=1",
+                    "dolby": "DolbyVision=1",
+                    "3d": "3d=1",
+                    "atmos": "DolbyAtmos=1",
+                    "hdr-plus": "HDR10Plus=1",
+                    "season-pack": "season=1"
+                  }
+                }
+              ]
+            },
+            "states": {
+              "authRequired": [
+                {
+                  "css": "input[type=\"password\"]"
+                }
+              ],
+              "challengeRequired": [
+                {
+                  "css": "title",
+                  "text": "Just a moment|Checking your browser"
+                }
+              ],
+              "empty": [
+                {
+                  "css": "table.mainblockcontenttt",
+                  "text": "No torrents here"
+                }
+              ]
+            },
+            "recordIdentity": {
+              "marker": ":scope > td:nth-child(3) > b > a[href^=\"details.php?id=\"]"
+            },
+            "parsers": [
+              {
+                "id": "torrents",
+                "layout": {
+                  "kind": "table",
+                  "root": "table.mainblockcontenttt",
+                  "rows": ":scope > tbody > tr",
+                  "columns": {}
+                },
+                "fields": {
+                  "resourceId": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > b > a[href^=\"details.php?id=\"]",
+                          "mode": "attribute",
+                          "attribute": "href"
+                        },
+                        "then": [
+                          {
+                            "regex": "[?&]id=([a-fA-F0-9]{40})(?:&|$)",
+                            "group": 1
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > b > a[href^=\"details.php?id=\"]",
+                          "mode": "text"
+                        },
+                        "then": [
+                          "trim"
+                        ]
+                      }
+                    ]
+                  },
+                  "detailUrl": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > b > a[href^=\"details.php?id=\"]",
+                          "mode": "attribute",
+                          "attribute": "href"
+                        },
+                        "then": [
+                          "url"
+                        ]
+                      }
+                    ]
+                  },
+                  "downloadUrl": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": ":scope > td:nth-child(5) > a[href*=\"download.php?id=\"]",
+                          "mode": "attribute",
+                          "attribute": "href"
+                        },
+                        "then": [
+                          "url"
+                        ]
+                      }
+                    ]
+                  },
+                  "sizeBytes": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": ":scope > td:nth-child(8)",
+                          "mode": "text"
+                        },
+                        "then": [
+                          "bytes"
+                        ]
+                      }
+                    ]
+                  },
+                  "seeders": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": ":scope > td:nth-child(10)",
+                          "mode": "text"
+                        },
+                        "then": [
+                          "integer"
+                        ]
+                      }
+                    ]
+                  },
+                  "leechers": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": ":scope > td:nth-child(11)",
+                          "mode": "text"
+                        },
+                        "then": [
+                          "integer"
+                        ]
+                      }
+                    ]
+                  },
+                  "completed": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": ":scope > td:nth-child(12)",
+                          "mode": "text"
+                        },
+                        "then": [
+                          "integer"
+                        ]
+                      }
+                    ]
+                  },
+                  "author": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": ":scope > td:nth-child(9)",
+                          "mode": "text"
+                        },
+                        "then": [
+                          "trim"
+                        ]
+                      }
+                    ]
+                  },
+                  "tags": {
+                    "strategy": "collect",
+                    "candidates": [
+                      {
+                        "id": "flag-internal",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > img[src$=\"internal.png\"]",
+                          "mode": "exists"
+                        },
+                        "then": [
+                          {
+                            "lookup": {
+                              "true": "official-release"
+                            },
+                            "unknown": "missing"
+                          },
+                          "stringList"
+                        ]
+                      },
+                      {
+                        "id": "flag-hdr",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > img[src$=\"hdr.png\"]",
+                          "mode": "exists"
+                        },
+                        "then": [
+                          {
+                            "lookup": {
+                              "true": "hdr"
+                            },
+                            "unknown": "missing"
+                          },
+                          "stringList"
+                        ]
+                      },
+                      {
+                        "id": "flag-dolby",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > img[src$=\"dolby.png\"]",
+                          "mode": "exists"
+                        },
+                        "then": [
+                          {
+                            "lookup": {
+                              "true": "dolby"
+                            },
+                            "unknown": "missing"
+                          },
+                          "stringList"
+                        ]
+                      },
+                      {
+                        "id": "flag-3d",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > img[src$=\"3d.png\"]",
+                          "mode": "exists"
+                        },
+                        "then": [
+                          {
+                            "lookup": {
+                              "true": "3d"
+                            },
+                            "unknown": "missing"
+                          },
+                          "stringList"
+                        ]
+                      },
+                      {
+                        "id": "flag-atmos",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > img[src$=\"atmos.png\"]",
+                          "mode": "exists"
+                        },
+                        "then": [
+                          {
+                            "lookup": {
+                              "true": "atmos"
+                            },
+                            "unknown": "missing"
+                          },
+                          "stringList"
+                        ]
+                      },
+                      {
+                        "id": "flag-hdr10",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > img[src$=\"hdr10.png\"]",
+                          "mode": "exists"
+                        },
+                        "then": [
+                          {
+                            "lookup": {
+                              "true": "hdr-plus"
+                            },
+                            "unknown": "missing"
+                          },
+                          "stringList"
+                        ]
+                      },
+                      {
+                        "id": "flag-pack",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > img[src$=\"pack.png\"]",
+                          "mode": "exists"
+                        },
+                        "then": [
+                          {
+                            "lookup": {
+                              "true": "season-pack"
+                            },
+                            "unknown": "missing"
+                          },
+                          "stringList"
+                        ]
+                      },
+                      {
+                        "id": "resource-flags",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > img[src=\"images/new.png\"], :scope > td:nth-child(3) > img[src=\"images/bump.png\"], :scope > td:nth-child(3) > img[src=\"images/request.png\"]",
+                          "mode": "attributes",
+                          "attribute": "src"
+                        },
+                        "then": [
+                          {
+                            "tagAliases": {
+                              "images/new.png": "new",
+                              "images/bump.png": "bumped",
+                              "images/request.png": "requested"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "downloadFactor": {
+                    "candidates": [
+                      {
+                        "id": "promo-free",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > img[src$=\"free.png\"]",
+                          "mode": "exists"
+                        },
+                        "then": [
+                          {
+                            "lookup": {
+                              "true": 0
+                            },
+                            "unknown": "missing"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "promo-50",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > img[src$=\"50.png\"]",
+                          "mode": "exists"
+                        },
+                        "then": [
+                          {
+                            "lookup": {
+                              "true": 0.5
+                            },
+                            "unknown": "missing"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "promo-25",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > img[src$=\"25.png\"]",
+                          "mode": "exists"
+                        },
+                        "then": [
+                          {
+                            "lookup": {
+                              "true": 0.75
+                            },
+                            "unknown": "missing"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "promo-75",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > img[src$=\"75.png\"]",
+                          "mode": "exists"
+                        },
+                        "then": [
+                          {
+                            "lookup": {
+                              "true": 0.25
+                            },
+                            "unknown": "missing"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "cover": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": ":scope > td:nth-child(3) > b > a[href^=\"details.php?id=\"]",
+                          "mode": "attribute",
+                          "attribute": "onmouseover"
+                        },
+                        "then": [
+                          {
+                            "regex": "(\\./(?:cache/)?imdb(?:php)?/images/[0-9]+\\.jpg)",
+                            "group": 1
+                          },
+                          "url"
+                        ]
+                      }
+                    ]
+                  },
+                  "publishedAt": {
+                    "candidates": [
+                      {
+                        "id": "primary",
+                        "read": {
+                          "css": ":scope > td:nth-child(7)",
+                          "mode": "text"
+                        },
+                        "then": [
+                          {
+                            "date": {
+                              "zone": "site",
+                              "formats": [
+                                "HH:mm:ssdd/MM/yyyy",
+                                "HH:mm:ss dd/MM/yyyy"
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "subtitle": {
+                    "candidates": [
+                      {
+                        "id": "description",
+                        "read": {
+                          "css": ":scope > td:nth-child(3)",
+                          "mode": "text",
+                          "exclude": [
+                            "b",
+                            "img"
+                          ]
+                        },
+                        "then": [
+                          "trim"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            ],
+            "pagination": [
+              {
+                "kind": "numberedLinks",
+                "selector": "a[href*=\"page=\"]",
+                "parameter": "page"
+              }
+            ]
           }
         }
       ]
