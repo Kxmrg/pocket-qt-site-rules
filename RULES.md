@@ -1,6 +1,6 @@
 # 规则文件字段与站点单独配置
 
-本文对应当前 Pocket Evo 规则格式 `schemaVersion: 1`、引擎 `engine: 1`。全量文件为 `global.json`，当前已实现 `nexusphp`、`unit3d` 与 `btitracker`；`gazelle` 保留扩展设计，尚未开放。独立架构站点（包括 BeyondHD）不使用此规则文件。
+本文对应当前 Pocket Evo 规则格式 `schemaVersion: 1`、引擎 `engine: 1`。全量文件为 `global.json`，当前已实现 `nexusphp`、`gazelle`、`unit3d` 与 `btitracker`。独立架构站点（包括 BeyondHD）不使用此规则文件。
 
 ## 1. 全量文件
 
@@ -352,7 +352,7 @@ UNIT3D 与 NP 使用同一规则库、版本选择、导入、在线更新和诊
 
 多个普通 query 绑定可以引用同一个输入，例如 `promotion=double-free` 同时映射 `free[0]=100` 与 `doubleup=1`，无须在代码中写死优惠组合。资源显示标签使用字段 candidates/collect；4k、8k 也是有效规范标签标识。
 
-运行时安全边界仍由 App 控制：同源、Cookie 隔离、超时、解析线程/执行预算、下载验证不由远程规则关闭。规则不能携带凭据或脚本，也不能将尚未实现的 Gazelle 架构声明为可用。
+运行时安全边界仍由 App 控制：同源、Cookie 隔离、超时、解析线程/执行预算、下载验证不由远程规则关闭。规则不能携带凭据或脚本，新增能力必须声明兼容性 feature，旧引擎安全拒绝未支持的能力。
 
 ### BtiTracker / xbtit
 
@@ -363,3 +363,15 @@ UNIT3D 与 NP 使用同一规则库、版本选择、导入、在线更新和诊
 ### 日期格式转换
 
 `formatted-date.v1` 支持将规则声明的日期格式转换成 ISO 发布时间，由 App 显示存活时间。HD-Torrents 使用 `HH:mm:ss dd/MM/yyyy`（兼容时间与日期紧连），HD-Space 使用 `MMMM d, yyyy, HH:mm:ss` 和 `relative-day HH:mm:ss`；后者读取 `Today at` / `Yesterday at`，在解析时固定日期，避免缓存跨日漂移。非法日期返回缺失值。`zone: site` 保留站点墙上时间，不臆造站点未提供的时区偏移。
+
+
+## Gazelle 分组 HTML（version 25）
+
+Gazelle 使用 HTML 页面和规则解析，不调用 `ajax.php`。需要包含这些能力的新 App；旧版本 App 不能只靠规则更新获得分组 UI 和新解析能力。
+
+- `grouped-resources.v1`：列表 parser 可声明 `role: group / edition / variant`。组 ID 与种子 ID 分离；仅版本拥有下载地址、容量和优惠。按 DOM 顺序组装，重复组与版本去重，异常组头终止上一组。`excludeIf` 仅在明确识别非种子条目时使用，例如 GGn 的 External Link。
+- `adjacent-row.v1`：字段 reader 的 `scope: nextSibling` 只读取紧邻行，用于 ANT/GPW 的版本详情时间，不能跨行搜索别的种子。
+- `embedded-records.v1`：`pages.list.embeddedRecords` 声明 HTML 内嵌 JSON 变量、collection 层次及字段投影。支持 `{path}` 或 `{template}`，模板占位符按 URL 查询值编码，`$.` 引用根数据；`html: true` 仅将字段作为被动 HTML 片段读取。PTP 的 `PageData` 由此解析；不执行脚本、不请求 JSON API，凭据只来自当前响应的瞬时上下文，规则中不能写入真实值。
+- `deferred-group-rows.v1`：`pages.list.deferredRows` 声明 `groupClass`、`variantClass` 和可选 `detailContentClass`。超过 4 MiB 的分组响应先保留组头；展开时同一会话读取详情，剔除隐藏说明行。输入最多 32 MiB，DOM 仍最多 4 MiB，解析仍受 5 秒 worker 预算保护。平铺和小页面不改变。
+- 版本标题、版次、发布时间、字幕/技术标签和优惠由各站自己的 HTML 提取。组级汇总人数、最大容量、上传者身份都不能冒充具体种子数据。
+- `grouping=0` / `group_results=0` 等原生布局参数按入口保留；每次加载数量遵循服务端分页，不截断版本假装页大小生效。

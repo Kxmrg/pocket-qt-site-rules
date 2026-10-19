@@ -4,7 +4,7 @@
 
 | 规则版本 | 更新时间（北京时间） | 已测试站点 |
 | --- | --- | --- |
-| version 24 | 2026-10-18 20:54:51 | 88 个 |
+| version 25 | 2026-10-20 00:17:29 | 99 个 |
 
 **更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
 
@@ -20,10 +20,10 @@
 
 ## 已测试完美适配站点
 
-- **已测试站点**：下表 88 个站点均已测试并完美适配。
+- **已测试站点**：下表 99 个站点均已测试并完美适配。
 - **其他 NP 站点**：预计约 99% 可直接使用。未经单独适配的站点会在加载列表时自动获取标签 ID（tag_id），因此标签筛选项可能暂不完整，后续加载会继续补充。
-- **适配进度**：GZ 架构正在适配中；UNIT3D 已接入，使用清单模式。
-- **规则更新**：NP、UNIT3D 与 BtiTracker 使用本仓库的通用规则和站点补充规则；独立架构站点适配随 App 更新。
+- **适配进度**：Gazelle 已接入，原站平铺或分组方式保留；UNIT3D 使用清单模式。
+- **规则更新**：NP、Gazelle、UNIT3D 与 BtiTracker 使用本仓库的通用规则和站点补充规则；独立架构站点适配随 App 更新。
 - **特殊站点**：部分改动较大的 NP 站点可能无法直接适配，遇到问题请联系我。
 
 ### NexusPHP 站点（69 个）
@@ -47,6 +47,14 @@
   <tr><td width="25%">T<wbr>T<wbr>G<wbr>（<wbr>听<wbr>听<wbr>歌<wbr>）</td><td width="25%">U<wbr>2</td><td width="25%">U<wbr>B<wbr>i<wbr>t<wbr>s</td><td width="25%">V<wbr>C<wbr>-<wbr>L<wbr>i<wbr>b</td></tr>
   <tr><td width="25%">星<wbr>湾</td><td width="25%">星<wbr>陨<wbr>阁</td><td width="25%">修<wbr>道<wbr>院</td><td width="25%">X<wbr>L<wbr>o<wbr>l<wbr>i</td></tr>
   <tr><td width="25%">Z<wbr>M<wbr>P<wbr>T<wbr>（<wbr>织<wbr>梦<wbr>）</td><td width="25%"></td><td width="25%"></td><td width="25%"></td></tr>
+</table>
+
+### Gazelle 站点（11 个）
+
+<table width="100%">
+  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />A<wbr>l<wbr>p<wbr>h<wbr>a<wbr>R<wbr>a<wbr>t<wbr>i<wbr>o</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />A<wbr>n<wbr>t<wbr>h<wbr>e<wbr>l<wbr>i<wbr>o<wbr>n</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />B<wbr>r<wbr>o<wbr>a<wbr>d<wbr>c<wbr>a<wbr>s<wbr>T<wbr>h<wbr>e<wbr>N<wbr>e<wbr>t</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />B<wbr>r<wbr>o<wbr>k<wbr>e<wbr>n<wbr>S<wbr>t<wbr>o<wbr>n<wbr>e<wbr>s</td></tr>
+  <tr><td width="25%">D<wbr>I<wbr>C<wbr>M<wbr>u<wbr>s<wbr>i<wbr>c</td><td width="25%">E<wbr>m<wbr>p<wbr>o<wbr>r<wbr>n<wbr>i<wbr>u<wbr>m</td><td width="25%">G<wbr>a<wbr>z<wbr>e<wbr>l<wbr>l<wbr>e<wbr>G<wbr>a<wbr>m<wbr>e<wbr>s</td><td width="25%">G<wbr>r<wbr>e<wbr>a<wbr>t<wbr> <wbr>P<wbr>o<wbr>s<wbr>t<wbr>e<wbr>r<wbr> <wbr>W<wbr>a<wbr>l<wbr>l</td></tr>
+  <tr><td width="25%">H<wbr>D<wbr>-<wbr>F</td><td width="25%">P<wbr>a<wbr>s<wbr>s<wbr>T<wbr>h<wbr>e<wbr>P<wbr>o<wbr>p<wbr>c<wbr>o<wbr>r<wbr>n</td><td width="25%">R<wbr>e<wbr>d<wbr>a<wbr>c<wbr>t<wbr>e<wbr>d</td><td width="25%"></td></tr>
 </table>
 
 ### UNIT3D 站点（2 个）
