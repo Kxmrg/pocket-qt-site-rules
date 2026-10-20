@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 29,
-  "publishedAt": 1792500400,
+  "code": 30,
+  "publishedAt": 1792502448,
   "compatibility": {
     "engine": 1,
     "features": []
@@ -14893,8 +14893,8 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "gazelle.brokenstones",
-      "code": 1,
-      "publishedAt": 1792423469,
+      "code": 2,
+      "publishedAt": 1792502448,
       "architecture": "gazelle",
       "domains": [
         "brokenstones.is"
@@ -14913,7 +14913,8 @@
           "resource-link-identity.v1",
           "tag-filter.v1",
           "tag-parameter.v1",
-          "native-filter-controls.v1"
+          "native-filter-controls.v1",
+          "multi-tag-comma.v1"
         ]
       },
       "base": {
@@ -14994,20 +14995,6 @@
                     }
                   ]
                 },
-                "subtitle": {
-                  "candidates": [
-                    {
-                      "id": "text",
-                      "read": {
-                        "css": ".tags",
-                        "mode": "text"
-                      },
-                      "then": [
-                        "trim"
-                      ]
-                    }
-                  ]
-                },
                 "coverAspectRatio": {
                   "candidates": [
                     {
@@ -15023,6 +15010,21 @@
                           },
                           "unknown": "missing"
                         }
+                      ]
+                    }
+                  ]
+                },
+                "tags": {
+                  "strategy": "collect",
+                  "candidates": [
+                    {
+                      "id": "native-tags",
+                      "read": {
+                        "css": ".group_info .tags a",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList"
                       ]
                     }
                   ]
@@ -15498,6 +15500,16 @@
                       "then": [
                         "stringList"
                       ]
+                    },
+                    {
+                      "id": "native-tags",
+                      "read": {
+                        "css": ".group_info .tags a",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList"
+                      ]
                     }
                   ],
                   "strategy": "collect"
@@ -15672,6 +15684,60 @@
               "param": "freetorrent",
               "map": {
                 "free": "1"
+              }
+            },
+            {
+              "input": "tag",
+              "param": "taglist",
+              "encoding": "comma",
+              "map": {
+                "software-3d-model": "3d.model",
+                "filter-action": "action",
+                "filter-adventure": "adventure",
+                "software-ai": "ai",
+                "software-audio": "audio",
+                "software-audiobook": "audiobook",
+                "software-business": "business",
+                "software-clipart": "clipart",
+                "software-development": "development",
+                "software-ebook": "ebook",
+                "software-effects": "effects",
+                "software-font": "font",
+                "software-gog": "gog",
+                "software-graphics": "graphics",
+                "software-icons": "icons",
+                "software-itunes-lp": "itunes.lp",
+                "software-learning": "learning",
+                "software-movie": "movie",
+                "filter-music": "music",
+                "software-music-audio": "music.audio",
+                "software-music-score": "music.score",
+                "software-os-classic": "os.classic",
+                "software-os-ios": "os.ios",
+                "software-os-mac": "os.mac",
+                "software-plugins": "plugins",
+                "software-puzzle": "puzzle",
+                "software-roleplaying": "roleplaying",
+                "software-samplesandloops": "samplesandloops",
+                "software-simulation": "simulation",
+                "filter-sport": "sports",
+                "software-stock-photos": "stock.photos",
+                "software-stock-videos": "stock.videos",
+                "software-strategy": "strategy",
+                "software-tutorials": "tutorials",
+                "software-tvshow": "tvshow",
+                "software-utilities": "utilities",
+                "software-video": "video",
+                "software-web": "web",
+                "software-website-templates": "website.templates"
+              }
+            },
+            {
+              "input": "tagMode",
+              "param": "tags_type",
+              "map": {
+                "any": "0",
+                "all": "1"
               }
             }
           ]
