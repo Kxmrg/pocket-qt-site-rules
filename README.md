@@ -4,7 +4,7 @@
 
 | 规则版本 | 更新时间（北京时间） | 已测试站点 |
 | --- | --- | --- |
-| version 30 | 2026-10-20 21:20:48 | 99 个 |
+| version 39 | 2026-10-20 22:39:04 | 99 个 |
 
 **更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
 

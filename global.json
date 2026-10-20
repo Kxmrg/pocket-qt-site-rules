@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 30,
-  "publishedAt": 1792502448,
+  "code": 41,
+  "publishedAt": 1792509607,
   "compatibility": {
     "engine": 1,
     "features": []
@@ -17009,8 +17009,8 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "gazelle.gazellegames",
-      "code": 2,
-      "publishedAt": 1792425837,
+      "code": 8,
+      "publishedAt": 1792504305,
       "architecture": "gazelle",
       "domains": [
         "gazellegames.net"
@@ -17029,7 +17029,9 @@
           "resource-link-identity.v1",
           "tag-filter.v1",
           "tag-parameter.v1",
-          "native-filter-controls.v1"
+          "native-filter-controls.v1",
+          "omit-first-page.v1",
+          "comma-list.v1"
         ]
       },
       "base": {
@@ -17110,20 +17112,6 @@
                     }
                   ]
                 },
-                "subtitle": {
-                  "candidates": [
-                    {
-                      "id": "text",
-                      "read": {
-                        "css": ".tags",
-                        "mode": "text"
-                      },
-                      "then": [
-                        "trim"
-                      ]
-                    }
-                  ]
-                },
                 "coverAspectRatio": {
                   "candidates": [
                     {
@@ -17142,6 +17130,84 @@
                       ]
                     }
                   ]
+                },
+                "pinned": {
+                  "candidates": [
+                    {
+                      "id": "sticky-row",
+                      "read": {
+                        "css": ":scope.sticky",
+                        "mode": "exists"
+                      }
+                    }
+                  ]
+                },
+                "tags": {
+                  "strategy": "collect",
+                  "candidates": [
+                    {
+                      "id": "platform",
+                      "read": {
+                        "css": "#groupplatform a",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "year",
+                      "read": {
+                        "css": "#groupyear",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "^\\((.*?)\\)$",
+                          "group": 1
+                        },
+                        "trim"
+                      ]
+                    },
+                    {
+                      "id": "ratings",
+                      "read": {
+                        "css": ".rating_container",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "age",
+                      "read": {
+                        "css": "#grouprating",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "^\\[(.*?)\\]$",
+                          "group": 1
+                        },
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "subtitle": {
+                  "candidates": [
+                    {
+                      "id": "genres",
+                      "read": {
+                        "css": ".tags",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
                 }
               }
             },
@@ -17150,7 +17216,7 @@
               "role": "edition",
               "layout": {
                 "kind": "elements",
-                "items": "#torrent_table tr.group_torrent:not([class*=\"edition_\"]), table.torrent_table tr.group_torrent:not([id])"
+                "items": "#torrent_table tr.group_torrent:not([class*=\"edition_\"]), table.torrent_table tr.group_torrent:not([id]):not([class*=\"edition_\"])"
               },
               "fields": {
                 "title": {
@@ -17201,7 +17267,10 @@
                       "id": "text",
                       "read": {
                         "css": "a[href*=\"torrentid=\"]:not([href*=\"action=\"])",
-                        "mode": "text"
+                        "mode": "text",
+                        "exclude": [
+                          ".torrent_info_tags"
+                        ]
                       },
                       "then": [
                         "trim"
@@ -17324,6 +17393,26 @@
                       "then": [
                         "stringList"
                       ]
+                    },
+                    {
+                      "id": "version-labels",
+                      "read": {
+                        "css": ".torrent_info_tags",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "^\\[(.*)\\]$",
+                          "group": 1
+                        },
+                        "commaList",
+                        {
+                          "tagAliases": {
+                            "Freeleech!": "free",
+                            "Freeleech": "free"
+                          }
+                        }
+                      ]
                     }
                   ],
                   "strategy": "collect"
@@ -17333,7 +17422,7 @@
                     {
                       "id": "free",
                       "read": {
-                        "css": ".freeleech, .torrent_freeleech, strong.free, .free, .tl_free, .tl_global, .tl_neutral",
+                        "css": ".freeleech, .torrent_freeleech, strong.free, .free, .tl_free, .tl_global, .tl_neutral, .freeleech_label",
                         "mode": "exists"
                       },
                       "then": [
@@ -17585,39 +17674,57 @@
                   ]
                 },
                 "tags": {
+                  "strategy": "collect",
                   "candidates": [
                     {
-                      "id": "badges",
+                      "id": "platform",
                       "read": {
-                        "css": ".torrent_label, .torrent_badge, .freeleech, .torrent_freeleech, .torrent_halfleech, .newtorrent",
+                        "css": "#groupplatform a",
                         "mode": "texts"
-                      },
-                      "then": [
-                        "stringList",
-                        {
-                          "tagAliases": {
-                            "Freeleech!": "free",
-                            "Freeleech": "free",
-                            "Global Freeleech!": "free",
-                            "(New!)": "new",
-                            "Neutral Leech!": "neutral"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "id": "images",
-                      "read": {
-                        "css": "img[title][src*=\"free\"], img[title][src*=\"new\"], img[title][src*=\"internal\"], img[title][src*=\"checked\"]",
-                        "mode": "attributes",
-                        "attribute": "title"
                       },
                       "then": [
                         "stringList"
                       ]
+                    },
+                    {
+                      "id": "year",
+                      "read": {
+                        "css": "#groupyear",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "^\\((.*?)\\)$",
+                          "group": 1
+                        },
+                        "trim"
+                      ]
+                    },
+                    {
+                      "id": "ratings",
+                      "read": {
+                        "css": ".rating_container",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "age",
+                      "read": {
+                        "css": "#grouprating",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "^\\[(.*?)\\]$",
+                          "group": 1
+                        },
+                        "trim"
+                      ]
                     }
-                  ],
-                  "strategy": "collect"
+                  ]
                 },
                 "downloadFactor": {
                   "candidates": [
@@ -17745,6 +17852,31 @@
                           },
                           "unknown": "missing"
                         }
+                      ]
+                    }
+                  ]
+                },
+                "pinned": {
+                  "candidates": [
+                    {
+                      "id": "sticky-row",
+                      "read": {
+                        "css": ":scope.sticky",
+                        "mode": "exists"
+                      }
+                    }
+                  ]
+                },
+                "subtitle": {
+                  "candidates": [
+                    {
+                      "id": "genres",
+                      "read": {
+                        "css": ".tags",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
                       ]
                     }
                   ]
@@ -18015,7 +18147,8 @@
             },
             {
               "input": "page",
-              "param": "page"
+              "param": "page",
+              "omitFirstPage": true
             },
             {
               "input": "sort",
@@ -18034,6 +18167,120 @@
               "map": {
                 "asc": "asc",
                 "desc": "desc"
+              }
+            },
+            {
+              "input": "tag",
+              "param": "artistname",
+              "map": {
+                "platform-my-platforms": "My Platforms",
+                "platform-games": "Games",
+                "platform-applications": "Applications",
+                "platform-e-books": "E-Books",
+                "platform-ost": "OST",
+                "platform-mac": "Mac",
+                "platform-ios": "iOS",
+                "platform-apple-bandai-pippin": "Apple Bandai Pippin",
+                "platform-apple-ii": "Apple II",
+                "platform-android": "Android",
+                "platform-dos": "DOS",
+                "platform-windows": "Windows",
+                "platform-xbox": "Xbox",
+                "platform-xbox-360": "Xbox 360",
+                "platform-game-boy": "Game Boy",
+                "platform-game-boy-advance": "Game Boy Advance",
+                "platform-game-boy-color": "Game Boy Color",
+                "platform-nes": "NES",
+                "platform-nintendo-64": "Nintendo 64",
+                "platform-nintendo-3ds": "Nintendo 3DS",
+                "platform-new-nintendo-3ds": "New Nintendo 3DS",
+                "platform-nintendo-ds": "Nintendo DS",
+                "platform-nintendo-gamecube": "Nintendo GameCube",
+                "platform-pokemon-mini": "Pokemon Mini",
+                "platform-snes": "SNES",
+                "platform-switch": "Switch",
+                "platform-virtual-boy": "Virtual Boy",
+                "platform-wii": "Wii",
+                "platform-wii-u": "Wii U",
+                "platform-playstation-1": "PlayStation 1",
+                "platform-playstation-2": "PlayStation 2",
+                "platform-playstation-3": "PlayStation 3",
+                "platform-playstation-4": "PlayStation 4",
+                "platform-playstation-5": "PlayStation 5",
+                "platform-playstation-portable": "PlayStation Portable",
+                "platform-playstation-vita": "PlayStation Vita",
+                "platform-dreamcast": "Dreamcast",
+                "platform-game-gear": "Game Gear",
+                "platform-master-system": "Master System",
+                "platform-mega-drive": "Mega Drive",
+                "platform-pico": "Pico",
+                "platform-saturn": "Saturn",
+                "platform-sg-1000": "SG-1000",
+                "platform-atari-2600": "Atari 2600",
+                "platform-atari-5200": "Atari 5200",
+                "platform-atari-7800": "Atari 7800",
+                "platform-atari-jaguar": "Atari Jaguar",
+                "platform-atari-lynx": "Atari Lynx",
+                "platform-atari-st": "Atari ST",
+                "platform-amstrad-cpc": "Amstrad CPC",
+                "platform-bandai-wonderswan": "Bandai WonderSwan",
+                "platform-bandai-wonderswan-color": "Bandai WonderSwan Color",
+                "platform-commodore-64": "Commodore 64",
+                "platform-commodore-128": "Commodore 128",
+                "platform-commodore-amiga": "Commodore Amiga",
+                "platform-amiga-cd32": "Amiga CD32",
+                "platform-commodore-plus-4": "Commodore Plus-4",
+                "platform-commodore-vic-20": "Commodore VIC-20",
+                "platform-nec-pc-98": "NEC PC-98",
+                "platform-nec-pc-fx": "NEC PC-FX",
+                "platform-nec-supergrafx": "NEC SuperGrafx",
+                "platform-nec-turbografx-16": "NEC TurboGrafx-16",
+                "platform-zx-spectrum": "ZX Spectrum",
+                "platform-msx": "MSX",
+                "platform-msx-2": "MSX 2",
+                "platform-game-com": "Game.com",
+                "platform-gizmondo": "Gizmondo",
+                "platform-v-smile": "V.Smile",
+                "platform-creativision": "CreatiVision",
+                "platform-board-game": "Board Game",
+                "platform-card-game": "Card Game",
+                "platform-miniature-wargames": "Miniature Wargames",
+                "platform-pen-and-paper-rpg": "Pen and Paper RPG",
+                "platform-3do": "3DO",
+                "platform-casio-loopy": "Casio Loopy",
+                "platform-casio-pv-1000": "Casio PV-1000",
+                "platform-colecovision": "Colecovision",
+                "platform-emerson-arcadia-2001": "Emerson Arcadia 2001",
+                "platform-entex-adventure-vision": "Entex Adventure Vision",
+                "platform-epoch-super-casette-vision": "Epoch Super Casette Vision",
+                "platform-fairchild-channel-f": "Fairchild Channel F",
+                "platform-funtech-super-acan": "Funtech Super Acan",
+                "platform-gamepark-gp32": "GamePark GP32",
+                "platform-general-computer-vectrex": "General Computer Vectrex",
+                "platform-interactive-dvd": "Interactive DVD",
+                "platform-linux": "Linux",
+                "platform-hartung-game-master": "Hartung Game Master",
+                "platform-magnavox-phillips-odyssey": "Magnavox-Phillips Odyssey",
+                "platform-mattel-intellivision": "Mattel Intellivision",
+                "platform-memotech-mtx": "Memotech MTX",
+                "platform-miles-gordon-sam-coupe": "Miles Gordon Sam Coupe",
+                "platform-nokia-n-gage": "Nokia N-Gage",
+                "platform-oculus-quest": "Oculus Quest",
+                "platform-ouya": "Ouya",
+                "platform-philips-videopac": "Philips Videopac+",
+                "platform-philips-cd-i": "Philips CD-i",
+                "platform-phone-pda": "Phone/PDA",
+                "platform-rca-studio-ii": "RCA Studio II",
+                "platform-sharp-x1": "Sharp X1",
+                "platform-sharp-x68000": "Sharp X68000",
+                "platform-snk-neo-geo": "SNK Neo Geo",
+                "platform-snk-neo-geo-pocket": "SNK Neo Geo Pocket",
+                "platform-taito-type-x": "Taito Type X",
+                "platform-tandy-color-computer": "Tandy Color Computer",
+                "platform-tangerine-oric": "Tangerine Oric",
+                "platform-thomson-mo5": "Thomson MO5",
+                "platform-watara-supervision": "Watara Supervision",
+                "platform-retro-other": "Retro - Other"
               }
             }
           ]
@@ -18252,8 +18499,8 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "gazelle.hdf",
-      "code": 1,
-      "publishedAt": 1792423469,
+      "code": 4,
+      "publishedAt": 1792507144,
       "architecture": "gazelle",
       "domains": [
         "hdf.world"
@@ -18272,7 +18519,9 @@
           "resource-link-identity.v1",
           "tag-filter.v1",
           "tag-parameter.v1",
-          "native-filter-controls.v1"
+          "native-filter-controls.v1",
+          "multi-tag-parameter.v1",
+          "array-tag-parameter.v1"
         ]
       },
       "base": {
@@ -18341,9 +18590,9 @@
                 "cover": {
                   "candidates": [
                     {
-                      "id": "cover",
+                      "id": "value",
                       "read": {
-                        "css": "img",
+                        "css": ".group_image img",
                         "mode": "attribute",
                         "attribute": "src"
                       },
@@ -18353,17 +18602,64 @@
                     }
                   ]
                 },
-                "subtitle": {
+                "tags": {
                   "candidates": [
                     {
-                      "id": "text",
+                      "id": "value",
                       "read": {
-                        "css": ".tags",
-                        "mode": "text"
+                        "css": ".tags a",
+                        "mode": "texts"
                       },
                       "then": [
-                        "trim"
+                        "stringList"
                       ]
+                    },
+                    {
+                      "id": "year",
+                      "read": {
+                        "css": ".group_info",
+                        "mode": "leadingText",
+                        "exclude": [
+                          ".db-links-container",
+                          ".add_bookmark"
+                        ]
+                      },
+                      "then": [
+                        {
+                          "regex": "\\[(\\d{4})\\]",
+                          "group": 1
+                        }
+                      ]
+                    },
+                    {
+                      "id": "type",
+                      "read": {
+                        "css": ".group_info",
+                        "mode": "leadingText",
+                        "exclude": [
+                          ".db-links-container",
+                          ".add_bookmark"
+                        ]
+                      },
+                      "then": [
+                        {
+                          "regex": "\\[\\d{4}\\]\\s*\\[([^\\]]+)\\]",
+                          "group": 1
+                        }
+                      ]
+                    }
+                  ],
+                  "strategy": "collect"
+                },
+                "pinned": {
+                  "candidates": [
+                    {
+                      "id": "value",
+                      "read": {
+                        "css": ":scope.sticky, .sticky, img[alt=\"Sticky\"]",
+                        "mode": "exists"
+                      },
+                      "then": []
                     }
                   ]
                 }
@@ -18383,7 +18679,10 @@
                       "id": "text",
                       "read": {
                         "css": ".edition_info",
-                        "mode": "text"
+                        "mode": "text",
+                        "exclude": [
+                          "a"
+                        ]
                       },
                       "then": [
                         "trim"
@@ -18544,6 +18843,16 @@
                         "css": "img[title][src*=\"free\"], img[title][src*=\"new\"], img[title][src*=\"internal\"], img[title][src*=\"checked\"]",
                         "mode": "attributes",
                         "attribute": "title"
+                      },
+                      "then": [
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "extra-labels",
+                      "read": {
+                        "css": ".torrent_info a[href*=\"torrentid=\"] > span",
+                        "mode": "texts"
                       },
                       "then": [
                         "stringList"
@@ -19011,8 +19320,23 @@
               "input": "promotion",
               "param": "freetorrent",
               "map": {
-                "free": "1"
+                "free": "1",
+                "quarter-download": "2"
               }
+            },
+            {
+              "input": "tag",
+              "param": "filter_cat",
+              "map": {
+                "category-film": "filter_cat[1]=1",
+                "category-animated-film": "filter_cat[2]=1",
+                "category-performance": "filter_cat[3]=1",
+                "category-concert": "filter_cat[4]=1",
+                "category-series": "filter_cat[5]=1",
+                "category-animated-series": "filter_cat[6]=1",
+                "category-documentary": "filter_cat[7]=1"
+              },
+              "encoding": "parameters"
             }
           ]
         },
@@ -19083,6 +19407,20 @@
                 },
                 "level": {
                   "candidates": [
+                    {
+                      "id": "unwrapped",
+                      "read": {
+                        "css": "#nav_userclass .userclass, #userinfo_left .userclass",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "^\\((.*)\\)$",
+                          "group": 1
+                        },
+                        "trim"
+                      ]
+                    },
                     {
                       "id": "text",
                       "read": {
@@ -19215,8 +19553,8 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "gazelle.passthepopcorn",
-      "code": 2,
-      "publishedAt": 1792425837,
+      "code": 4,
+      "publishedAt": 1792508861,
       "architecture": "gazelle",
       "domains": [
         "passthepopcorn.me"
@@ -19235,7 +19573,9 @@
           "resource-link-identity.v1",
           "tag-filter.v1",
           "tag-parameter.v1",
-          "native-filter-controls.v1"
+          "native-filter-controls.v1",
+          "multi-tag-comma.v1",
+          "comma-list.v1"
         ]
       },
       "base": {
@@ -19282,20 +19622,6 @@
                     }
                   ]
                 },
-                "subtitle": {
-                  "candidates": [
-                    {
-                      "id": "embedded",
-                      "read": {
-                        "css": "[data-web-field=\"tags\"]",
-                        "mode": "text"
-                      },
-                      "then": [
-                        "trim"
-                      ]
-                    }
-                  ]
-                },
                 "detailUrl": {
                   "candidates": [
                     {
@@ -19320,6 +19646,84 @@
                       },
                       "then": [
                         "url"
+                      ]
+                    }
+                  ]
+                },
+                "tags": {
+                  "strategy": "collect",
+                  "candidates": [
+                    {
+                      "id": "new",
+                      "read": {
+                        "css": "[data-web-field=\"new\"]",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "^(NEW) [1-9][0-9]*$",
+                          "group": 1
+                        }
+                      ]
+                    },
+                    {
+                      "id": "genres",
+                      "read": {
+                        "css": "[data-web-field=\"tags\"]",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "commaList"
+                      ]
+                    },
+                    {
+                      "id": "year",
+                      "read": {
+                        "css": "[data-web-field=\"year\"]",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    },
+                    {
+                      "id": "imdb",
+                      "read": {
+                        "css": "[data-web-field=\"imdb\"]",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    },
+                    {
+                      "id": "mc",
+                      "read": {
+                        "css": "[data-web-field=\"mc\"]",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    },
+                    {
+                      "id": "rt",
+                      "read": {
+                        "css": "[data-web-field=\"rt\"]",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    },
+                    {
+                      "id": "ptp",
+                      "read": {
+                        "css": "[data-web-field=\"ptp\"]",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
                       ]
                     }
                   ]
@@ -19509,12 +19913,37 @@
                       "then": [
                         "stringList"
                       ]
+                    },
+                    {
+                      "id": "ptp-labels",
+                      "read": {
+                        "css": ".torrent-info__trumpable, .torrent-info__reported",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList"
+                      ]
                     }
                   ],
                   "strategy": "collect"
                 },
                 "downloadFactor": {
                   "candidates": [
+                    {
+                      "id": "ptp-free",
+                      "read": {
+                        "css": ".torrent-info__download-modifier--free",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": 0
+                          },
+                          "unknown": "missing"
+                        }
+                      ]
+                    },
                     {
                       "id": "free",
                       "read": {
@@ -19602,6 +20031,24 @@
                       ]
                     }
                   ]
+                },
+                "promotionRemainingSeconds": {
+                  "candidates": [
+                    {
+                      "id": "value",
+                      "read": {
+                        "css": ".torrent-info__download-modifier--free",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "[Ff]reeleech\\s*\\((.*?)\\s+left\\)",
+                          "group": 1
+                        },
+                        "durationSeconds"
+                      ]
+                    }
+                  ]
                 }
               }
             }
@@ -19636,6 +20083,55 @@
               "map": {
                 "asc": "asc",
                 "desc": ""
+              }
+            },
+            {
+              "input": "tag",
+              "param": "taglist",
+              "map": {
+                "filter-action": "action",
+                "filter-adventure": "adventure",
+                "filter-animation": "animation",
+                "catalog-arthouse": "arthouse",
+                "music-asian": "asian",
+                "catalog-biography": "biography",
+                "catalog-camp": "camp",
+                "filter-comedy": "comedy",
+                "filter-crime": "crime",
+                "catalog-cult": "cult",
+                "filter-documentary": "documentary",
+                "filter-drama": "drama",
+                "catalog-experimental": "experimental",
+                "catalog-exploitation": "exploitation",
+                "filter-family": "family",
+                "filter-fantasy": "fantasy",
+                "catalog-film-noir": "film.noir",
+                "filter-history": "history",
+                "filter-horror": "horror",
+                "filter-martial-arts": "martial.arts",
+                "filter-musical": "musical",
+                "filter-mystery": "mystery",
+                "catalog-performance": "performance",
+                "catalog-philosophy": "philosophy",
+                "catalog-politics": "politics",
+                "filter-romance": "romance",
+                "filter-science-fiction": "sci.fi",
+                "catalog-short": "short",
+                "catalog-silent": "silent",
+                "filter-sport": "sport",
+                "filter-thriller": "thriller",
+                "catalog-video-art": "video.art",
+                "filter-war": "war",
+                "filter-western": "western"
+              },
+              "encoding": "comma"
+            },
+            {
+              "input": "tagMode",
+              "param": "tags_type",
+              "map": {
+                "any": "any",
+                "all": ""
               }
             }
           ]
@@ -19785,6 +20281,24 @@
                   },
                   "detail": {
                     "template": "/torrents.php?id={GroupId}"
+                  },
+                  "year": {
+                    "path": "Year"
+                  },
+                  "imdb": {
+                    "template": "IMDB {ImdbRating}"
+                  },
+                  "mc": {
+                    "template": "MC {McRating}"
+                  },
+                  "rt": {
+                    "template": "RT {RtRating}"
+                  },
+                  "ptp": {
+                    "template": "PTP {PtpRating}"
+                  },
+                  "new": {
+                    "template": "NEW {New}"
                   }
                 },
                 "children": [
@@ -19864,8 +20378,8 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "gazelle.redacted",
-      "code": 1,
-      "publishedAt": 1792423469,
+      "code": 2,
+      "publishedAt": 1792505364,
       "architecture": "gazelle",
       "domains": [
         "redacted.sh"
@@ -19884,7 +20398,8 @@
           "resource-link-identity.v1",
           "tag-filter.v1",
           "tag-parameter.v1",
-          "native-filter-controls.v1"
+          "native-filter-controls.v1",
+          "multi-tag-comma.v1"
         ]
       },
       "base": {
@@ -19956,28 +20471,14 @@
                 "cover": {
                   "candidates": [
                     {
-                      "id": "cover",
+                      "id": "value",
                       "read": {
-                        "css": "img",
+                        "css": ".group_image img",
                         "mode": "attribute",
                         "attribute": "src"
                       },
                       "then": [
                         "url"
-                      ]
-                    }
-                  ]
-                },
-                "subtitle": {
-                  "candidates": [
-                    {
-                      "id": "text",
-                      "read": {
-                        "css": ".tags",
-                        "mode": "text"
-                      },
-                      "then": [
-                        "trim"
                       ]
                     }
                   ]
@@ -20000,6 +20501,32 @@
                       ]
                     }
                   ]
+                },
+                "tags": {
+                  "candidates": [
+                    {
+                      "id": "value",
+                      "read": {
+                        "css": ".tags a",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList"
+                      ]
+                    }
+                  ]
+                },
+                "pinned": {
+                  "candidates": [
+                    {
+                      "id": "value",
+                      "read": {
+                        "css": ":scope.sticky, .sticky, img[alt=\"Sticky\"]",
+                        "mode": "exists"
+                      },
+                      "then": []
+                    }
+                  ]
                 }
               }
             },
@@ -20017,7 +20544,10 @@
                       "id": "text",
                       "read": {
                         "css": ".edition_info",
-                        "mode": "text"
+                        "mode": "text",
+                        "exclude": [
+                          "a"
+                        ]
                       },
                       "then": [
                         "trim"
@@ -20645,7 +21175,118 @@
               "input": "promotion",
               "param": "freetorrent",
               "map": {
-                "free": "1"
+                "free": "1",
+                "zero-traffic": "2"
+              }
+            },
+            {
+              "input": "tag",
+              "param": "taglist",
+              "map": {
+                "catalog-acoustic": "acoustic",
+                "catalog-alternative": "alternative",
+                "catalog-alternative-rock": "alternative.rock",
+                "music-ambient": "ambient",
+                "catalog-art-rock": "art.rock",
+                "catalog-avant-garde": "avant.garde",
+                "catalog-bebop": "bebop",
+                "catalog-black-metal": "black.metal",
+                "catalog-bluegrass": "bluegrass",
+                "music-blues": "blues",
+                "catalog-blues-rock": "blues.rock",
+                "catalog-bossa-nova": "bossa.nova",
+                "catalog-chamber-music": "chamber.music",
+                "catalog-chiptune": "chiptune",
+                "music-classical": "classical",
+                "filter-comedy": "comedy",
+                "music-country": "country",
+                "catalog-death-metal": "death.metal",
+                "catalog-deep-house": "deep.house",
+                "music-disco": "disco",
+                "catalog-doom-metal": "doom.metal",
+                "catalog-downtempo": "downtempo",
+                "catalog-dream-pop": "dream.pop",
+                "catalog-drone": "drone",
+                "music-drum-and-bass": "drum.and.bass",
+                "catalog-dub": "dub",
+                "catalog-dubstep": "dubstep",
+                "music-electronic": "electronic",
+                "catalog-experimental": "experimental",
+                "music-folk": "folk",
+                "catalog-free-jazz": "free.jazz",
+                "catalog-freely-available": "freely.available",
+                "music-funk": "funk",
+                "catalog-fusion": "fusion",
+                "catalog-garage-house": "garage.house",
+                "catalog-garage-rock": "garage.rock",
+                "catalog-gospel": "gospel",
+                "catalog-gothic": "gothic",
+                "catalog-grime": "grime",
+                "catalog-grunge": "grunge",
+                "catalog-hard-rock": "hard.rock",
+                "catalog-hardcore-dance": "hardcore.dance",
+                "catalog-hardcore-punk": "hardcore.punk",
+                "catalog-heavy-metal": "heavy.metal",
+                "music-hip-hop": "hip.hop",
+                "music-house": "house",
+                "music-idm": "idm",
+                "filter-indie": "indie",
+                "catalog-industrial": "industrial",
+                "music-instrumental": "instrumental",
+                "catalog-jam-band": "jam.band",
+                "music-jazz": "jazz",
+                "music-jpop": "jpop",
+                "music-kpop": "kpop",
+                "catalog-krautrock": "krautrock",
+                "music-latin": "latin",
+                "catalog-lo-fi": "lo.fi",
+                "catalog-math-rock": "math.rock",
+                "music-metal": "metal",
+                "catalog-minimal": "minimal",
+                "catalog-minimal-house": "minimal.house",
+                "catalog-modern-classical": "modern.classical",
+                "catalog-new-age": "new.age",
+                "catalog-new-wave": "new.wave",
+                "music-noise": "noise",
+                "catalog-opera": "opera",
+                "music-pop": "pop",
+                "catalog-pop-punk": "pop.punk",
+                "catalog-pop-rock": "pop.rock",
+                "catalog-post-hardcore": "post.hardcore",
+                "catalog-post-punk": "post.punk",
+                "catalog-post-rock": "post.rock",
+                "catalog-progressive-rock": "progressive.rock",
+                "music-psychedelic": "psychedelic",
+                "music-psytrance": "psytrance",
+                "music-punk": "punk",
+                "music-reggae": "reggae",
+                "music-rhythm-and-blues": "rhythm.and.blues",
+                "music-rock": "rock",
+                "catalog-shoegaze": "shoegaze",
+                "catalog-singer-songwriter": "singer.songwriter",
+                "catalog-ska": "ska",
+                "catalog-sludge-metal": "sludge.metal",
+                "music-soul": "soul",
+                "catalog-stoner-rock": "stoner.rock",
+                "catalog-swing": "swing",
+                "music-synthpop": "synthpop",
+                "catalog-techno": "techno",
+                "catalog-thrash-metal": "thrash.metal",
+                "music-trance": "trance",
+                "catalog-trap": "trap",
+                "catalog-trip-hop": "trip.hop",
+                "catalog-vaporwave": "vaporwave",
+                "catalog-video-game": "video.game",
+                "catalog-vocal": "vocal"
+              },
+              "encoding": "comma"
+            },
+            {
+              "input": "tagMode",
+              "param": "tags_type",
+              "map": {
+                "any": "0",
+                "all": "1"
               }
             }
           ]
@@ -20855,8 +21496,8 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "gazelle.emparadise",
-      "code": 2,
-      "publishedAt": 1792425837,
+      "code": 3,
+      "publishedAt": 1792505364,
       "architecture": "gazelle",
       "domains": [
         "emparadise.rs"
@@ -20875,7 +21516,8 @@
           "resource-link-identity.v1",
           "tag-filter.v1",
           "tag-parameter.v1",
-          "native-filter-controls.v1"
+          "native-filter-controls.v1",
+          "json-string.v1"
         ]
       },
       "base": {
@@ -21040,6 +21682,27 @@
                       "then": [
                         "stringList"
                       ]
+                    },
+                    {
+                      "id": "reported",
+                      "read": {
+                        "css": ".reported",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "category",
+                      "read": {
+                        "css": ".cats_col div[title]",
+                        "mode": "attribute",
+                        "attribute": "title"
+                      },
+                      "then": [
+                        "trim"
+                      ]
                     }
                   ],
                   "strategy": "collect"
@@ -21049,7 +21712,7 @@
                     {
                       "id": "free",
                       "read": {
-                        "css": ".freeleech, .torrent_freeleech, strong.free, .free, .tl_free, .tl_global, .tl_neutral",
+                        "css": ".freeleech, .torrent_freeleech, strong.free, .free, .tl_free, .tl_global, .tl_neutral, .unlimited_leech",
                         "mode": "exists"
                       },
                       "then": [
@@ -21173,6 +21836,54 @@
                       ]
                     }
                   ]
+                },
+                "cover": {
+                  "candidates": [
+                    {
+                      "id": "overlay",
+                      "read": {
+                        "css": "script",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "var\\s+overlay\\w*\\s*=\\s*(\"(?:[^\"\\\\]|\\\\.)*\")",
+                          "group": 1
+                        },
+                        "jsonString",
+                        {
+                          "regex": "<img[^>]+src=[\\'\"]([^\\'\"]+)",
+                          "group": 1
+                        },
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "subtitle": {
+                  "candidates": [
+                    {
+                      "id": "genres",
+                      "read": {
+                        "css": ".tags",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "pinned": {
+                  "candidates": [
+                    {
+                      "id": "pin",
+                      "read": {
+                        "css": ":scope.sticky, .sticky",
+                        "mode": "exists"
+                      }
+                    }
+                  ]
                 }
               }
             }
@@ -21207,6 +21918,22 @@
               "map": {
                 "asc": "asc",
                 "desc": "desc"
+              }
+            },
+            {
+              "input": "tag",
+              "param": "taglist",
+              "map": {
+                "4k": "2160p",
+                "filter-resolution-1080p": "1080p",
+                "filter-resolution-720p": "720p"
+              }
+            },
+            {
+              "input": "promotion",
+              "param": "filter_freeleech",
+              "map": {
+                "free": "1"
               }
             }
           ]
@@ -21370,8 +22097,8 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "gazelle.greatposterwall",
-      "code": 2,
-      "publishedAt": 1792425837,
+      "code": 4,
+      "publishedAt": 1792509607,
       "architecture": "gazelle",
       "domains": [
         "greatposterwall.com"
@@ -21390,7 +22117,9 @@
           "resource-link-identity.v1",
           "tag-filter.v1",
           "tag-parameter.v1",
-          "native-filter-controls.v1"
+          "native-filter-controls.v1",
+          "multi-tag-comma.v1",
+          "text-list.v1"
         ]
       },
       "base": {
@@ -21430,6 +22159,20 @@
                 "title": {
                   "candidates": [
                     {
+                      "id": "without-year",
+                      "read": {
+                        "css": ".TorrentCover-title",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "^(.*?)\\s*\\(\\d{4}\\)\\s*$",
+                          "group": 1
+                        },
+                        "trim"
+                      ]
+                    },
+                    {
                       "id": "text",
                       "read": {
                         "css": ".TorrentCover-title, .TorrentTitle a[href*=\"torrents.php?id=\"]",
@@ -21459,9 +22202,9 @@
                 "cover": {
                   "candidates": [
                     {
-                      "id": "cover",
+                      "id": "value",
                       "read": {
-                        "css": "img",
+                        "css": ".TorrentCover-image, .group_image img",
                         "mode": "attribute",
                         "attribute": "src"
                       },
@@ -21471,16 +22214,30 @@
                     }
                   ]
                 },
-                "subtitle": {
+                "tags": {
+                  "strategy": "collect",
                   "candidates": [
                     {
-                      "id": "text",
+                      "id": "genres",
                       "read": {
-                        "css": ".tags",
+                        "css": ".TorrentCover-rightBottomTag i, .tags",
                         "mode": "text"
                       },
                       "then": [
-                        "trim"
+                        "spaceList"
+                      ]
+                    },
+                    {
+                      "id": "year",
+                      "read": {
+                        "css": ".TorrentCover-title",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "\\((\\d{4})\\)\\s*$",
+                          "group": 1
+                        }
                       ]
                     }
                   ]
@@ -21492,7 +22249,7 @@
               "role": "edition",
               "layout": {
                 "kind": "elements",
-                "items": ".TableTorrent tr.TableTorrent-rowCategory"
+                "items": "#torrent_table tr.TableTorrent-rowCategory, #torrent_details tr.TableTorrent-rowCategory"
               },
               "fields": {
                 "title": {
@@ -21501,7 +22258,10 @@
                       "id": "text",
                       "read": {
                         "css": ":scope",
-                        "mode": "text"
+                        "mode": "text",
+                        "exclude": [
+                          ".u-toggleEdition-button"
+                        ]
                       },
                       "then": [
                         "trim"
@@ -21516,7 +22276,7 @@
               "role": "variant",
               "layout": {
                 "kind": "elements",
-                "items": ".TableTorrent tr.TableTorrent-rowTitle"
+                "items": "#torrent_table tr.TableTorrent-rowTitle, #torrent_details tr.TableTorrent-rowTitle"
               },
               "fields": {
                 "resourceId": {
@@ -21700,6 +22460,24 @@
                       "then": [
                         "stringList"
                       ]
+                    },
+                    {
+                      "id": "gpw-labels",
+                      "read": {
+                        "css": ".TorrentTitle [class*=\"tl_\"]",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList",
+                        {
+                          "tagAliases": {
+                            "免费": "free",
+                            "中字": "chinese-subtitles",
+                            "国语": "mandarin",
+                            "自制": "diy"
+                          }
+                        }
+                      ]
                     }
                   ],
                   "strategy": "collect"
@@ -21709,7 +22487,7 @@
                     {
                       "id": "free",
                       "read": {
-                        "css": ".freeleech, .torrent_freeleech",
+                        "css": ".freeleech, .torrent_freeleech, .TorrentTitle-item.tl_free",
                         "mode": "exists"
                       },
                       "then": [
@@ -22147,7 +22925,59 @@
               "param": "freetorrent",
               "map": {
                 "free": "1",
-                "half": "12"
+                "half-download": "12",
+                "quarter-download": "13",
+                "three-quarter-download": "11",
+                "zero-traffic": "2"
+              }
+            },
+            {
+              "input": "tag",
+              "param": "taglist",
+              "map": {
+                "filter-action": "动作",
+                "catalog-adult": "成人",
+                "filter-adventure": "冒险",
+                "filter-animation": "动画",
+                "catalog-arthouse": "艺术",
+                "music-asian": "亚洲",
+                "catalog-biography": "传记",
+                "filter-comedy": "喜剧",
+                "filter-crime": "犯罪",
+                "catalog-cult": "邪典",
+                "filter-documentary": "纪录片",
+                "filter-drama": "剧情",
+                "catalog-experimental": "实验",
+                "filter-family": "家庭",
+                "filter-fantasy": "奇幻",
+                "catalog-film-noir": "黑色电影",
+                "filter-history": "历史",
+                "filter-horror": "恐怖",
+                "catalog-lgbt": "lgbt",
+                "filter-martial-arts": "武侠",
+                "filter-music": "音乐",
+                "filter-musical": "音乐剧",
+                "filter-mystery": "悬疑",
+                "catalog-performance": "演出",
+                "catalog-politics": "政治",
+                "filter-romance": "爱情",
+                "filter-science-fiction": "科幻",
+                "catalog-short": "短片",
+                "catalog-silent": "默片",
+                "filter-sport": "体育",
+                "filter-thriller": "惊悚",
+                "catalog-video-art": "video.art",
+                "filter-war": "战争",
+                "filter-western": "西部"
+              },
+              "encoding": "comma"
+            },
+            {
+              "input": "tagMode",
+              "param": "tags_type",
+              "map": {
+                "any": "0",
+                "all": "1"
               }
             }
           ]
