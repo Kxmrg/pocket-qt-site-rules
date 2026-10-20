@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 42,
-  "publishedAt": 1792510236,
+  "code": 43,
+  "publishedAt": 1792511410,
   "compatibility": {
     "engine": 1,
     "features": []
@@ -19553,8 +19553,8 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "gazelle.passthepopcorn",
-      "code": 4,
-      "publishedAt": 1792508861,
+      "code": 5,
+      "publishedAt": 1792511410,
       "architecture": "gazelle",
       "domains": [
         "passthepopcorn.me"
@@ -19923,6 +19923,39 @@
                       "then": [
                         "stringList"
                       ]
+                    },
+                    {
+                      "id": "flat-new",
+                      "read": {
+                        "css": "[data-web-flat=\"true\"] > [data-web-field=\"new\"]",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "^(NEW) [1-9][0-9]*$",
+                          "group": 1
+                        }
+                      ]
+                    },
+                    {
+                      "id": "flat-genres",
+                      "read": {
+                        "css": "[data-web-flat=\"true\"] > [data-web-field=\"tags\"]",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "commaList"
+                      ]
+                    },
+                    {
+                      "id": "flat-metadata",
+                      "read": {
+                        "css": "[data-web-flat=\"true\"] > [data-web-field=\"year\"], [data-web-flat=\"true\"] > [data-web-field=\"imdb\"], [data-web-flat=\"true\"] > [data-web-field=\"mc\"], [data-web-flat=\"true\"] > [data-web-field=\"rt\"], [data-web-flat=\"true\"] > [data-web-field=\"ptp\"]",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList"
+                      ]
                     }
                   ],
                   "strategy": "collect"
@@ -20046,6 +20079,20 @@
                           "group": 1
                         },
                         "durationSeconds"
+                      ]
+                    }
+                  ]
+                },
+                "cover": {
+                  "candidates": [
+                    {
+                      "id": "embedded",
+                      "read": {
+                        "css": "[data-web-flat=\"true\"] > [data-web-field=\"cover\"]",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "url"
                       ]
                     }
                   ]
@@ -20346,6 +20393,30 @@
                           },
                           "download": {
                             "template": "/torrents.php?action=download&id={TorrentId}&authkey={$.AuthKey}&torrent_pass={$.TorrentPass}"
+                          },
+                          "tags": {
+                            "path": "Tags"
+                          },
+                          "cover": {
+                            "path": "Cover"
+                          },
+                          "year": {
+                            "path": "Year"
+                          },
+                          "imdb": {
+                            "template": "IMDB {ImdbRating}"
+                          },
+                          "mc": {
+                            "template": "MC {McRating}"
+                          },
+                          "rt": {
+                            "template": "RT {RtRating}"
+                          },
+                          "ptp": {
+                            "template": "PTP {PtpRating}"
+                          },
+                          "new": {
+                            "template": "NEW {New}"
                           }
                         }
                       }
