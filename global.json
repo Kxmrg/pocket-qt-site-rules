@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 25,
-  "publishedAt": 1792426649,
+  "code": 26,
+  "publishedAt": 1792496471,
   "compatibility": {
     "engine": 1,
     "features": []
@@ -14061,8 +14061,8 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "gazelle.broadcasthe",
-      "code": 1,
-      "publishedAt": 1792423469,
+      "code": 2,
+      "publishedAt": 1792496422,
       "architecture": "gazelle",
       "domains": [
         "broadcasthe.net"
@@ -14229,28 +14229,9 @@
                 "tags": {
                   "candidates": [
                     {
-                      "id": "badges",
+                      "id": "row-badges",
                       "read": {
-                        "css": ".torrent_label, .torrent_badge, .freeleech, .torrent_freeleech, .torrent_halfleech, .newtorrent",
-                        "mode": "texts"
-                      },
-                      "then": [
-                        "stringList",
-                        {
-                          "tagAliases": {
-                            "Freeleech!": "free",
-                            "Freeleech": "free",
-                            "Global Freeleech!": "free",
-                            "(New!)": "new",
-                            "Neutral Leech!": "neutral"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "id": "images",
-                      "read": {
-                        "css": "img[title][src*=\"free\"], img[title][src*=\"new\"], img[title][src*=\"internal\"], img[title][src*=\"checked\"]",
+                        "css": ":scope > td:nth-child(4) > img[title]",
                         "mode": "attributes",
                         "attribute": "title"
                       },
@@ -14259,13 +14240,145 @@
                       ]
                     },
                     {
-                      "id": "row-badges",
+                      "id": "category",
                       "read": {
-                        "css": ":scope > td:nth-child(4) img[title]",
+                        "css": ":scope > td:nth-child(1) > a > img[title]",
                         "mode": "attributes",
                         "attribute": "title"
                       },
                       "then": [
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "spec-1",
+                      "read": {
+                        "css": ":scope > td:nth-child(3)",
+                        "mode": "text",
+                        "exclude": [
+                          "span",
+                          "div"
+                        ]
+                      },
+                      "then": [
+                        {
+                          "regex": "\\[([^\\]]+)\\]",
+                          "group": 1
+                        },
+                        {
+                          "regex": "(H\\.264|H\\.265|x264|x265|XviD|MPEG-2)",
+                          "group": 1
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "spec-2",
+                      "read": {
+                        "css": ":scope > td:nth-child(3)",
+                        "mode": "text",
+                        "exclude": [
+                          "span",
+                          "div"
+                        ]
+                      },
+                      "then": [
+                        {
+                          "regex": "\\[([^\\]]+)\\]",
+                          "group": 1
+                        },
+                        {
+                          "regex": "(WEB-DL|WEBRip|BluRay|HDTV|DVDRip|DVD)",
+                          "group": 1
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "spec-3",
+                      "read": {
+                        "css": ":scope > td:nth-child(3)",
+                        "mode": "text",
+                        "exclude": [
+                          "span",
+                          "div"
+                        ]
+                      },
+                      "then": [
+                        {
+                          "regex": "\\[([^\\]]+)\\]",
+                          "group": 1
+                        },
+                        {
+                          "regex": "(2160p|1080p|1080i|720p|576p|480p)",
+                          "group": 1
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "spec-4",
+                      "read": {
+                        "css": ":scope > td:nth-child(3)",
+                        "mode": "text",
+                        "exclude": [
+                          "span",
+                          "div"
+                        ]
+                      },
+                      "then": [
+                        {
+                          "regex": "\\[([^\\]]+)\\]",
+                          "group": 1
+                        },
+                        {
+                          "regex": "(Scene|P2P)",
+                          "group": 1
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "spec-5",
+                      "read": {
+                        "css": ":scope > td:nth-child(3)",
+                        "mode": "text",
+                        "exclude": [
+                          "span",
+                          "div"
+                        ]
+                      },
+                      "then": [
+                        {
+                          "regex": "\\[([^\\]]+)\\]",
+                          "group": 1
+                        },
+                        {
+                          "regex": "(Subs)",
+                          "group": 1
+                        },
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "spec-7",
+                      "read": {
+                        "css": ":scope > td:nth-child(3)",
+                        "mode": "text",
+                        "exclude": [
+                          "span",
+                          "div"
+                        ]
+                      },
+                      "then": [
+                        {
+                          "regex": "\\[([^\\]]+)\\]",
+                          "group": 1
+                        },
+                        {
+                          "regex": "(Dual)",
+                          "group": 1
+                        },
                         "stringList"
                       ]
                     }
@@ -14398,6 +14511,57 @@
                           },
                           "unknown": "missing"
                         }
+                      ]
+                    }
+                  ]
+                },
+                "subtitle": {
+                  "candidates": [
+                    {
+                      "id": "series-specification",
+                      "read": {
+                        "css": ":scope > td:nth-child(3)",
+                        "mode": "text",
+                        "exclude": [
+                          "span",
+                          "div"
+                        ]
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "cover": {
+                  "candidates": [
+                    {
+                      "id": "series-banner",
+                      "read": {
+                        "css": ":scope > td:nth-child(2) > a > img",
+                        "mode": "attribute",
+                        "attribute": "src"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "author": {
+                  "candidates": [
+                    {
+                      "id": "uploader",
+                      "read": {
+                        "css": ":scope > td:nth-child(3) > div.nobr",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "Up:\\s*(.*?)\\s*-\\s*Added:",
+                          "group": 1
+                        },
+                        "trim"
                       ]
                     }
                   ]
