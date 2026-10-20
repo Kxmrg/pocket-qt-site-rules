@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 28,
-  "publishedAt": 1792499605,
+  "code": 29,
+  "publishedAt": 1792500400,
   "compatibility": {
     "engine": 1,
     "features": []
@@ -15881,8 +15881,8 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "gazelle.dicmusic",
-      "code": 2,
-      "publishedAt": 1792425837,
+      "code": 3,
+      "publishedAt": 1792500400,
       "architecture": "gazelle",
       "domains": [
         "dicmusic.com"
@@ -15901,7 +15901,8 @@
           "resource-link-identity.v1",
           "tag-filter.v1",
           "tag-parameter.v1",
-          "native-filter-controls.v1"
+          "native-filter-controls.v1",
+          "multi-tag-comma.v1"
         ]
       },
       "base": {
@@ -15985,20 +15986,6 @@
                     }
                   ]
                 },
-                "subtitle": {
-                  "candidates": [
-                    {
-                      "id": "text",
-                      "read": {
-                        "css": ".tags",
-                        "mode": "text"
-                      },
-                      "then": [
-                        "trim"
-                      ]
-                    }
-                  ]
-                },
                 "coverAspectRatio": {
                   "candidates": [
                     {
@@ -16014,6 +16001,21 @@
                           },
                           "unknown": "missing"
                         }
+                      ]
+                    }
+                  ]
+                },
+                "tags": {
+                  "strategy": "collect",
+                  "candidates": [
+                    {
+                      "id": "music-genres",
+                      "read": {
+                        "css": ".tags a",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList"
                       ]
                     }
                   ]
@@ -16663,6 +16665,91 @@
               "param": "freetorrent",
               "map": {
                 "free": "1"
+              }
+            },
+            {
+              "input": "tag",
+              "param": "taglist",
+              "encoding": "comma",
+              "map": {
+                "music-1950s": "1950s",
+                "music-1960s": "1960s",
+                "music-1970s": "1970s",
+                "music-1980s": "1980s",
+                "music-1990s": "1990s",
+                "music-2000s": "2000s",
+                "music-2010s": "2010s",
+                "music-2020s": "2020s",
+                "music-ambient": "ambient",
+                "music-america": "america",
+                "filter-anime": "anime",
+                "music-asian": "asian",
+                "music-blues": "blues",
+                "music-britain": "britain",
+                "music-canada": "canada",
+                "music-cantonese": "cantonese",
+                "music-cantopop": "cantopop",
+                "music-chinese": "chinese",
+                "music-classical": "classical",
+                "music-country": "country",
+                "music-dance": "dance",
+                "music-disco": "disco",
+                "music-drum-and-bass": "drum.and.bass",
+                "music-electronic": "electronic",
+                "music-english": "english",
+                "music-europe": "europe",
+                "music-folk": "folk",
+                "music-french": "french",
+                "music-funk": "funk",
+                "music-garage": "garage",
+                "music-harmonica": "harmonica",
+                "music-hip-hop": "hip.hop",
+                "music-hong-kong": "hong.kong",
+                "music-house": "house",
+                "music-idm": "idm",
+                "filter-indie": "indie",
+                "music-instrumental": "instrumental",
+                "music-japanese": "japanese",
+                "music-jazz": "jazz",
+                "music-jpop": "jpop",
+                "music-korean": "korean",
+                "music-kpop": "kpop",
+                "music-latin": "latin",
+                "music-live": "live",
+                "mandarin": "mandarin",
+                "music-mandopop": "mandopop",
+                "music-metal": "metal",
+                "music-national": "national",
+                "music-nationalmusic": "nationalmusic",
+                "music-noise": "noise",
+                "music-orchestral": "orchestral",
+                "music-piano": "piano",
+                "music-pop": "pop",
+                "music-psychedelic": "psychedelic",
+                "music-psytrance": "psytrance",
+                "music-punk": "punk",
+                "music-reggae": "reggae",
+                "music-religion": "religion",
+                "music-rhythm-and-blues": "rhythm.and.blues",
+                "music-rock": "rock",
+                "music-score": "score",
+                "music-singaporean": "singaporean",
+                "music-soul": "soul",
+                "music-soundtrack": "soundtrack",
+                "music-spanish": "spanish",
+                "music-stage-and-screen": "stage.and.screen",
+                "music-synthpop": "synthpop",
+                "music-taiwanese": "taiwanese",
+                "music-trance": "trance",
+                "music-vocaloid": "vocaloid"
+              }
+            },
+            {
+              "input": "tagMode",
+              "param": "tags_type",
+              "map": {
+                "any": "0",
+                "all": "1"
               }
             }
           ]
