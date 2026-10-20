@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 27,
-  "publishedAt": 1792497191,
+  "code": 28,
+  "publishedAt": 1792499605,
   "compatibility": {
     "engine": 1,
     "features": []
@@ -12792,8 +12792,8 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "gazelle.anthelion",
-      "code": 3,
-      "publishedAt": 1792426649,
+      "code": 4,
+      "publishedAt": 1792499605,
       "architecture": "gazelle",
       "domains": [
         "anthelion.me"
@@ -12812,7 +12812,8 @@
           "resource-link-identity.v1",
           "tag-filter.v1",
           "tag-parameter.v1",
-          "native-filter-controls.v1"
+          "native-filter-controls.v1",
+          "multi-tag-comma.v1"
         ]
       },
       "base": {
@@ -13851,7 +13852,47 @@
               "param": "freetorrent",
               "map": {
                 "free": "1",
-                "half": "12"
+                "half-download": "12"
+              }
+            },
+            {
+              "input": "tag",
+              "param": "taglist",
+              "encoding": "comma",
+              "map": {
+                "filter-action": "action",
+                "filter-adventure": "adventure",
+                "filter-animation": "animation",
+                "filter-comedy": "comedy",
+                "filter-crime": "crime",
+                "filter-documentary": "documentary",
+                "filter-drama": "drama",
+                "filter-family": "family",
+                "filter-fantasy": "fantasy",
+                "filter-history": "history",
+                "filter-horror": "horror",
+                "filter-music": "music",
+                "filter-mystery": "mystery",
+                "filter-romance": "romance",
+                "filter-thriller": "thriller",
+                "filter-war": "war",
+                "filter-western": "western",
+                "filter-anime": "anime",
+                "filter-food": "food",
+                "filter-musical": "musical",
+                "filter-sport": "sport",
+                "filter-suspense": "suspense",
+                "filter-science-fiction": "sci.fi",
+                "filter-martial-arts": "martial.arts",
+                "filter-mini-series": "mini.series"
+              }
+            },
+            {
+              "input": "tagMode",
+              "param": "tags_type",
+              "map": {
+                "any": "0",
+                "all": "1"
               }
             }
           ]
