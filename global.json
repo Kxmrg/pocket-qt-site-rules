@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 41,
-  "publishedAt": 1792509607,
+  "code": 42,
+  "publishedAt": 1792510236,
   "compatibility": {
     "engine": 1,
     "features": []
@@ -23152,6 +23152,464 @@
                         "mode": "text"
                       },
                       "then": [
+                        "decimal"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "site",
+      "id": "nexusphp.hdwing",
+      "code": 1,
+      "publishedAt": 1792510002,
+      "architecture": "nexusphp",
+      "domains": [
+        "hdwing.org"
+      ],
+      "compatibility": {
+        "engine": 1,
+        "features": []
+      },
+      "base": {
+        "minCode": 18
+      },
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/pages/list/parsers/semantic/layout/root",
+          "value": "table.torrent_list"
+        },
+        {
+          "op": "replace",
+          "path": "/pages/list/parsers/semantic/fields/subtitle",
+          "value": {
+            "candidates": [
+              {
+                "id": "hdwing-subtitle",
+                "read": {
+                  "css": ".t_name h4",
+                  "mode": "text"
+                },
+                "then": [
+                  "trim"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/pages/list/parsers/semantic/fields/downloadUrl",
+          "value": {
+            "candidates": [
+              {
+                "id": "signed-download",
+                "read": {
+                  "css": "a[href*=\"download.php?hash=\"]",
+                  "mode": "attribute",
+                  "attribute": "href"
+                },
+                "then": [
+                  "url"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/pages/list/request",
+          "value": {
+            "target": {
+              "from": "entry"
+            },
+            "query": [
+              {
+                "param": "page",
+                "input": "page",
+                "offset": -1
+              },
+              {
+                "param": "pageSize",
+                "input": "pageSize"
+              },
+              {
+                "param": "search",
+                "input": "query"
+              },
+              {
+                "param": "sort",
+                "input": "sort",
+                "map": {
+                  "publishedAt": 4,
+                  "sizeBytes": 5,
+                  "seeders": 7,
+                  "leechers": 8,
+                  "completed": 6
+                }
+              },
+              {
+                "param": "type",
+                "input": "direction"
+              },
+              {
+                "param": "cat",
+                "input": "category"
+              },
+              {
+                "param": "spstate",
+                "input": "promotion",
+                "map": {
+                  "normal": 1,
+                  "free": 2,
+                  "double-upload": 3,
+                  "double-free": 4,
+                  "half-download": 5,
+                  "double-half": 6,
+                  "thirty-percent": 7
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/pages/account/parsers/theme-panel/fields/uploadedBytes",
+          "value": {
+            "candidates": [
+              {
+                "id": "native-label",
+                "read": {
+                  "css": ":scope",
+                  "mode": "text"
+                },
+                "then": [
+                  {
+                    "regex": "上传量\\s*[:：]\\s*([0-9.,]+\\s*[KMGTPE]?B)",
+                    "group": 1
+                  },
+                  "bytes"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/pages/account/parsers/theme-panel/fields/downloadedBytes",
+          "value": {
+            "candidates": [
+              {
+                "id": "native-label",
+                "read": {
+                  "css": ":scope",
+                  "mode": "text"
+                },
+                "then": [
+                  {
+                    "regex": "下载量\\s*[:：]\\s*([0-9.,]+\\s*[KMGTPE]?B)",
+                    "group": 1
+                  },
+                  "bytes"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/pages/account/parsers/theme-panel/fields/ratio",
+          "value": {
+            "candidates": [
+              {
+                "id": "native-label",
+                "read": {
+                  "css": ":scope",
+                  "mode": "text"
+                },
+                "then": [
+                  {
+                    "regex": "分享率\\s*[:：]\\s*([0-9.,]+|∞)",
+                    "group": 1
+                  },
+                  "ratio"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "prepend",
+          "path": "/pages/list/parsers/semantic/fields/tags/candidates",
+          "value": [
+            {
+              "id": "repost-rule",
+              "read": {
+                "css": ".share_rule img[title]",
+                "mode": "attribute",
+                "attribute": "title"
+              },
+              "then": [
+                "trim"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "site",
+      "id": "nexusphp.sjtu",
+      "code": 1,
+      "publishedAt": 1792510002,
+      "architecture": "nexusphp",
+      "domains": [
+        "pt.sjtu.edu.cn"
+      ],
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "base": {
+        "minCode": 18
+      },
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/pages/list/request",
+          "value": {
+            "target": {
+              "from": "entry"
+            },
+            "query": [
+              {
+                "param": "page",
+                "input": "page",
+                "offset": -1
+              },
+              {
+                "param": "pageSize",
+                "input": "pageSize"
+              },
+              {
+                "param": "search",
+                "input": "query"
+              },
+              {
+                "param": "sort",
+                "input": "sort",
+                "map": {
+                  "publishedAt": 4,
+                  "sizeBytes": 5,
+                  "seeders": 7,
+                  "leechers": 8,
+                  "completed": 6
+                }
+              },
+              {
+                "param": "type",
+                "input": "direction"
+              },
+              {
+                "param": "cat",
+                "input": "category"
+              },
+              {
+                "param": "spstate",
+                "input": "promotion",
+                "map": {
+                  "normal": 1,
+                  "free": 2,
+                  "double-upload": 3,
+                  "double-free": 4,
+                  "half-download": 5,
+                  "thirty-percent": 6,
+                  "seventy-percent": 7
+                }
+              },
+              {
+                "id": "resource-tag",
+                "param": "picktype",
+                "input": "tag",
+                "map": {
+                  "hot": 1,
+                  "classic": 2,
+                  "recommended": 3,
+                  "normal-release": 4,
+                  "seed-protected": 5
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/pages/account/parsers/panel/scope",
+          "value": "#usermsglink"
+        },
+        {
+          "op": "replace",
+          "path": "/pages/account/parsers/panel/fields/uploadedBytes",
+          "value": {
+            "candidates": [
+              {
+                "id": "native-label",
+                "read": {
+                  "css": ":scope",
+                  "mode": "text"
+                },
+                "then": [
+                  {
+                    "regex": "上传量\\s*[:：]\\s*([0-9.,]+\\s*[KMGTPE]?B)",
+                    "group": 1
+                  },
+                  "bytes"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/pages/account/parsers/panel/fields/downloadedBytes",
+          "value": {
+            "candidates": [
+              {
+                "id": "native-label",
+                "read": {
+                  "css": ":scope",
+                  "mode": "text"
+                },
+                "then": [
+                  {
+                    "regex": "下载量\\s*[:：]\\s*([0-9.,]+\\s*[KMGTPE]?B)",
+                    "group": 1
+                  },
+                  "bytes"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/pages/account/parsers/panel/fields/ratio",
+          "value": {
+            "candidates": [
+              {
+                "id": "native-label",
+                "read": {
+                  "css": ":scope",
+                  "mode": "text"
+                },
+                "then": [
+                  {
+                    "regex": "分享率\\s*[:：]\\s*([0-9.,]+|∞)",
+                    "group": 1
+                  },
+                  "ratio"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "prepend",
+          "path": "/pages/list/parsers/semantic/fields/downloadFactor/candidates",
+          "value": [
+            {
+              "id": "native-free",
+              "read": {
+                "css": ":scope.free_bg",
+                "mode": "exists"
+              },
+              "then": [
+                {
+                  "lookup": {
+                    "true": 0
+                  },
+                  "unknown": "missing"
+                }
+              ]
+            },
+            {
+              "id": "native-halfdown",
+              "read": {
+                "css": ":scope.halfdown_bg",
+                "mode": "exists"
+              },
+              "then": [
+                {
+                  "lookup": {
+                    "true": 0.5
+                  },
+                  "unknown": "missing"
+                }
+              ]
+            },
+            {
+              "id": "native-d30down",
+              "read": {
+                "css": ":scope.d30down_bg",
+                "mode": "exists"
+              },
+              "then": [
+                {
+                  "lookup": {
+                    "true": 0.3
+                  },
+                  "unknown": "missing"
+                }
+              ]
+            },
+            {
+              "id": "native-d70down",
+              "read": {
+                "css": ":scope.d70down_bg",
+                "mode": "exists"
+              },
+              "then": [
+                {
+                  "lookup": {
+                    "true": 0.7
+                  },
+                  "unknown": "missing"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "op": "prepend",
+          "path": "/pages/account/parsers",
+          "value": [
+            {
+              "id": "sjtu-bonus",
+              "scope": "body",
+              "fields": {
+                "bonus": {
+                  "candidates": [
+                    {
+                      "id": "bonus-label",
+                      "read": {
+                        "css": "a[href*=\"mybonus.php\"]",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "魔力值\\s*\\(([0-9,]+(?:\\.[0-9]+)?)\\)",
+                          "group": 1
+                        },
                         "decimal"
                       ]
                     }

@@ -4,7 +4,7 @@
 
 | 规则版本 | 更新时间（北京时间） | 已测试站点 |
 | --- | --- | --- |
-| version 39 | 2026-10-20 22:39:04 | 99 个 |
+| version 42 | 2026-10-20 23:34:20 | 101 个 |
 
 **更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
 
@@ -20,13 +20,13 @@
 
 ## 已测试完美适配站点
 
-- **已测试站点**：下表 99 个站点均已测试并完美适配。
+- **适配列表**：下表列出 101 个已接入站点；具体验证范围以各站审计记录为准。
 - **其他 NP 站点**：预计约 99% 可直接使用。未经单独适配的站点会在加载列表时自动获取标签 ID（tag_id），因此标签筛选项可能暂不完整，后续加载会继续补充。
 - **适配进度**：Gazelle 已接入，原站平铺或分组方式保留；UNIT3D 使用清单模式。
 - **规则更新**：NP、Gazelle、UNIT3D 与 BtiTracker 使用本仓库的通用规则和站点补充规则；独立架构站点适配随 App 更新。
 - **特殊站点**：部分改动较大的 NP 站点可能无法直接适配，遇到问题请联系我。
 
-### NexusPHP 站点（69 个）
+### NexusPHP 站点（71 个）
 
 <table width="100%">
   <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />1<wbr>P<wbr>T<wbr>B<wbr>A<wbr>（<wbr>壹<wbr>P<wbr>T<wbr>吧<wbr>）</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />A<wbr>G<wbr>S<wbr>V</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />a<wbr>l<wbr>i<wbr>n<wbr>g<wbr>P<wbr>T</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />A<wbr>u<wbr>d<wbr>i<wbr>e<wbr>n<wbr>c<wbr>e<wbr>s<wbr>（<wbr>观<wbr>众<wbr>）</td></tr>
@@ -47,7 +47,10 @@
   <tr><td width="25%">T<wbr>T<wbr>G<wbr>（<wbr>听<wbr>听<wbr>歌<wbr>）</td><td width="25%">U<wbr>2</td><td width="25%">U<wbr>B<wbr>i<wbr>t<wbr>s</td><td width="25%">V<wbr>C<wbr>-<wbr>L<wbr>i<wbr>b</td></tr>
   <tr><td width="25%">星<wbr>湾</td><td width="25%">星<wbr>陨<wbr>阁</td><td width="25%">修<wbr>道<wbr>院</td><td width="25%">X<wbr>L<wbr>o<wbr>l<wbr>i</td></tr>
   <tr><td width="25%">Z<wbr>M<wbr>P<wbr>T<wbr>（<wbr>织<wbr>梦<wbr>）</td><td width="25%"></td><td width="25%"></td><td width="25%"></td></tr>
+  <tr><td width="25%">HDWing（瓷）</td><td width="25%">葡萄（pt.sjtu.edu.cn）</td><td width="25%"></td><td width="25%"></td></tr>
 </table>
+
+瓷与葡萄已按用户提供的各 10 页 HTML 完成离线解析回归；实时筛选请求及真实下载尚未验收。
 
 ### Gazelle 站点（11 个）
 
