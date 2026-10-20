@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 26,
-  "publishedAt": 1792496471,
+  "code": 27,
+  "publishedAt": 1792497191,
   "compatibility": {
     "engine": 1,
     "features": []
@@ -14061,8 +14061,8 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "gazelle.broadcasthe",
-      "code": 2,
-      "publishedAt": 1792496422,
+      "code": 3,
+      "publishedAt": 1792497191,
       "architecture": "gazelle",
       "domains": [
         "broadcasthe.net"
@@ -14081,7 +14081,8 @@
           "resource-link-identity.v1",
           "tag-filter.v1",
           "tag-parameter.v1",
-          "native-filter-controls.v1"
+          "native-filter-controls.v1",
+          "multi-tag-comma.v1"
         ]
       },
       "base": {
@@ -14521,7 +14522,7 @@
                       "id": "series-specification",
                       "read": {
                         "css": ":scope > td:nth-child(3)",
-                        "mode": "text",
+                        "mode": "leadingText",
                         "exclude": [
                           "span",
                           "div"
@@ -14554,7 +14555,7 @@
                       "id": "uploader",
                       "read": {
                         "css": ":scope > td:nth-child(3) > div.nobr",
-                        "mode": "text"
+                        "mode": "texts"
                       },
                       "then": [
                         {
@@ -14599,6 +14600,69 @@
               "map": {
                 "asc": "asc",
                 "desc": ""
+              }
+            },
+            {
+              "input": "tag",
+              "param": "searchtags",
+              "map": {
+                "filter-remux": "Remux",
+                "filter-subtitles": "Subtitles",
+                "filter-uncut": "Uncut",
+                "dolby": "Dolby Vision",
+                "filter-hdr10-compatible": "HDR10 Compatible",
+                "filter-hybrid-log-gamma": "Hybrid Log Gamma",
+                "filter-modified-aspect-ratio": "Modified Aspect Ratio",
+                "atmos": "Dolby Atmos",
+                "filter-5-1-channels": "5.1 Channels",
+                "filter-7-1-channels": "7.1 Channels",
+                "filter-surround-sound": "Surround Sound",
+                "filter-commentary": "Commentary",
+                "filter-dual-language": "Dual Language",
+                "filter-action": "Action",
+                "filter-adventure": "Adventure",
+                "filter-animation": "Animation",
+                "filter-anime": "Anime",
+                "filter-awards-show": "Awards Show",
+                "filter-children": "Children",
+                "filter-comedy": "Comedy",
+                "filter-crime": "Crime",
+                "filter-documentary": "Documentary",
+                "filter-drama": "Drama",
+                "filter-family": "Family",
+                "filter-fantasy": "Fantasy",
+                "filter-food": "Food",
+                "filter-game-show": "Game Show",
+                "filter-history": "History",
+                "filter-home-and-garden": "Home and Garden",
+                "filter-horror": "Horror",
+                "filter-indie": "Indie",
+                "filter-martial-arts": "Martial Arts",
+                "filter-mini-series": "Mini-Series",
+                "filter-musical": "Musical",
+                "filter-mystery": "Mystery",
+                "filter-news": "News",
+                "filter-podcast": "Podcast",
+                "filter-reality": "Reality",
+                "filter-romance": "Romance",
+                "filter-science-fiction": "Science Fiction",
+                "filter-soap": "Soap",
+                "filter-sport": "Sport",
+                "filter-suspense": "Suspense",
+                "filter-talk-show": "Talk Show",
+                "filter-thriller": "Thriller",
+                "filter-travel": "Travel",
+                "filter-war": "War",
+                "filter-western": "Western"
+              },
+              "encoding": "comma"
+            },
+            {
+              "input": "tagMode",
+              "param": "tags_type",
+              "map": {
+                "any": "",
+                "all": "1"
               }
             }
           ]
