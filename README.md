@@ -1,30 +1,25 @@
 # Pocket Evo App 站点规则官方更新源
 
-提供 Pocket Evo App 的完整全局站点规则，包含通用规则与站点补充规则。
+Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、软件功能方面都进行了全面优化。之前如果站点修改了页面布局，Pocket Qt 就必须通过升级应用才能进行修复适配，Pocket Evo 开发了全新的适配引擎，可以通过在线更新适配规则直接修复，无需频繁更新应用。
 
-| 规则版本 | 更新时间（北京时间） | 已测试站点 |
-| --- | --- | --- |
-| version 43 | 2026-10-20 23:50:10 | 101 个 |
+| 规则版本 | 更新时间（北京时间） | 支持 PT 站点 | 已测试完美适配站点 |
+| --- | --- | --- | --- |
+| version 43 | 2026-10-20 23:50:10 | 200+ | 101 |
 
-**更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
+**在线更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
 
 **官网：** https://kxmrg.com/
 
 **浏览器插件：** https://github.com/Kxmrg/pocket-evo-extension
 
-**Telegram：** https://t.me/pocket_qt
+**Telegram：** https://t.me/pocket_evo
 
-使用微信扫描下方二维码加入内测群。二维码有效期至 2026 年 10 月 20 日。
 
-<img src="images/beta-group-qr.jpg" alt="Pocket Evo 内测群微信二维码" width="360" />
 
-## 已测试完美适配站点
+## 适配清单
 
-- **适配列表**：下表列出 101 个已接入站点；具体验证范围以各站审计记录为准。
-- **其他 NP 站点**：预计约 99% 可直接使用。未经单独适配的站点会在加载列表时自动获取标签 ID（tag_id），因此标签筛选项可能暂不完整，后续加载会继续补充。
-- **适配进度**：Gazelle 已接入，原站平铺或分组方式保留；UNIT3D 使用清单模式。
-- **规则更新**：NP、Gazelle、UNIT3D 与 BtiTracker 使用本仓库的通用规则和站点补充规则；独立架构站点适配随 App 更新。
-- **特殊站点**：部分改动较大的 NP 站点可能无法直接适配，遇到问题请联系我。
+目前经测试已完美适配PT站点101个，NexusPHP、Gazelle、UNIT3D、BtiTracker 架构站点可以通过本仓库的通用规则和站点补充规则在线更新。独立架构站点适配跟随应用更新，无法在线修复。未测试的NexusPHP站点绝大部分都是可以直接导入使用的，因未测试无法获取完整的标签 ID（tag_id），Pocket Evo 会在加载资源列表的同时采集标签 ID，会造成无法筛选已加载资源列表中没有的标签。部分NexusPHP站点改动较大，如无法适配请联系我进行在线修复。
+
 
 ### NexusPHP 站点（71 个）
 
@@ -42,14 +37,12 @@
   <tr><td width="25%">P<wbr>i<wbr>g<wbr>G<wbr>o<wbr>（<wbr>猪<wbr>猪<wbr>）</td><td width="25%">P<wbr>l<wbr>a<wbr>y<wbr>L<wbr>e<wbr>t</td><td width="25%">P<wbr>T<wbr>C<wbr>a<wbr>f<wbr>e<wbr>（<wbr>咖<wbr>啡<wbr>）</td><td width="25%">P<wbr>T<wbr>e<wbr>r<wbr>C<wbr>l<wbr>u<wbr>b<wbr>（<wbr>猫<wbr>站<wbr>）</td></tr>
   <tr><td width="25%">P<wbr>T<wbr>F<wbr>a<wbr>n<wbr>s</td><td width="25%">P<wbr>T<wbr>G<wbr>T<wbr>K</td><td width="25%">P<wbr>T<wbr>H<wbr>O<wbr>M<wbr>E</td><td width="25%">P<wbr>T<wbr>L<wbr>G<wbr>S</td></tr>
   <tr><td width="25%">P<wbr>T<wbr>S<wbr>B<wbr>A<wbr>O<wbr>（<wbr>烧<wbr>包<wbr>）</td><td width="25%">P<wbr>T<wbr>S<wbr>K<wbr>I<wbr>T<wbr>（<wbr>拾<wbr>刻<wbr>）</td><td width="25%">P<wbr>T<wbr>T</td><td width="25%">P<wbr>T<wbr>z<wbr>o<wbr>n<wbr>e</td></tr>
-  <tr><td width="25%">葡<wbr>萄<wbr>（<wbr>p<wbr>t<wbr>.<wbr>s<wbr>j<wbr>t<wbr>u<wbr>.<wbr>e<wbr>d<wbr>u<wbr>.<wbr>c<wbr>n<wbr>）</td><td width="25%">Q<wbr>i<wbr>n<wbr>g<wbr>W<wbr>a<wbr>P<wbr>T<wbr>（<wbr>青<wbr>蛙<wbr>）</td><td width="25%">R<wbr>a<wbr>i<wbr>l<wbr>g<wbr>u<wbr>n<wbr>P<wbr>T</td><td width="25%">S<wbr>e<wbr>w<wbr>e<wbr>r<wbr>P<wbr>T<wbr>（<wbr>下<wbr>水<wbr>道<wbr>）</td></tr>
+  <tr><td width="25%">S<wbr>J<wbr>T<wbr>U<wbr>（<wbr>葡<wbr>萄<wbr>）</td><td width="25%">Q<wbr>i<wbr>n<wbr>g<wbr>W<wbr>a<wbr>P<wbr>T<wbr>（<wbr>青<wbr>蛙<wbr>）</td><td width="25%">R<wbr>a<wbr>i<wbr>l<wbr>g<wbr>u<wbr>n<wbr>P<wbr>T</td><td width="25%">S<wbr>e<wbr>w<wbr>e<wbr>r<wbr>P<wbr>T<wbr>（<wbr>下<wbr>水<wbr>道<wbr>）</td></tr>
   <tr><td width="25%">S<wbr>o<wbr>u<wbr>l<wbr>V<wbr>o<wbr>i<wbr>c<wbr>e<wbr>（<wbr>聆<wbr>音<wbr>）</td><td width="25%">S<wbr>S<wbr>D<wbr>（<wbr>春<wbr>天<wbr>）</td><td width="25%">T<wbr>a<wbr>n<wbr>g<wbr>P<wbr>T<wbr>（<wbr>不<wbr>可<wbr>躺<wbr>）</td><td width="25%">T<wbr>C<wbr>C<wbr>F<wbr> <wbr>/<wbr> <wbr>E<wbr>T<wbr>8</td></tr>
   <tr><td width="25%">T<wbr>J<wbr>U<wbr>P<wbr>T<wbr>（<wbr>北<wbr>洋<wbr>园<wbr>）</td><td width="25%">T<wbr>L<wbr>F<wbr>B<wbr>i<wbr>t<wbr>s</td><td width="25%">T<wbr>T<wbr>G<wbr>（<wbr>听<wbr>听<wbr>歌<wbr>）</td><td width="25%">U<wbr>2</td></tr>
   <tr><td width="25%">U<wbr>B<wbr>i<wbr>t<wbr>s</td><td width="25%">V<wbr>C<wbr>-<wbr>L<wbr>i<wbr>b</td><td width="25%">星<wbr>湾</td><td width="25%">星<wbr>陨<wbr>阁</td></tr>
   <tr><td width="25%">修<wbr>道<wbr>院</td><td width="25%">X<wbr>L<wbr>o<wbr>l<wbr>i</td><td width="25%">Z<wbr>M<wbr>P<wbr>T<wbr>（<wbr>织<wbr>梦<wbr>）</td><td width="25%"></td></tr>
 </table>
-
-瓷与葡萄已按用户提供的各 10 页 HTML 完成离线解析回归；实时筛选请求及真实下载尚未验收。
 
 ### Gazelle 站点（11 个）
 
