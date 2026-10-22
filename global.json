@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 43,
-  "publishedAt": 1792511410,
+  "code": 44,
+  "publishedAt": 1792669218,
   "compatibility": {
     "engine": 1,
     "features": []
@@ -23689,6 +23689,1032 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "site",
+      "id": "gazelle.jpopsuki",
+      "code": 2,
+      "publishedAt": 1792669218,
+      "architecture": "gazelle",
+      "domains": [
+        "jpopsuki.eu"
+      ],
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "grouped-resources.v1",
+          "leading-text.v1",
+          "formatted-date.v1",
+          "multi-tag-comma.v1",
+          "profile-page.v1"
+        ]
+      },
+      "base": {
+        "minCode": 1
+      },
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/pages/list/parsers",
+          "value": [
+            {
+              "id": "groups",
+              "role": "group",
+              "layout": {
+                "kind": "elements",
+                "items": "#torrent_table tr.group_redline, #torrent_table tr.group"
+              },
+              "fields": {
+                "resourceId": {
+                  "candidates": [
+                    {
+                      "id": "link",
+                      "read": {
+                        "css": "a[href*=\"torrents.php?id=\"]:not([href*=\"torrentid=\"]):not([href*=\"#\"]):not([href*=\"page=\"])",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        {
+                          "queryParam": "id"
+                        },
+                        "identifier"
+                      ]
+                    }
+                  ]
+                },
+                "title": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:nth-child(4)",
+                        "mode": "leadingText",
+                        "exclude": [
+                          "span",
+                          "strong",
+                          ".tags",
+                          "a[href*=\"#comments\"]"
+                        ]
+                      },
+                      "then": [
+                        "trim",
+                        {
+                          "regex": "^([\\s\\S]*?)(?:\\s+\\[(?:[\\d.]{4,10}|[^\\]]* / [^\\]]*)\\]|$)",
+                          "group": 1
+                        },
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "detailUrl": {
+                  "candidates": [
+                    {
+                      "id": "link",
+                      "read": {
+                        "css": "a[href*=\"torrents.php?id=\"]:not([href*=\"torrentid=\"]):not([href*=\"#\"]):not([href*=\"page=\"])",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "cover": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": "img[src*=\"static/images/torrents/\"]",
+                        "mode": "attribute",
+                        "attribute": "src"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "coverAspectRatio": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": 1
+                          },
+                          "unknown": "missing"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tags": {
+                  "strategy": "collect",
+                  "candidates": [
+                    {
+                      "id": "category",
+                      "read": {
+                        "css": ":scope > td:nth-child(2)",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "genres",
+                      "read": {
+                        "css": ".tags a",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList"
+                      ]
+                    }
+                  ]
+                },
+                "subtitle": {
+                  "candidates": [
+                    {
+                      "id": "brackets",
+                      "read": {
+                        "css": ":scope > td:nth-child(4)",
+                        "mode": "leadingText",
+                        "exclude": [
+                          "span",
+                          ".tags"
+                        ]
+                      },
+                      "then": [
+                        {
+                          "regex": "(\\[[\\s\\S]*)$",
+                          "group": 1
+                        },
+                        "trim"
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "variants",
+              "role": "variant",
+              "layout": {
+                "kind": "elements",
+                "items": "#torrent_table tr.group_torrent_redline, #torrent_table tr.group_torrent:not(.edition)"
+              },
+              "fields": {
+                "resourceId": {
+                  "candidates": [
+                    {
+                      "id": "link",
+                      "read": {
+                        "css": "a[href*=\"action=download\"]:not([href*=\"usetoken\"]):not([href*=\"useToken\"])",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        {
+                          "queryParam": "id"
+                        },
+                        "identifier"
+                      ]
+                    }
+                  ]
+                },
+                "title": {
+                  "candidates": [
+                    {
+                      "id": "text",
+                      "read": {
+                        "css": "a[href*=\"torrentid=\"]:not([href*=\"action=\"])",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "detailUrl": {
+                  "candidates": [
+                    {
+                      "id": "link",
+                      "read": {
+                        "css": "a[href*=\"torrentid=\"]:not([href*=\"action=\"])",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "downloadUrl": {
+                  "candidates": [
+                    {
+                      "id": "link",
+                      "read": {
+                        "css": "a[href*=\"action=download\"]:not([href*=\"usetoken\"]):not([href*=\"useToken\"])",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "publishedAt": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:nth-child(3)",
+                        "mode": "attribute",
+                        "attribute": "title"
+                      },
+                      "then": [
+                        {
+                          "date": {
+                            "formats": [
+                              "MMM dd yyyy, HH:mm"
+                            ],
+                            "zone": "site"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "publishedAge": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:nth-child(3)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "tags": {
+                  "candidates": [
+                    {
+                      "id": "badges",
+                      "read": {
+                        "css": ".torrent_label, .torrent_badge, .freeleech, .torrent_freeleech, .torrent_halfleech, .newtorrent",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList",
+                        {
+                          "tagAliases": {
+                            "Freeleech!": "free",
+                            "Freeleech": "free",
+                            "Global Freeleech!": "free",
+                            "(New!)": "new",
+                            "Neutral Leech!": "neutral"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "images",
+                      "read": {
+                        "css": "img[title][src*=\"free\"], img[title][src*=\"new\"], img[title][src*=\"internal\"], img[title][src*=\"checked\"]",
+                        "mode": "attributes",
+                        "attribute": "title"
+                      },
+                      "then": [
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "free-label",
+                      "read": {
+                        "css": "strong",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList",
+                        {
+                          "tagAliases": {
+                            "Freeleech!": "free"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "strategy": "collect"
+                },
+                "downloadFactor": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:first-child",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "(Freeleech!)",
+                          "group": 1
+                        },
+                        {
+                          "lookup": {
+                            "Freeleech!": 0
+                          },
+                          "unknown": "missing"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "sizeBytes": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:nth-child(4)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "bytes"
+                      ]
+                    }
+                  ]
+                },
+                "completed": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:nth-child(5)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "integer"
+                      ]
+                    }
+                  ]
+                },
+                "seeders": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:nth-child(6)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "integer"
+                      ]
+                    }
+                  ]
+                },
+                "leechers": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:nth-child(7)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "integer"
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "flat",
+              "layout": {
+                "kind": "elements",
+                "items": "#torrent_table tr.torrent_redline, #torrent_table tr.torrent"
+              },
+              "fields": {
+                "resourceId": {
+                  "candidates": [
+                    {
+                      "id": "link",
+                      "read": {
+                        "css": "a[href*=\"action=download\"]:not([href*=\"usetoken\"]):not([href*=\"useToken\"])",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        {
+                          "queryParam": "id"
+                        },
+                        "identifier"
+                      ]
+                    }
+                  ]
+                },
+                "title": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:nth-child(4)",
+                        "mode": "leadingText",
+                        "exclude": [
+                          "span",
+                          "strong",
+                          ".tags",
+                          "a[href*=\"#comments\"]"
+                        ]
+                      },
+                      "then": [
+                        "trim",
+                        {
+                          "regex": "^([\\s\\S]*?)(?:\\s+\\[(?:[\\d.]{4,10}|[^\\]]* / [^\\]]*)\\]|$)",
+                          "group": 1
+                        },
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "detailUrl": {
+                  "candidates": [
+                    {
+                      "id": "link",
+                      "read": {
+                        "css": "a[href*=\"torrentid=\"]:not([href*=\"action=\"])",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "downloadUrl": {
+                  "candidates": [
+                    {
+                      "id": "link",
+                      "read": {
+                        "css": "a[href*=\"action=download\"]:not([href*=\"usetoken\"]):not([href*=\"useToken\"])",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "publishedAt": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:nth-child(6)",
+                        "mode": "attribute",
+                        "attribute": "title"
+                      },
+                      "then": [
+                        {
+                          "date": {
+                            "formats": [
+                              "MMM dd yyyy, HH:mm"
+                            ],
+                            "zone": "site"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "publishedAge": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:nth-child(6)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "tags": {
+                  "strategy": "collect",
+                  "candidates": [
+                    {
+                      "id": "category",
+                      "read": {
+                        "css": ":scope > td:nth-child(2)",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "genres",
+                      "read": {
+                        "css": ".tags a",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList"
+                      ]
+                    },
+                    {
+                      "id": "free-label",
+                      "read": {
+                        "css": "strong",
+                        "mode": "texts"
+                      },
+                      "then": [
+                        "stringList",
+                        {
+                          "tagAliases": {
+                            "Freeleech!": "free"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "downloadFactor": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:nth-child(4)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "(Freeleech!)",
+                          "group": 1
+                        },
+                        {
+                          "lookup": {
+                            "Freeleech!": 0
+                          },
+                          "unknown": "missing"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "sizeBytes": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:nth-child(7)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "bytes"
+                      ]
+                    }
+                  ]
+                },
+                "completed": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:nth-child(8)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "integer"
+                      ]
+                    }
+                  ]
+                },
+                "seeders": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:nth-child(9)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "integer"
+                      ]
+                    }
+                  ]
+                },
+                "leechers": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > td:nth-child(10)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "integer"
+                      ]
+                    }
+                  ]
+                },
+                "cover": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": "img[src*=\"static/images/torrents/\"]",
+                        "mode": "attribute",
+                        "attribute": "src"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "coverAspectRatio": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope",
+                        "mode": "exists"
+                      },
+                      "then": [
+                        {
+                          "lookup": {
+                            "true": 1
+                          },
+                          "unknown": "missing"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "subtitle": {
+                  "candidates": [
+                    {
+                      "id": "brackets",
+                      "read": {
+                        "css": ":scope > td:nth-child(4)",
+                        "mode": "leadingText",
+                        "exclude": [
+                          "span",
+                          ".tags"
+                        ]
+                      },
+                      "then": [
+                        {
+                          "regex": "(\\[[\\s\\S]*)$",
+                          "group": 1
+                        },
+                        "trim"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op": "replace",
+          "path": "/pages/account/parsers",
+          "value": [
+            {
+              "id": "header",
+              "scope": ":scope",
+              "fields": {
+                "accountId": {
+                  "candidates": [
+                    {
+                      "id": "link",
+                      "read": {
+                        "css": "#userinfo_username a.username, #userinfo .username, #nav_userinfo a.username, #nav_user a.username, #userinfo_left a.username, #header-username-value",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        {
+                          "queryParam": "id"
+                        },
+                        "identifier"
+                      ]
+                    }
+                  ]
+                },
+                "accountUrl": {
+                  "candidates": [
+                    {
+                      "id": "link",
+                      "read": {
+                        "css": "#userinfo_username a.username, #userinfo .username, #nav_userinfo a.username, #nav_user a.username, #userinfo_left a.username, #header-username-value",
+                        "mode": "attribute",
+                        "attribute": "href"
+                      },
+                      "then": [
+                        "url"
+                      ]
+                    }
+                  ]
+                },
+                "username": {
+                  "candidates": [
+                    {
+                      "id": "text",
+                      "read": {
+                        "css": "#userinfo_username a.username, #userinfo .username, #nav_userinfo a.username, #nav_user a.username, #userinfo_left a.username, #header-username-value",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "level": {
+                  "candidates": [
+                    {
+                      "id": "text",
+                      "read": {
+                        "css": "#nav_userclass .userclass, #userinfo_left .userclass",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "stats",
+              "scope": "#userinfo_stats",
+              "fields": {
+                "uploadedBytes": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > li:nth-child(1)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": ":\\s*([\\s\\S]*)",
+                          "group": 1
+                        },
+                        "bytes"
+                      ]
+                    }
+                  ]
+                },
+                "downloadedBytes": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > li:nth-child(2)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": ":\\s*([\\s\\S]*)",
+                          "group": 1
+                        },
+                        "bytes"
+                      ]
+                    }
+                  ]
+                },
+                "ratio": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > li:nth-child(3)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": ":\\s*([\\s\\S]*)",
+                          "group": 1
+                        },
+                        "ratio"
+                      ]
+                    }
+                  ]
+                },
+                "bonus": {
+                  "candidates": [
+                    {
+                      "id": "native",
+                      "read": {
+                        "css": ":scope > li:nth-child(4)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": ":\\s*([\\s\\S]*)",
+                          "group": 1
+                        },
+                        "decimal"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op": "replace",
+          "path": "/pages/list/request/query",
+          "value": [
+            {
+              "input": "query",
+              "param": "searchstr"
+            },
+            {
+              "input": "page",
+              "param": "page"
+            },
+            {
+              "input": "sort",
+              "param": "order_by",
+              "map": {
+                "publishedAt": "s3",
+                "sizeBytes": "s4",
+                "completed": "s5",
+                "seeders": "s6",
+                "leechers": "s7"
+              }
+            },
+            {
+              "input": "direction",
+              "param": "order_way",
+              "map": {
+                "asc": "ASC",
+                "desc": "DESC"
+              }
+            },
+            {
+              "input": "tag",
+              "param": "searchtags",
+              "encoding": "comma",
+              "map": {
+                "music-japanese": "japanese",
+                "music-korean": "korean",
+                "music-chinese": "chinese",
+                "music-pop": "pop",
+                "music-rock": "rock",
+                "catalog-alternative": "alternative",
+                "music-dance": "dance",
+                "catalog-experimental": "experimental",
+                "music-folk": "folk",
+                "music-hip-hop": "hip.hop",
+                "music-house": "house",
+                "catalog-industrial": "industrial",
+                "music-instrumental": "instrumental",
+                "music-metal": "metal",
+                "catalog-post-rock": "post.rock",
+                "music-punk": "punk",
+                "music-reggae": "reggae",
+                "catalog-singer-songwriter": "singer.songwriter",
+                "music-soul": "soul",
+                "music-soundtrack": "soundtrack",
+                "catalog-ska": "ska",
+                "catalog-techno": "techno",
+                "music-trance": "trance",
+                "catalog-trip-hop": "trip.hop",
+                "music-jazz": "jazz",
+                "music-country": "country",
+                "music-ambient": "ambient",
+                "catalog-math-rock": "math.rock",
+                "music-english": "english",
+                "music-classical": "classical",
+                "catalog-acoustic": "acoustic",
+                "catalog-new-age": "new.age",
+                "music-live": "live",
+                "catalog-shoegaze": "shoegaze",
+                "filter-indie": "indie",
+                "catalog-progressive-rock": "progressive.rock",
+                "music-blues": "blues",
+                "catalog-post-hardcore": "post.hardcore",
+                "music-vocaloid": "vocaloid",
+                "catalog-bossa-nova": "bossa.nova",
+                "catalog-downtempo": "downtempo",
+                "catalog-chiptune": "chiptune",
+                "catalog-new-wave": "new.wave",
+                "catalog-black-metal": "black.metal",
+                "catalog-death-metal": "death.metal",
+                "music-thai": "thai",
+                "music-m-on": "M-ON!",
+                "music-ballad": "ballad",
+                "music-dancehall": "dancehall",
+                "music-enka": "enka",
+                "music-electro": "electro",
+                "music-female-vocalist": "female.vocalist",
+                "music-hardcore": "hardcore",
+                "music-male-vocalist": "male.vocalist",
+                "music-nagoya-kei": "nagoya.kei",
+                "music-power-pop": "power.pop",
+                "music-rnb": "rnb",
+                "music-urban": "urban",
+                "music-visual-kei": "visual.kei",
+                "music-compilation": "compilation",
+                "music-shibuya-kei": "shibuya.kei",
+                "music-dark-ambient": "dark.ambient",
+                "music-shinjuku-kei": "shinjuku.kei",
+                "music-remix": "remix",
+                "music-lounge": "lounge",
+                "music-eurobeat": "eurobeat",
+                "music-vocoded-vocals": "vocoded.vocals",
+                "music-oshare-kei": "oshare.kei",
+                "music-anison": "anison",
+                "music-angura-kei": "angura.kei",
+                "music-8bit": "8bit"
+              }
+            },
+            {
+              "input": "tagMode",
+              "param": "tags_type",
+              "map": {
+                "any": "0",
+                "all": "1"
+              }
+            }
+          ]
+        },
+        {
+          "op": "add",
+          "path": "/pages/profile",
+          "value": {
+            "request": {
+              "target": {
+                "from": "accountUrl"
+              },
+              "query": []
+            },
+            "states": {
+              "authRequired": [
+                {
+                  "css": "input[type=\"password\"]"
+                }
+              ]
+            },
+            "parsers": [
+              {
+                "id": "role",
+                "scope": ".stats li",
+                "fields": {
+                  "level": {
+                    "candidates": [
+                      {
+                        "id": "class",
+                        "read": {
+                          "css": ":scope",
+                          "mode": "text"
+                        },
+                        "then": [
+                          {
+                            "regex": "^Class:\\s*(.+)$",
+                            "group": 1
+                          },
+                          "trim"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
         }
       ]
     }

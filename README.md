@@ -4,7 +4,7 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
 
 | 规则版本 | 更新时间（北京时间） | 支持 PT 站点 | 已测试完美适配站点 |
 | --- | --- | --- | --- |
-| version 43 | 2026-10-20 23:50:10 | 200+ | 101 |
+| version 44 | 2026-10-22 19:40:18 | 200+ | 103 |
 
 **在线更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
 
@@ -18,7 +18,7 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
 
 ## 适配清单
 
-目前经测试已完美适配PT站点101个，NexusPHP、Gazelle、UNIT3D、BtiTracker 架构站点可以通过本仓库的通用规则和站点补充规则在线更新。独立架构站点适配跟随应用更新，无法在线修复。未测试的NexusPHP站点绝大部分都是可以直接导入使用的，因未测试无法获取完整的标签 ID（tag_id），Pocket Evo 会在加载资源列表的同时采集标签 ID，会造成无法筛选已加载资源列表中没有的标签。部分NexusPHP站点改动较大，如无法适配请联系我进行在线修复。
+目前经测试已完美适配PT站点103个，NexusPHP、Gazelle、UNIT3D、BtiTracker 架构站点可以通过本仓库的通用规则和站点补充规则在线更新。独立架构站点适配跟随应用更新，无法在线修复。未测试的NexusPHP站点绝大部分都是可以直接导入使用的，因未测试无法获取完整的标签 ID（tag_id），Pocket Evo 会在加载资源列表的同时采集标签 ID，会造成无法筛选已加载资源列表中没有的标签。部分NexusPHP站点改动较大，如无法适配请联系我进行在线修复。
 
 
 ### NexusPHP 站点（71 个）
@@ -44,12 +44,12 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
   <tr><td width="25%">修<wbr>道<wbr>院</td><td width="25%">X<wbr>L<wbr>o<wbr>l<wbr>i</td><td width="25%">Z<wbr>M<wbr>P<wbr>T<wbr>（<wbr>织<wbr>梦<wbr>）</td><td width="25%"></td></tr>
 </table>
 
-### Gazelle 站点（11 个）
+### Gazelle 站点（12 个）
 
 <table width="100%">
   <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />A<wbr>l<wbr>p<wbr>h<wbr>a<wbr>R<wbr>a<wbr>t<wbr>i<wbr>o</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />A<wbr>n<wbr>t<wbr>h<wbr>e<wbr>l<wbr>i<wbr>o<wbr>n</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />B<wbr>r<wbr>o<wbr>a<wbr>d<wbr>c<wbr>a<wbr>s<wbr>T<wbr>h<wbr>e<wbr>N<wbr>e<wbr>t</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />B<wbr>r<wbr>o<wbr>k<wbr>e<wbr>n<wbr>S<wbr>t<wbr>o<wbr>n<wbr>e<wbr>s</td></tr>
   <tr><td width="25%">D<wbr>I<wbr>C<wbr>M<wbr>u<wbr>s<wbr>i<wbr>c</td><td width="25%">E<wbr>m<wbr>p<wbr>o<wbr>r<wbr>n<wbr>i<wbr>u<wbr>m</td><td width="25%">G<wbr>a<wbr>z<wbr>e<wbr>l<wbr>l<wbr>e<wbr>G<wbr>a<wbr>m<wbr>e<wbr>s</td><td width="25%">G<wbr>r<wbr>e<wbr>a<wbr>t<wbr> <wbr>P<wbr>o<wbr>s<wbr>t<wbr>e<wbr>r<wbr> <wbr>W<wbr>a<wbr>l<wbr>l</td></tr>
-  <tr><td width="25%">H<wbr>D<wbr>-<wbr>F</td><td width="25%">P<wbr>a<wbr>s<wbr>s<wbr>T<wbr>h<wbr>e<wbr>P<wbr>o<wbr>p<wbr>c<wbr>o<wbr>r<wbr>n</td><td width="25%">R<wbr>e<wbr>d<wbr>a<wbr>c<wbr>t<wbr>e<wbr>d</td><td width="25%"></td></tr>
+  <tr><td width="25%">H<wbr>D<wbr>-<wbr>F</td><td width="25%">J<wbr>P<wbr>o<wbr>p<wbr>s<wbr>u<wbr>k<wbr>i</td><td width="25%">P<wbr>a<wbr>s<wbr>s<wbr>T<wbr>h<wbr>e<wbr>P<wbr>o<wbr>p<wbr>c<wbr>o<wbr>r<wbr>n</td><td width="25%">R<wbr>e<wbr>d<wbr>a<wbr>c<wbr>t<wbr>e<wbr>d</td></tr>
 </table>
 
 ### UNIT3D 站点（2 个）
@@ -64,13 +64,13 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
   <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />H<wbr>D<wbr>-<wbr>S<wbr>p<wbr>a<wbr>c<wbr>e</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />H<wbr>D<wbr>-<wbr>T<wbr>o<wbr>r<wbr>r<wbr>e<wbr>n<wbr>t<wbr>s</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" /></td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" /></td></tr>
 </table>
 
-### 独立架构站点（15 个）
+### 独立架构站点（16 个）
 
 <table width="100%">
   <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />B<wbr>e<wbr>y<wbr>o<wbr>n<wbr>d<wbr>H<wbr>D</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />C<wbr>i<wbr>n<wbr>e<wbr>m<wbr>a<wbr>g<wbr>e<wbr>d<wbr>d<wbr>o<wbr>n</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />C<wbr>o<wbr>l<wbr>a<wbr>（<wbr>可<wbr>乐<wbr>）</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />E<wbr>x<wbr>o<wbr>t<wbr>i<wbr>c<wbr>a<wbr>Z</td></tr>
-  <tr><td width="25%">F<wbr>i<wbr>l<wbr>e<wbr>L<wbr>i<wbr>s<wbr>t</td><td width="25%">H<wbr>a<wbr>i<wbr>d<wbr>a<wbr>n<wbr>（<wbr>海<wbr>胆<wbr>）</td><td width="25%">H<wbr>D<wbr>B<wbr>i<wbr>t<wbr>s</td><td width="25%">K<wbr>G</td></tr>
-  <tr><td width="25%">M<wbr>-<wbr>T<wbr>e<wbr>a<wbr>m<wbr>（<wbr>馒<wbr>头<wbr>）</td><td width="25%">R<wbr>o<wbr>u<wbr>s<wbr>i<wbr>（<wbr>肉<wbr>丝<wbr>）</td><td width="25%">S<wbr>u<wbr>n<wbr>n<wbr>y<wbr>P<wbr>T<wbr>（<wbr>阳<wbr>光<wbr>）</td><td width="25%">T<wbr>o<wbr>r<wbr>r<wbr>e<wbr>n<wbr>t<wbr>L<wbr>e<wbr>e<wbr>c<wbr>h</td></tr>
-  <tr><td width="25%">Y<wbr>e<wbr>m<wbr>a<wbr>（<wbr>野<wbr>马<wbr>）</td><td width="25%">Y<wbr>i<wbr>n<wbr>g<wbr>（<wbr>影<wbr>）</td><td width="25%">Z<wbr>h<wbr>u<wbr>Q<wbr>u<wbr>e<wbr>（<wbr>朱<wbr>雀<wbr>）</td><td width="25%"></td></tr>
+  <tr><td width="25%">F<wbr>i<wbr>l<wbr>e<wbr>L<wbr>i<wbr>s<wbr>t</td><td width="25%">H<wbr>a<wbr>i<wbr>d<wbr>a<wbr>n<wbr>（<wbr>海<wbr>胆<wbr>）</td><td width="25%">H<wbr>D<wbr>B<wbr>i<wbr>t<wbr>s</td><td width="25%">I<wbr>P<wbr>T<wbr>o<wbr>r<wbr>r<wbr>e<wbr>n<wbr>t<wbr>s</td></tr>
+  <tr><td width="25%">K<wbr>G</td><td width="25%">M<wbr>-<wbr>T<wbr>e<wbr>a<wbr>m<wbr>（<wbr>馒<wbr>头<wbr>）</td><td width="25%">R<wbr>o<wbr>u<wbr>s<wbr>i<wbr>（<wbr>肉<wbr>丝<wbr>）</td><td width="25%">S<wbr>u<wbr>n<wbr>n<wbr>y<wbr>P<wbr>T<wbr>（<wbr>阳<wbr>光<wbr>）</td></tr>
+  <tr><td width="25%">T<wbr>o<wbr>r<wbr>r<wbr>e<wbr>n<wbr>t<wbr>L<wbr>e<wbr>e<wbr>c<wbr>h</td><td width="25%">Y<wbr>e<wbr>m<wbr>a<wbr>（<wbr>野<wbr>马<wbr>）</td><td width="25%">Y<wbr>i<wbr>n<wbr>g<wbr>（<wbr>影<wbr>）</td><td width="25%">Z<wbr>h<wbr>u<wbr>Q<wbr>u<wbr>e<wbr>（<wbr>朱<wbr>雀<wbr>）</td></tr>
 </table>
 
 ## 文件说明
