@@ -4,7 +4,7 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
 
 | 规则版本 | 更新时间（北京时间） | 支持 PT 站点 | 已测试完美适配站点 |
 | --- | --- | --- | --- |
-| version 45（兼容）/ 46（完整） | 2026-10-23 22:17:44 | 200+ | 103 |
+| version 48 | 2026-10-23 22:37:51 | 200+ | 105 |
 
 **在线更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
 
@@ -18,10 +18,10 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
 
 ## 适配清单
 
-目前经测试已完美适配PT站点103个，NexusPHP、Gazelle、UNIT3D、BtiTracker 架构站点可以通过本仓库的通用规则和站点补充规则在线更新。独立架构站点适配跟随应用更新，无法在线修复。未测试的NexusPHP站点绝大部分都是可以直接导入使用的，因未测试无法获取完整的标签 ID（tag_id），Pocket Evo 会在加载资源列表的同时采集标签 ID，会造成无法筛选已加载资源列表中没有的标签。部分NexusPHP站点改动较大，如无法适配请联系我进行在线修复。
+目前经测试已完美适配PT站点105个，NexusPHP、Gazelle、UNIT3D、BtiTracker 架构站点可以通过本仓库的通用规则和站点补充规则在线更新。独立架构站点适配跟随应用更新，无法在线修复。未测试的NexusPHP站点绝大部分都是可以直接导入使用的，因未测试无法获取完整的标签 ID（tag_id），Pocket Evo 会在加载资源列表的同时采集标签 ID，会造成无法筛选已加载资源列表中没有的标签。部分NexusPHP站点改动较大，如无法适配请联系我进行在线修复。
 
 
-### NexusPHP 站点（71 个）
+### NexusPHP 站点（73 个）
 
 <table width="100%">
   <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />1<wbr>P<wbr>T<wbr>B<wbr>A<wbr>（<wbr>壹<wbr>P<wbr>T<wbr>吧<wbr>）</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />A<wbr>G<wbr>S<wbr>V</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />a<wbr>l<wbr>i<wbr>n<wbr>g<wbr>P<wbr>T</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />A<wbr>u<wbr>d<wbr>i<wbr>e<wbr>n<wbr>c<wbr>e<wbr>s<wbr>（<wbr>观<wbr>众<wbr>）</td></tr>
@@ -29,19 +29,20 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
   <tr><td width="25%">C<wbr>r<wbr>a<wbr>b<wbr>P<wbr>T<wbr>（<wbr>蟹<wbr>黄<wbr>堡<wbr>）</td><td width="25%">C<wbr>S<wbr>P<wbr>T<wbr>（<wbr>财<wbr>神<wbr>）</td><td width="25%">C<wbr>y<wbr>a<wbr>n<wbr>B<wbr>u<wbr>g<wbr>（<wbr>大<wbr>青<wbr>虫<wbr>）</td><td width="25%">大<wbr>香<wbr>蕉</td></tr>
   <tr><td width="25%">D<wbr>e<wbr>p<wbr>t<wbr>h<wbr> <wbr>S<wbr>t<wbr>u<wbr>d<wbr>i<wbr>o</td><td width="25%">D<wbr>i<wbr>s<wbr>c<wbr>F<wbr>a<wbr>n</td><td width="25%">D<wbr>u<wbr>b<wbr>h<wbr>e<wbr>（<wbr>天<wbr>枢<wbr>）</td><td width="25%">F<wbr>a<wbr>r<wbr>m<wbr>m<wbr>（<wbr>农<wbr>场<wbr>）</td></tr>
   <tr><td width="25%">G<wbr>G<wbr>P<wbr>T</td><td width="25%">H<wbr>D<wbr>A<wbr>r<wbr>e<wbr>a<wbr>（<wbr>高<wbr>清<wbr>视<wbr>界<wbr>）</td><td width="25%">H<wbr>D<wbr>D<wbr>o<wbr>l<wbr>b<wbr>y<wbr>（<wbr>H<wbr>D<wbr>杜<wbr>比<wbr>）</td><td width="25%">H<wbr>D<wbr>F<wbr>a<wbr>n<wbr>s<wbr>（<wbr>红<wbr>豆<wbr>饭<wbr>）</td></tr>
-  <tr><td width="25%">H<wbr>D<wbr>H<wbr>o<wbr>m<wbr>e<wbr>（<wbr>家<wbr>园<wbr>）</td><td width="25%">H<wbr>D<wbr>S<wbr>k<wbr>y<wbr>（<wbr>天<wbr>空<wbr>）</td><td width="25%">H<wbr>D<wbr>T<wbr>I<wbr>M<wbr>E</td><td width="25%">H<wbr>D<wbr>U</td></tr>
-  <tr><td width="25%">H<wbr>D<wbr>W<wbr>i<wbr>n<wbr>g<wbr>（<wbr>瓷<wbr>）</td><td width="25%">H<wbr>h<wbr>a<wbr>n<wbr>C<wbr>l<wbr>u<wbr>b<wbr>（<wbr>憨<wbr>憨<wbr>）</td><td width="25%">H<wbr>T<wbr>P<wbr>T<wbr>（<wbr>海<wbr>棠<wbr>）</td><td width="25%">H<wbr>X<wbr>P<wbr>T<wbr>（<wbr>好<wbr>学<wbr>）</td></tr>
-  <tr><td width="25%">K<wbr>E<wbr>E<wbr>P<wbr>F<wbr>R<wbr>D<wbr>S<wbr>（<wbr>朋<wbr>友<wbr>）</td><td width="25%">K<wbr>e<wbr>l<wbr>u</td><td width="25%">L<wbr>a<wbr>j<wbr>i<wbr>d<wbr>u<wbr>i<wbr>（<wbr>垃<wbr>圾<wbr>堆<wbr>）</td><td width="25%">L<wbr>O<wbr>N<wbr>G<wbr>P<wbr>T</td></tr>
-  <tr><td width="25%">M<wbr>a<wbr>r<wbr>c<wbr>h</td><td width="25%">M<wbr>o<wbr>m<wbr>e<wbr>n<wbr>t</td><td width="25%">M<wbr>u<wbr>s<wbr>o<wbr>p<wbr>i<wbr>a<wbr>（<wbr>音<wbr>乐<wbr>乌<wbr>托<wbr>邦<wbr>）</td><td width="25%">N<wbr>a<wbr>n<wbr>y<wbr>a<wbr>n<wbr>g<wbr>P<wbr>T<wbr>（<wbr>南<wbr>洋<wbr>）</td></tr>
-  <tr><td width="25%">N<wbr>i<wbr>c<wbr>e<wbr>P<wbr>T</td><td width="25%">N<wbr>o<wbr>v<wbr>a<wbr>H<wbr>D</td><td width="25%">O<wbr>p<wbr>e<wbr>n<wbr>C<wbr>D</td><td width="25%">O<wbr>u<wbr>r<wbr>B<wbr>i<wbr>t<wbr>s<wbr>（<wbr>我<wbr>堡<wbr>）</td></tr>
-  <tr><td width="25%">P<wbr>i<wbr>g<wbr>G<wbr>o<wbr>（<wbr>猪<wbr>猪<wbr>）</td><td width="25%">P<wbr>l<wbr>a<wbr>y<wbr>L<wbr>e<wbr>t</td><td width="25%">P<wbr>T<wbr>C<wbr>a<wbr>f<wbr>e<wbr>（<wbr>咖<wbr>啡<wbr>）</td><td width="25%">P<wbr>T<wbr>e<wbr>r<wbr>C<wbr>l<wbr>u<wbr>b<wbr>（<wbr>猫<wbr>站<wbr>）</td></tr>
-  <tr><td width="25%">P<wbr>T<wbr>F<wbr>a<wbr>n<wbr>s</td><td width="25%">P<wbr>T<wbr>G<wbr>T<wbr>K</td><td width="25%">P<wbr>T<wbr>H<wbr>O<wbr>M<wbr>E</td><td width="25%">P<wbr>T<wbr>L<wbr>G<wbr>S</td></tr>
-  <tr><td width="25%">P<wbr>T<wbr>S<wbr>B<wbr>A<wbr>O<wbr>（<wbr>烧<wbr>包<wbr>）</td><td width="25%">P<wbr>T<wbr>S<wbr>K<wbr>I<wbr>T<wbr>（<wbr>拾<wbr>刻<wbr>）</td><td width="25%">P<wbr>T<wbr>T</td><td width="25%">P<wbr>T<wbr>z<wbr>o<wbr>n<wbr>e</td></tr>
-  <tr><td width="25%">S<wbr>J<wbr>T<wbr>U<wbr>（<wbr>葡<wbr>萄<wbr>）</td><td width="25%">Q<wbr>i<wbr>n<wbr>g<wbr>W<wbr>a<wbr>P<wbr>T<wbr>（<wbr>青<wbr>蛙<wbr>）</td><td width="25%">R<wbr>a<wbr>i<wbr>l<wbr>g<wbr>u<wbr>n<wbr>P<wbr>T</td><td width="25%">S<wbr>e<wbr>w<wbr>e<wbr>r<wbr>P<wbr>T<wbr>（<wbr>下<wbr>水<wbr>道<wbr>）</td></tr>
-  <tr><td width="25%">S<wbr>o<wbr>u<wbr>l<wbr>V<wbr>o<wbr>i<wbr>c<wbr>e<wbr>（<wbr>聆<wbr>音<wbr>）</td><td width="25%">S<wbr>S<wbr>D<wbr>（<wbr>春<wbr>天<wbr>）</td><td width="25%">T<wbr>a<wbr>n<wbr>g<wbr>P<wbr>T<wbr>（<wbr>不<wbr>可<wbr>躺<wbr>）</td><td width="25%">T<wbr>C<wbr>C<wbr>F<wbr> <wbr>/<wbr> <wbr>E<wbr>T<wbr>8</td></tr>
-  <tr><td width="25%">T<wbr>J<wbr>U<wbr>P<wbr>T<wbr>（<wbr>北<wbr>洋<wbr>园<wbr>）</td><td width="25%">T<wbr>L<wbr>F<wbr>B<wbr>i<wbr>t<wbr>s</td><td width="25%">T<wbr>T<wbr>G<wbr>（<wbr>听<wbr>听<wbr>歌<wbr>）</td><td width="25%">U<wbr>2</td></tr>
-  <tr><td width="25%">U<wbr>B<wbr>i<wbr>t<wbr>s</td><td width="25%">V<wbr>C<wbr>-<wbr>L<wbr>i<wbr>b</td><td width="25%">星<wbr>湾</td><td width="25%">星<wbr>陨<wbr>阁</td></tr>
-  <tr><td width="25%">修<wbr>道<wbr>院</td><td width="25%">X<wbr>L<wbr>o<wbr>l<wbr>i</td><td width="25%">Z<wbr>M<wbr>P<wbr>T<wbr>（<wbr>织<wbr>梦<wbr>）</td><td width="25%"></td></tr>
+  <tr><td width="25%">H<wbr>D<wbr>H<wbr>o<wbr>m<wbr>e<wbr>（<wbr>家<wbr>园<wbr>）</td><td width="25%">H<wbr>D<wbr>K<wbr>y<wbr>l<wbr>i<wbr>n<wbr>（<wbr>麒<wbr>麟<wbr>）</td><td width="25%">H<wbr>D<wbr>S<wbr>k<wbr>y<wbr>（<wbr>天<wbr>空<wbr>）</td><td width="25%">H<wbr>D<wbr>T<wbr>I<wbr>M<wbr>E</td></tr>
+  <tr><td width="25%">H<wbr>D<wbr>U</td><td width="25%">H<wbr>D<wbr>W<wbr>i<wbr>n<wbr>g<wbr>（<wbr>瓷<wbr>）</td><td width="25%">H<wbr>h<wbr>a<wbr>n<wbr>C<wbr>l<wbr>u<wbr>b<wbr>（<wbr>憨<wbr>憨<wbr>）</td><td width="25%">H<wbr>T<wbr>P<wbr>T<wbr>（<wbr>海<wbr>棠<wbr>）</td></tr>
+  <tr><td width="25%">H<wbr>X<wbr>P<wbr>T<wbr>（<wbr>好<wbr>学<wbr>）</td><td width="25%">K<wbr>E<wbr>E<wbr>P<wbr>F<wbr>R<wbr>D<wbr>S<wbr>（<wbr>朋<wbr>友<wbr>）</td><td width="25%">K<wbr>e<wbr>l<wbr>u</td><td width="25%">L<wbr>a<wbr>j<wbr>i<wbr>d<wbr>u<wbr>i<wbr>（<wbr>垃<wbr>圾<wbr>堆<wbr>）</td></tr>
+  <tr><td width="25%">L<wbr>O<wbr>N<wbr>G<wbr>P<wbr>T</td><td width="25%">M<wbr>a<wbr>r<wbr>c<wbr>h</td><td width="25%">M<wbr>o<wbr>m<wbr>e<wbr>n<wbr>t</td><td width="25%">M<wbr>u<wbr>s<wbr>o<wbr>p<wbr>i<wbr>a<wbr>（<wbr>音<wbr>乐<wbr>乌<wbr>托<wbr>邦<wbr>）</td></tr>
+  <tr><td width="25%">N<wbr>a<wbr>n<wbr>y<wbr>a<wbr>n<wbr>g<wbr>P<wbr>T<wbr>（<wbr>南<wbr>洋<wbr>）</td><td width="25%">N<wbr>i<wbr>c<wbr>e<wbr>P<wbr>T</td><td width="25%">N<wbr>o<wbr>v<wbr>a<wbr>H<wbr>D</td><td width="25%">O<wbr>p<wbr>e<wbr>n<wbr>C<wbr>D</td></tr>
+  <tr><td width="25%">O<wbr>u<wbr>r<wbr>B<wbr>i<wbr>t<wbr>s<wbr>（<wbr>我<wbr>堡<wbr>）</td><td width="25%">P<wbr>A<wbr>N<wbr>D<wbr>A<wbr>（<wbr>熊<wbr>猫<wbr>）</td><td width="25%">P<wbr>i<wbr>g<wbr>G<wbr>o<wbr>（<wbr>猪<wbr>猪<wbr>）</td><td width="25%">P<wbr>l<wbr>a<wbr>y<wbr>L<wbr>e<wbr>t</td></tr>
+  <tr><td width="25%">P<wbr>T<wbr>C<wbr>a<wbr>f<wbr>e<wbr>（<wbr>咖<wbr>啡<wbr>）</td><td width="25%">P<wbr>T<wbr>e<wbr>r<wbr>C<wbr>l<wbr>u<wbr>b<wbr>（<wbr>猫<wbr>站<wbr>）</td><td width="25%">P<wbr>T<wbr>F<wbr>a<wbr>n<wbr>s</td><td width="25%">P<wbr>T<wbr>G<wbr>T<wbr>K</td></tr>
+  <tr><td width="25%">P<wbr>T<wbr>H<wbr>O<wbr>M<wbr>E</td><td width="25%">P<wbr>T<wbr>L<wbr>G<wbr>S</td><td width="25%">P<wbr>T<wbr>S<wbr>B<wbr>A<wbr>O<wbr>（<wbr>烧<wbr>包<wbr>）</td><td width="25%">P<wbr>T<wbr>S<wbr>K<wbr>I<wbr>T<wbr>（<wbr>拾<wbr>刻<wbr>）</td></tr>
+  <tr><td width="25%">P<wbr>T<wbr>T</td><td width="25%">P<wbr>T<wbr>z<wbr>o<wbr>n<wbr>e</td><td width="25%">S<wbr>J<wbr>T<wbr>U<wbr>（<wbr>葡<wbr>萄<wbr>）</td><td width="25%">Q<wbr>i<wbr>n<wbr>g<wbr>W<wbr>a<wbr>P<wbr>T<wbr>（<wbr>青<wbr>蛙<wbr>）</td></tr>
+  <tr><td width="25%">R<wbr>a<wbr>i<wbr>l<wbr>g<wbr>u<wbr>n<wbr>P<wbr>T</td><td width="25%">S<wbr>e<wbr>w<wbr>e<wbr>r<wbr>P<wbr>T<wbr>（<wbr>下<wbr>水<wbr>道<wbr>）</td><td width="25%">S<wbr>o<wbr>u<wbr>l<wbr>V<wbr>o<wbr>i<wbr>c<wbr>e<wbr>（<wbr>聆<wbr>音<wbr>）</td><td width="25%">S<wbr>S<wbr>D<wbr>（<wbr>春<wbr>天<wbr>）</td></tr>
+  <tr><td width="25%">T<wbr>a<wbr>n<wbr>g<wbr>P<wbr>T<wbr>（<wbr>不<wbr>可<wbr>躺<wbr>）</td><td width="25%">T<wbr>C<wbr>C<wbr>F<wbr> <wbr>/<wbr> <wbr>E<wbr>T<wbr>8</td><td width="25%">T<wbr>J<wbr>U<wbr>P<wbr>T<wbr>（<wbr>北<wbr>洋<wbr>园<wbr>）</td><td width="25%">T<wbr>L<wbr>F<wbr>B<wbr>i<wbr>t<wbr>s</td></tr>
+  <tr><td width="25%">T<wbr>T<wbr>G<wbr>（<wbr>听<wbr>听<wbr>歌<wbr>）</td><td width="25%">U<wbr>2</td><td width="25%">U<wbr>B<wbr>i<wbr>t<wbr>s</td><td width="25%">V<wbr>C<wbr>-<wbr>L<wbr>i<wbr>b</td></tr>
+  <tr><td width="25%">星<wbr>湾</td><td width="25%">星<wbr>陨<wbr>阁</td><td width="25%">修<wbr>道<wbr>院</td><td width="25%">X<wbr>L<wbr>o<wbr>l<wbr>i</td></tr>
+  <tr><td width="25%">Z<wbr>M<wbr>P<wbr>T<wbr>（<wbr>织<wbr>梦<wbr>）</td><td width="25%"></td><td width="25%"></td><td width="25%"></td></tr>
 </table>
 
 ### Gazelle 站点（12 个）
@@ -75,8 +76,7 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
 
 ## 文件说明
 
-- `global.json`：旧 App 兼容规则，含通用规则和站点补充规则。
-- `global-modern.json`：支持能力协商的新 App 使用的完整规则。
+- `global.json`：唯一完整规则包，含所有通用规则和站点补充规则。
 - `manifest.json`：更新索引。
 - [RULES.md](RULES.md)：全字段说明及单独配置站点规则的方法。
 - [MIT License](LICENSE)

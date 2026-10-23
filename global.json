@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 45,
-  "publishedAt": 1792765064,
+  "code": 48,
+  "publishedAt": 1792766271,
   "compatibility": {
     "engine": 1,
     "features": []
@@ -23696,7 +23696,7 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "gazelle.jpopsuki",
-      "code": 3,
+      "code": 4,
       "publishedAt": 1792765064,
       "architecture": "gazelle",
       "domains": [
@@ -24632,7 +24632,33 @@
                 "catalog-chiptune": "chiptune",
                 "catalog-new-wave": "new.wave",
                 "catalog-black-metal": "black.metal",
-                "catalog-death-metal": "death.metal"
+                "catalog-death-metal": "death.metal",
+                "music-thai": "thai",
+                "music-m-on": "M-ON!",
+                "music-ballad": "ballad",
+                "music-dancehall": "dancehall",
+                "music-enka": "enka",
+                "music-electro": "electro",
+                "music-female-vocalist": "female.vocalist",
+                "music-hardcore": "hardcore",
+                "music-male-vocalist": "male.vocalist",
+                "music-nagoya-kei": "nagoya.kei",
+                "music-power-pop": "power.pop",
+                "music-rnb": "rnb",
+                "music-urban": "urban",
+                "music-visual-kei": "visual.kei",
+                "music-compilation": "compilation",
+                "music-shibuya-kei": "shibuya.kei",
+                "music-dark-ambient": "dark.ambient",
+                "music-shinjuku-kei": "shinjuku.kei",
+                "music-remix": "remix",
+                "music-lounge": "lounge",
+                "music-eurobeat": "eurobeat",
+                "music-vocoded-vocals": "vocoded.vocals",
+                "music-oshare-kei": "oshare.kei",
+                "music-anison": "anison",
+                "music-angura-kei": "angura.kei",
+                "music-8bit": "8bit"
               }
             },
             {
@@ -24688,6 +24714,102 @@
                 }
               }
             ]
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "site",
+      "id": "pandapt",
+      "code": 1,
+      "publishedAt": 1792766271,
+      "architecture": "nexusphp",
+      "domains": [
+        "pandapt.net"
+      ],
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "base": {
+        "minCode": 18
+      },
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/pages/list/request/query/resource-tag",
+          "value": {
+            "id": "resource-tag",
+            "input": "tag",
+            "param": "tags[4]",
+            "encoding": "brackets",
+            "map": {
+              "no-repost": 1,
+              "official-release": 3,
+              "diy": 4,
+              "mandarin": 5,
+              "chinese-subtitles": 6,
+              "hdr": 7,
+              "dolby": 8,
+              "hdr-plus": 9,
+              "completed": 10,
+              "cantonese": 13,
+              "pure-version": 16,
+              "episodic": 17,
+              "resident": 20
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "type": "site",
+      "id": "hdkylin",
+      "code": 1,
+      "publishedAt": 1792766271,
+      "architecture": "nexusphp",
+      "domains": [
+        "www.hdkyl.in",
+        "hdkyl.in"
+      ],
+      "compatibility": {
+        "engine": 1,
+        "features": [
+          "tag-filter.v1"
+        ]
+      },
+      "base": {
+        "minCode": 18
+      },
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/pages/list/request/query/resource-tag",
+          "value": {
+            "id": "resource-tag",
+            "input": "tag",
+            "param": "tag_id",
+            "encoding": "scalar",
+            "map": {
+              "no-repost": 1,
+              "premiere": 2,
+              "official-release": 3,
+              "diy": 4,
+              "mandarin": 5,
+              "chinese-subtitles": 6,
+              "hdr": 7,
+              "dolby": 8,
+              "category-bluray": 9,
+              "music-live": 10,
+              "4k": 11,
+              "resident": 15,
+              "completed": 16,
+              "episodic": 19
+            }
           }
         }
       ]

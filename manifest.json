@@ -1,21 +1,8 @@
 {
   "schemaVersion": 2,
-  "code": 45,
-  "publishedAt": 1792765064,
-  "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v45/global.json",
-  "size": 793608,
-  "sha256": "ed2bae0f1bd22583b889031b6f81889f33008aad67374068d923b97baa7db9bb",
-  "variants": [
-    {
-      "schemaVersion": 2,
-      "code": 46,
-      "publishedAt": 1792765064,
-      "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v46/global-modern.json",
-      "size": 794821,
-      "sha256": "88a2c8915f0397a0bd9ceb44f755235016a53fb11bd566cbfd036ebdb5e5e5e7",
-      "requires": [
-        "forward-filter-tags.v1"
-      ]
-    }
-  ]
+  "code": 48,
+  "publishedAt": 1792766271,
+  "url": "https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/rules-v48/global.json",
+  "size": 797070,
+  "sha256": "8602ac4a943955892eae802437f116b0b4c581a5d378db741887162b34f45c2b"
 }
