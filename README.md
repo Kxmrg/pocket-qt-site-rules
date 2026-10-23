@@ -4,7 +4,7 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
 
 | 规则版本 | 更新时间（北京时间） | 支持 PT 站点 | 已测试完美适配站点 |
 | --- | --- | --- | --- |
-| version 44 | 2026-10-22 19:40:18 | 200+ | 103 |
+| version 45（兼容）/ 46（完整） | 2026-10-23 22:17:44 | 200+ | 103 |
 
 **在线更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
 
@@ -75,7 +75,8 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
 
 ## 文件说明
 
-- `global.json`：全量规则，含通用规则和站点补充规则。
+- `global.json`：旧 App 兼容规则，含通用规则和站点补充规则。
+- `global-modern.json`：支持能力协商的新 App 使用的完整规则。
 - `manifest.json`：更新索引。
 - [RULES.md](RULES.md)：全字段说明及单独配置站点规则的方法。
 - [MIT License](LICENSE)

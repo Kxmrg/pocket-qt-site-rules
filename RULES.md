@@ -375,3 +375,22 @@ Gazelle 使用 HTML 页面和规则解析，不调用 `ajax.php`。需要包含�
 - `deferred-group-rows.v1`：`pages.list.deferredRows` 声明 `groupClass`、`variantClass` 和可选 `detailContentClass`。超过 4 MiB 的分组响应先保留组头；展开时同一会话读取详情，剔除隐藏说明行。输入最多 32 MiB，DOM 仍最多 4 MiB，解析仍受 5 秒 worker 预算保护。平铺和小页面不改变。
 - 版本标题、版次、发布时间、字幕/技术标签和优惠由各站自己的 HTML 提取。组级汇总人数、最大容量、上传者身份都不能冒充具体种子数据。
 - `grouping=0` / `group_results=0` 等原生布局参数按入口保留；每次加载数量遵循服务端分页，不截断版本假装页大小生效。
+
+## 发布前兼容门禁
+
+每次发布新 manifest/tag 前，必须在 Pocket Evo App 仓库运行：
+
+```sh
+tool/check_rule_release.sh /path/to/pocket-qt-site-rules PREVIOUS_SHIPPED_APP_COMMIT
+```
+
+该命令核对候选包的 size、SHA-256、code 和发布时间，使用生产仓库回放历史版本升级与重启读取，并从 Git 提取上一已发布 App 的完整引擎验证新包。最后一个参数必须是真实已发布 App 提交，不能用新 App HEAD 替代。Flutter 不在 PATH 时通过 `FLUTTER_BIN` 指定路径。
+
+门禁失败禁止更新共用频道。新增引擎能力不代表旧 App 自动支持；需要先制定 App 升级或兼容分频道策略，不得通过关闭校验/跳过未知站点解决。新规则发布后，将 tag 中原始 global.json 以 gzip 形式补入 App 的历史发布回归夹具。
+
+### v45 / v46 兼容修复
+
+- 索引顶层指向 v45 `global.json`，供不认识 `variants` 的旧 App 读取。该包保留 JPopsuki 适配，只移除旧 App 无法识别的 26 个新增音乐筛选 ID，其余站点规则不变。
+- 索引 `variants` 提供 v46 `global-modern.json`，要求 `forward-filter-tags.v1`。支持协商的新 App 自动选择它，包含完整音乐筛选。
+- 每个包拥有独立 code、URL、size、SHA-256；绝不覆盖已发布 tag 或以同一 code 发布不同内容。发布本次提交时须先推送 `rules-v45`、`rules-v46` 不可变 tag，再发布 main 上的 manifest。
+- `requires` 只用于选择已支持的包，不会放宽未知执行指令、未知架构、补丁路径或安全字段校验。新 App 对格式合法但尚无本地语义的筛选 ID 保留数据，不生成错误的筛选请求；待 App 支持后可使用。
