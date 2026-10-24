@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 49,
-  "publishedAt": 1792857125,
+  "code": 50,
+  "publishedAt": 1792858409,
   "compatibility": {
     "engine": 1,
     "features": []
@@ -5608,11 +5608,12 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "hddolby",
-      "code": 7,
-      "publishedAt": 1792046231,
+      "code": 8,
+      "publishedAt": 1792858409,
       "architecture": "nexusphp",
       "domains": [
-        "www.hddolby.com"
+        "www.hddolby.com",
+        "www.uhddolby.com"
       ],
       "compatibility": {
         "engine": 1,

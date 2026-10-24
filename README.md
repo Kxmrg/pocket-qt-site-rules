@@ -4,7 +4,7 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
 
 | 规则版本 | 更新时间（北京时间） | 支持 PT 站点 | 已测试完美适配站点 |
 | --- | --- | --- | --- |
-| version 49 | 2026-10-24 23:52:05 | 200+ | 107 |
+| version 50 | 2026-10-25 00:13:29 | 200+ | 107 |
 
 **在线更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
 
@@ -82,3 +82,5 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
 - [MIT License](LICENSE)
 
 规则、索引和适配列表手动维护，不使用生成脚本。
+
+规则 50：高清杜比新增域名 `www.uhddolby.com`，保留旧域名匹配同一站点规则
