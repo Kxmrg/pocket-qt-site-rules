@@ -4,7 +4,7 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
 
 | 规则版本 | 更新时间（北京时间） | 支持 PT 站点 | 已测试完美适配站点 |
 | --- | --- | --- | --- |
-| version 48 | 2026-10-23 22:37:51 | 200+ | 105 |
+| version 49 | 2026-10-24 23:52:05 | 200+ | 107 |
 
 **在线更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
 
@@ -18,7 +18,7 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
 
 ## 适配清单
 
-目前经测试已完美适配PT站点105个，NexusPHP、Gazelle、UNIT3D、BtiTracker 架构站点可以通过本仓库的通用规则和站点补充规则在线更新。独立架构站点适配跟随应用更新，无法在线修复。未测试的NexusPHP站点绝大部分都是可以直接导入使用的，因未测试无法获取完整的标签 ID（tag_id），Pocket Evo 会在加载资源列表的同时采集标签 ID，会造成无法筛选已加载资源列表中没有的标签。部分NexusPHP站点改动较大，如无法适配请联系我进行在线修复。
+目前经测试已完美适配PT站点107个，NexusPHP、Gazelle、UNIT3D、BtiTracker 架构站点可以通过本仓库的通用规则和站点补充规则在线更新。独立架构站点适配跟随应用更新，无法在线修复。未测试的NexusPHP站点绝大部分都是可以直接导入使用的，因未测试无法获取完整的标签 ID（tag_id），Pocket Evo 会在加载资源列表的同时采集标签 ID，会造成无法筛选已加载资源列表中没有的标签。部分NexusPHP站点改动较大，如无法适配请联系我进行在线修复。
 
 
 ### NexusPHP 站点（73 个）
@@ -53,10 +53,10 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
   <tr><td width="25%">H<wbr>D<wbr>-<wbr>F</td><td width="25%">J<wbr>P<wbr>o<wbr>p<wbr>s<wbr>u<wbr>k<wbr>i</td><td width="25%">P<wbr>a<wbr>s<wbr>s<wbr>T<wbr>h<wbr>e<wbr>P<wbr>o<wbr>p<wbr>c<wbr>o<wbr>r<wbr>n</td><td width="25%">R<wbr>e<wbr>d<wbr>a<wbr>c<wbr>t<wbr>e<wbr>d</td></tr>
 </table>
 
-### UNIT3D 站点（2 个）
+### UNIT3D 站点（4 个）
 
 <table width="100%">
-  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />A<wbr>s<wbr>i<wbr>a<wbr>n<wbr>C<wbr>i<wbr>n<wbr>e<wbr>m<wbr>a</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />B<wbr>l<wbr>u<wbr>t<wbr>o<wbr>p<wbr>i<wbr>a</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" /></td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" /></td></tr>
+  <tr><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />A<wbr>s<wbr>i<wbr>a<wbr>n<wbr>C<wbr>i<wbr>n<wbr>e<wbr>m<wbr>a</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />B<wbr>l<wbr>u<wbr>t<wbr>o<wbr>p<wbr>i<wbr>a</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />L<wbr>S<wbr>T</td><td width="25%"><img src="images/table-spacer.png" width="2000" height="0" align="right" alt="" />S<wbr>e<wbr>e<wbr>d<wbr>P<wbr>o<wbr>o<wbr>l</td></tr>
 </table>
 
 ### BtiTracker 及其衍生 XBTIT 站点（2 个）
