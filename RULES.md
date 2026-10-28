@@ -1,6 +1,8 @@
 # 规则文件字段与站点单独配置
 
-本文对应当前 Pocket Evo 规则格式 `schemaVersion: 1`、引擎 `engine: 1`。全量文件为 `global.json`，当前已实现 `nexusphp`、`gazelle`、`unit3d` 与 `btitracker`。独立架构站点（包括 BeyondHD）不使用此规则文件。
+本文对应当前 Pocket Evo 规则格式 `schemaVersion: 1`、引擎 `engine: 1`。全量文件为 `global.json`，当前已实现 `nexusphp`、`gazelle`、`unit3d` 与 `btitracker`。独立客户端（例如 M-Team、朱雀、BeyondHD、YzYY）不使用此规则文件，客户端能力随 App 更新；浏览器插件负责识别和导出，不执行规则包。
+
+核对基线：App `1.4.0+140`、完整规则包 `code: 50`。包内通用架构版本分别为 nexusphp 18、unit3d 2、btitracker 2、gazelle 1，含 86 份站点补充；这些是本次核对的快照，后续以 `global.json` 为准。支持列表与规则补充数量不同：部分站直接使用通用规则，独立客户端也不在 `sites` 中。
 
 ## 1. 全量文件
 
@@ -12,7 +14,7 @@
 | code | 整数 | 必填，整个文件的内容版本，范围 1–2147483647 |
 | publishedAt | 整数 | 必填，Unix 秒时间戳，范围 0–253402300799；仅用于显示 |
 | compatibility | 对象 | 必填，引擎兼容性，见下表 |
-| architectures | 对象 | 必填，按架构 ID 分组的通用规则；当前支持 nexusphp、unit3d |
+| architectures | 对象 | 必填，按架构 ID 分组的通用规则；当前支持 nexusphp、unit3d、btitracker、gazelle |
 | sites | 数组 | 必填，站点补充规则，可为空；每个元素是第 3 节的完整站点文件结构 |
 
 不允许增加 name、description、备注等未定义字段；JSON 不支持注释。不要把 Cookie、Passkey、API Key、账号或个人信息写入规则。
@@ -46,12 +48,24 @@
 | array-tag-parameter.v1 | 标签参数映射支持 resolutionIds[] 等数组键 |
 | resource-link-identity.v1 | 资源详情和下载链接必须匹配当前资源 ID |
 | hr-days.v1 | H&R 天数标签，例如 H&R 3DAY |
+| scoped-element-position.v1 | 元素位置选择器，按元素而非空白文本节点计数 |
+| formatted-date.v1 | 按声明格式严格解析日期 |
+| grouped-resources.v1 | group / edition / variant 分组及封面宽高比 |
+| adjacent-row.v1 | nextSibling 邻接行读取 |
+| embedded-records.v1 | 从 HTML 内已有 JSON 投影资源，不执行脚本 |
+| deferred-group-rows.v1 | 大型分组 HTML 延迟读取版本行 |
+| omit-first-page.v1 | 首页省略页码参数 |
+| comma-list.v1 | commaList 逗号拆分 |
+| text-list.v1 | spaceList 空白拆分 |
+| json-string.v1 | jsonString 解码 JSON 字符串 |
+| multi-tag-comma.v1 | comma 多标签编码与 tagMode 匹配方式 |
+| multi-tag-parameter.v1 | parameters 多标签独立请求参数 |
 
-能力标识不代表可执行任意代码。站点新增能力应在自身 compatibility 中声明；编译时与通用规则能力合并。未知能力会被拒绝。v22 包含 `hr-days.v1`，旧版 App 如提示不支持规则能力，需要先更新 App；更新失败会保留原规则。
+能力标识不代表可执行任意代码。站点新增能力应在自身 compatibility 中声明；编译时与通用规则能力合并。未知能力会被拒绝。能力表描述 App 已实现的能力，不表示每份规则必须全部声明；每个 compatibility 的 features 最多 16 项，站点编译时再合并通用与补充能力。新引擎能力需要同步升级 App，不能靠改 JSON 声明获得；更新失败保留原规则。
 
 ## 2. 通用架构规则
 
-每个 `architectures.nexusphp` / `architectures.unit3d` 对象包含且只包含：
+每个 `architectures.<架构 ID>` 对象包含且只包含：
 
 | 字段 | 类型 | 含义 |
 | --- | --- | --- |
@@ -71,7 +85,7 @@
 | id | 字符串 | 必填，稳定站点 ID；1–128 字符，首字符为小写字母或数字，后续允许小写字母、数字、下划线、点、连字符 |
 | code | 整数 | 必填，该站点内容版本；同 ID 比较，范围同全局 |
 | publishedAt | 整数 | 必填，该站点规则发布时间，Unix 秒 |
-| architecture | 字符串 | 必填，nexusphp 或 unit3d |
+| architecture | 字符串 | 必填，nexusphp、unit3d、btitracker 或 gazelle |
 | domains | 字符串数组 | 必填，1–32 个域名；不写协议、路径、端口或通配符；精确匹配，www 不自动等同根域名 |
 | compatibility | 对象 | 必填，engine 与 features |
 | base | 对象 | 必填，对应通用架构规则的版本要求 |
@@ -112,7 +126,7 @@ domains 会规范化小写及国际化域名、去重；不同站点 ID 不能�
 
 ### 完整示例：覆盖真实标签 ID
 
-以下为虚构的 example.org 示例，可在当前 NP 架构 version 17 下编译；域名、标签 ID 必须替换为目标站的真实数据。
+以下为虚构的 example.org 示例，针对当前 NP 架构 code 18 编写；域名、标签 ID 必须替换为目标站的真实数据。
 
 ```json
 {
@@ -127,7 +141,7 @@ domains 会规范化小写及国际化域名、去重；不同站点 ID 不能�
     "engine": 1,
     "features": ["tag-filter.v1"]
   },
-  "base": {"minCode": 17},
+  "base": {"minCode": 18},
   "patches": [
     {
       "op": "replace",
@@ -140,7 +154,7 @@ domains 会规范化小写及国际化域名、去重；不同站点 ID 不能�
 
 replace 只保留列出的映射，避免误继承该站并不存在的通用 ID。若只是补充且确认其他默认映射仍正确，可改用 merge，并在 features 加入 map-merge.v1。不支持远端标签筛选时可以 replace 为 `{}`；卡片标签解析不受此映射控制。
 
-App 也会从真实页面的筛选链接/表单发现并修正映射；不要用标签文字、显示顺序或其他站的 ID 猜测本站 ID。标签筛选单选且走站点请求，不做本地标签过滤。
+App 也会从真实页面的筛选链接/表单发现并修正映射；不要用标签文字、显示顺序或其他站的 ID 猜测本站 ID。标签筛选走真实站点请求，不做本地标签过滤。普通编码为单选；仅已声明并验证的 comma / parameters 编码支持多标签，不能把任意站点强行改为多选。
 
 ### 更换读取方式
 
@@ -169,7 +183,11 @@ pages 必须有 account 和 list；可增加 profile。
 | request | 对象 | 必填，页面请求定义 |
 | states | 对象 | 可选，页面状态检测 |
 | parsers | 数组 | 必填，1–6 个解析器 |
-| pagination | 数组 | 可选，列表分页提取方式 |
+| pagination | 数组 | list 必填且非空，列表分页提取方式 |
+| tagDiscovery | 数组 | 仅 list，原生筛选控件发现，需 native-filter-controls.v1 |
+| recordIdentity | 对象 | 仅 list，资源链接 ID 校验，需 resource-link-identity.v1 |
+| embeddedRecords | 对象 | 仅 list，内嵌 JSON 资源投影，需 embedded-records.v1 |
+| deferredRows | 对象 | 仅 list，分组大响应处理，需 deferred-group-rows.v1 |
 
 ### request
 
@@ -184,13 +202,14 @@ query 每项允许：
 | --- | --- |
 | id | 可选，稳定绑定 ID，用于补丁定位；同一 query 中唯一，使用时声明 tag-filter.v1 |
 | param | 必填，参数名；不允许 Cookie、Token、Passkey、authkey、password 等凭据参数 |
-| input | 与 literal 二选一：query、page、pageSize、category、sort、direction、tag、promotion |
+| input | 与 literal 二选一：query、page、pageSize、category、sort、direction、tag、promotion、tagMode |
 | literal | 固定字符串、数值或布尔值；不能同时使用 map、encoding、offset |
 | map | 可选，输入语义到本站值的映射；最多 128 项；未匹配的输入不发送 |
 | encoding | 可选，见下表；默认 scalar |
 | offset | 可选，仅用于 page，取 -1、0、1；应用页码从 1 开始，NP 通常 -1 |
+| omitFirstPage | 可选，仅 page 可设 true，第一页移除该参数；需 omit-first-page.v1 |
 
-input：query 为搜索词，pageSize 为加载数量，sort 为 publishedAt/sizeBytes/seeders/leechers/completed，direction 为 asc/desc。category 当前保留入口的固定分类，不根据此绑定另加分类；promotion 在入口已有固定优惠参数时不覆盖。tag 只允许一条绑定，值必须来自真实站点映射。
+input：query 为搜索词，pageSize 为加载数量，sort 为 publishedAt/sizeBytes/seeders/leechers/completed，direction 为 asc/desc。category 当前保留入口的固定分类，不根据此绑定另加分类；promotion 在入口已有固定优惠参数时不覆盖。tag 只允许一条绑定，值必须来自真实站点映射。tagMode 需要 multi-tag-comma.v1，值为 all/any，可用 map 转换为站点参数；未选标签时不发送。
 
 | encoding | 含义 |
 | --- | --- |
@@ -199,15 +218,20 @@ input：query 为搜索词，pageSize 为加载数量，sort 为 publishedAt/siz
 | brackets | 参数名加 []，如 tags[]=9 |
 | keySuffix | 参数名加 ID、值为 1，如 tag9=1；需 tag-key-suffix.v1 |
 | searchToken | 将 +标记 合并到搜索词；同 param 必须有 query 绑定，需 tag-search-token.v1 |
-| parameter | map 值形如 HDR=1，不同标签映射到不同参数；需 tag-parameter.v1 |
+| parameter | map 值形如 HDR=1，不同标签映射到不同参数，单选；需 tag-parameter.v1 |
+| parameters | 每个已选标签分别生成原生参数；需 tag-parameter.v1 和 multi-tag-parameter.v1；冲突参数组合不发送 |
+| comma | 映射值以逗号加空格拼接，供支持此格式的站点多选；需 multi-tag-comma.v1 |
 
-标签映射 key 为 App 语义标识，不是显示文字：
+标签映射 key 为 App 语义标识，不是显示文字。下面是常见示例，不是完整枚举：
 `hot`、`pinned`、`official-release`、`original`、`premiere`、`mandarin`、`chinese-subtitles`、`bilingual-subtitles`、`cantonese`、`diy`、`dolby`、`hdr`、`4k`、`8k`、`hit-and-run`、`no-repost`、`ongoing`、`completed`、`episodic`、`disc`、`chinese-localized`、`short-drama`、`lossless`、`resident`、`pure-version`。
+
+格式合法但当前 App 不认识的筛选 ID 可以保存在规则里，不会生成可选项或错误请求；ID 格式为 `[a-z0-9][a-z0-9-]{0,127}`，不能使用优惠标签 ID 冒充普通筛选。
+
 优惠使用 promotion 独立绑定；当前 NP 通用值为 normal、free、double-upload、double-free、half-download、double-half、thirty-percent，实际参数值按站点确认。
 
 ### states
 
-允许 authRequired（登录）、challengeRequired（验证）、permissionDenied（权限）、unavailable（不可用）、empty（空结果）。每个状态为 1–8 个条件，条件字段为 css（必填选择器）、text（可选正则）。状态判断受现有解析器优先级控制，不应使用过宽的文字条件掩盖登录失败。
+允许 authRequired（登录）、challengeRequired（验证）、permissionDenied（权限）、unavailable（不可用）、empty（空结果）。每个状态为 1–8 个条件，条件字段为 css（必填选择器）、text（可选正则）。状态判断受现有解析器优先级控制，不应使用过宽的文字条件掩盖登录失败。HTTP 错误、登录重定向及维护页面还有 App 公共检测链路，不能用 empty 条件把这些错误变成空列表。
 
 ### parsers / layout
 
@@ -216,7 +240,9 @@ input：query 为搜索词，pageSize 为加载数量，sort 为 publishedAt/siz
 | id | 必填，同页面唯一的解析器 ID |
 | scope | account/profile 必填，账户信息块的 CSS 选择器 |
 | layout | list 必填，列表布局 |
-| fields | 必填，字段名到读取定义的对象；list 必须有 resourceId、title |
+| fields | 必填，字段名到读取定义的对象；普通列表与 group/variant 必须有 resourceId、title，edition 只要求 title |
+| role | list 可选 group / edition / variant，需 grouped-resources.v1 |
+| excludeIf | list 可选，排除明确非资源条目的 CSS 选择器，需 grouped-resources.v1 |
 
 layout.kind 可为 elements 或 table：
 
@@ -243,7 +269,7 @@ layout.kind 可为 elements 或 table：
 | within | 标签查找区域 CSS 选择器 |
 | mode | css 读取方式，见下表 |
 | attribute | attribute/attributes 模式必填，如 href、src、title |
-| scope | 通常省略表示当前资源/账户块；page 仅允许账户字段使用；禁止 group |
+| scope | 通常省略表示当前资源/账户块；可显式写 row；page 仅允许账户字段使用；nextSibling 读取紧邻兄弟元素，需 adjacent-row.v1；禁止 group |
 | exclude | 可选，读取文本时剔除的子元素选择器数组 |
 
 | mode | 输出 |
@@ -271,7 +297,10 @@ layout.kind 可为 elements 或 table：
 | bytes | 带单位容量转字节整数 |
 | ratio | 分享率转数值 |
 | url | 相对地址解析为 URL |
-| stringList | 转字符串列表 |
+| stringList | 转字符串列表，不自动拆分逗号或空格 |
+| commaList | 按逗号拆分、修剪空白并丢弃空项；需 comma-list.v1 |
+| spaceList | 按空白拆分、丢弃空项；需 text-list.v1 |
+| jsonString | 解码一个 JSON 字符串，非字符串结果无效；需 json-string.v1 |
 | identifier | 规范化标识文本 |
 
 | 对象操作 | 字段与含义 |
@@ -282,7 +311,7 @@ layout.kind 可为 elements 或 table：
 | tagAliases | {"tagAliases":{"中字":"chinese-subtitles"}}，逐项映射标签，未命中保留 |
 | date | {"date":{"formats":["yyyy-MM-dd HH:mm:ss"],"zone":"site"}}，站点时间；formats 为 1–8 项 |
 
-date 不是任意时间格式执行器；当前实现只对支持的紧凑日期形式做规范化，其余文本继续交给现有日期处理，不会猜测站点时区。regex 最长 256 字符，禁止反向引用和风险嵌套重复；lookup/tagAliases 最多 128 项。
+date 按声明的 formats 依次严格解析，使用 en_US 月份名称规则；兼容紧连日期时间以及 relative-day HH:mm:ss，见后文日期格式。非法日期返回缺失，zone 只接受 site，不猜测时区偏移；规则应声明 formatted-date.v1。regex 最长 256 字符，禁止反向引用和风险嵌套重复；lookup/tagAliases 最多 128 项。
 
 ### 输出字段全集
 
@@ -303,9 +332,10 @@ date 不是任意时间格式执行器；当前实现只对支持的紧凑日期
 
 | 字段 | 输出类型与含义 |
 | --- | --- |
-| resourceId | 字符串或整数，资源 ID，必需 |
+| resourceId | 字符串或整数，资源 ID；普通资源及 group/variant 必需，edition 可省略 |
 | title / subtitle | 文本，主标题/副标题；title 必需 |
 | detailUrl / downloadUrl / cover | URL，详情/下载/封面 |
+| coverAspectRatio | 数值，封面宽高比，例如 1 表示正方形；需 grouped-resources.v1 |
 | sizeBytes | 整数，文件字节数 |
 | seeders / leechers / completed | 整数，做种/下载/完成数量 |
 | publishedAt | 文本，资源发布时间；与包元信息的整数时间戳不同 |
@@ -316,17 +346,18 @@ date 不是任意时间格式执行器；当前实现只对支持的紧凑日期
 | promotionRemainingSeconds | 整数，优惠剩余秒数 |
 | promotionEndsAt | 文本，优惠截止时间；需 promotion-end.v1 |
 | pinned / hot / hitAndRun | 布尔值，置顶/热门/H&R |
+| hitAndRunDays | 整数，H&R 天数；需 hr-days.v1 |
 | format / encoding / medium | 文本，格式/编码/介质 |
 
 输出必须匹配类型，例如大小列先 bytes、做种数先 integer、链接先 url。可选字段没提供就缺失，不伪造零值或默认用户名。
 
 ### pagination
 
-每项只有 kind（numberedLinks 或 nextLink）、selector（分页链接 CSS）、parameter（页码参数名，通常 page）。用真实链接判定下一页，不能只看资源数推断；解析器也会检查重复页及资源签名。
+numberedLinks / nextLink 使用 kind、selector（分页链接 CSS）、parameter（页码参数名，通常 page）；attributeNumber 使用 kind、selector、attribute、pattern、group，并声明 attribute-pagination.v1，详见后文。用真实链接判定下一页，不能只看资源数推断；解析器也会检查重复页及资源签名。
 
 ## 6. 限额与验证
 
-全局文件最多 5 MiB，站点文件最多 1 MiB，JSON 深度最多 64；最多 32 种架构、2000 份站点规则、每站 32 个域名、256 个补丁、16 个能力标识。当前可用架构仍只有 nexusphp。CSS 最长 2048 字符，正则最长 256 字符；工作线程处理有超时限制。
+全局文件最多 5 MiB，站点文件最多 1 MiB，JSON 深度最多 64；最多 32 种架构、2000 份站点规则、每站 32 个域名、256 个补丁。每份原始 compatibility 最多 16 个能力名，不是整个引擎只支持 16 种能力。当前可用架构为 nexusphp、unit3d、btitracker、gazelle。CSS 最长 2048 字符，正则最长 256 字符；工作线程处理有超时限制。
 
 编写后先用 App 导入检查结构与补丁编译，再运行适配诊断，核对账户、资源列表、标签和分页。真实适配还应验证多页、空结果和站点搜索，不能以文件能导入等同适配成功。
 
@@ -338,10 +369,9 @@ date 不是任意时间格式执行器；当前实现只对支持的紧凑日期
 
 下载后先核对大小、摘要及文件内版本，再用生产引擎检查格式和兼容性，全部通过才替换。SHA-256 用于完整性校验，不是签名。当前 App 已接入在线更新与失败回滚。
 
-
 ## UNIT3D 通用规则与原生控件
 
-UNIT3D 与 NP 使用同一规则库、版本选择、导入、在线更新和诊断链路。普通 HTTP 与增强浏览器得到的 HTML 使用同一份不可变规则快照。`architectures.unit3d` 包含账号、个人资料、资源清单、原生请求参数和分页规则；`sites` 内的 AsianCinema / Blutopia 补充只保存实测标签 ID 映射。清单视图固定 `view=list`，卡片/分组入口在保存和请求时统一转换。
+UNIT3D 与 NP 使用同一规则库、版本选择、导入、在线更新和诊断链路。普通 HTTP 与增强浏览器得到的 HTML 使用同一份不可变规则快照。`architectures.unit3d` 包含账号、个人资料、资源清单、原生请求参数和分页规则；`sites` 内的 AsianCinema / Blutopia 等补充可覆盖实测标签 ID、结构、字段和请求差异。清单视图固定 `view=list`，卡片/分组入口在保存和请求时统一转换。
 
 新增声明式能力（旧 App 不识别时拒绝整包并保留原有效规则）：
 
@@ -364,15 +394,14 @@ UNIT3D 与 NP 使用同一规则库、版本选择、导入、在线更新和诊
 
 `formatted-date.v1` 支持将规则声明的日期格式转换成 ISO 发布时间，由 App 显示存活时间。HD-Torrents 使用 `HH:mm:ss dd/MM/yyyy`（兼容时间与日期紧连），HD-Space 使用 `MMMM d, yyyy, HH:mm:ss` 和 `relative-day HH:mm:ss`；后者读取 `Today at` / `Yesterday at`，在解析时固定日期，避免缓存跨日漂移。非法日期返回缺失值。`zone: site` 保留站点墙上时间，不臆造站点未提供的时区偏移。
 
-
-## Gazelle 分组 HTML（version 25）
+## Gazelle 分组 HTML
 
 Gazelle 使用 HTML 页面和规则解析，不调用 `ajax.php`。需要包含这些能力的新 App；旧版本 App 不能只靠规则更新获得分组 UI 和新解析能力。
 
 - `grouped-resources.v1`：列表 parser 可声明 `role: group / edition / variant`。组 ID 与种子 ID 分离；仅版本拥有下载地址、容量和优惠。按 DOM 顺序组装，重复组与版本去重，异常组头终止上一组。`excludeIf` 仅在明确识别非种子条目时使用，例如 GGn 的 External Link。
 - `adjacent-row.v1`：字段 reader 的 `scope: nextSibling` 只读取紧邻行，用于 ANT/GPW 的版本详情时间，不能跨行搜索别的种子。
 - `embedded-records.v1`：`pages.list.embeddedRecords` 声明 HTML 内嵌 JSON 变量、collection 层次及字段投影。支持 `{path}` 或 `{template}`，模板占位符按 URL 查询值编码，`$.` 引用根数据；`html: true` 仅将字段作为被动 HTML 片段读取。PTP 的 `PageData` 由此解析；不执行脚本、不请求 JSON API，凭据只来自当前响应的瞬时上下文，规则中不能写入真实值。
-- `deferred-group-rows.v1`：`pages.list.deferredRows` 声明 `groupClass`、`variantClass` 和可选 `detailContentClass`。超过 4 MiB 的分组响应先保留组头；展开时同一会话读取详情，剔除隐藏说明行。输入最多 32 MiB，DOM 仍最多 4 MiB，解析仍受 5 秒 worker 预算保护。平铺和小页面不改变。
+- `deferred-group-rows.v1`：`pages.list.deferredRows` 声明 `groupClass`、`variantClass` 和可选 `detailContentClass`。超过 4 MiB 的分组响应先保留组头；展开时同一会话读取详情，剔除隐藏说明行。输入最多 32 MiB，缩减后的 DOM 仍最多 4 MiB，解析仍受 5 秒 worker 预算保护。平铺和小页面不改变。
 - 版本标题、版次、发布时间、字幕/技术标签和优惠由各站自己的 HTML 提取。组级汇总人数、最大容量、上传者身份都不能冒充具体种子数据。
 - `grouping=0` / `group_results=0` 等原生布局参数按入口保留；每次加载数量遵循服务端分页，不截断版本假装页大小生效。
 
