@@ -75,15 +75,9 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
   <tr><td width="25%">Y<wbr>z<wbr>Y<wbr>Y</td><td width="25%"></td><td width="25%"></td><td width="25%"></td></tr>
 </table>
 
-新增独立客户端：**YzYY**（`www.yzyy.org`），随新版 App 和浏览器插件交付，无需更新规则包。账户、列表和搜索已实测，真实种子下载与真机行为待用户验收
-
 ## 文件说明
 
 - `global.json`：唯一完整规则包，含所有通用规则和站点补充规则。
 - `manifest.json`：更新索引。
 - [RULES.md](RULES.md)：全字段说明及单独配置站点规则的方法。
 - [MIT License](LICENSE)
-
-规则、索引和适配列表手动维护，不使用生成脚本。
-
-规则 50：高清杜比新增域名 `www.uhddolby.com`，保留旧域名匹配同一站点规则
