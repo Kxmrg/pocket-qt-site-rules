@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 50,
-  "publishedAt": 1792858409,
+  "code": 51,
+  "publishedAt": 1793808692,
   "compatibility": {
     "engine": 1,
     "features": []
@@ -6100,8 +6100,8 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "pttime",
-      "code": 7,
-      "publishedAt": 1792046231,
+      "code": 8,
+      "publishedAt": 1793808692,
       "architecture": "nexusphp",
       "domains": [
         "www.pttime.org"
@@ -6116,6 +6116,21 @@
         "minCode": 9
       },
       "patches": [
+        {
+          "op": "replace",
+          "path": "/pages/list/parsers/semantic/fields/tags/candidates/span/read/css",
+          "value": "a[href*=\"tags=\"] > span.tags"
+        },
+        {
+          "op": "replace",
+          "path": "/pages/list/parsers/anchor/fields/tags/candidates/span/read/css",
+          "value": "a[href*=\"tags=\"] > span.tags"
+        },
+        {
+          "op": "replace",
+          "path": "/pages/list/parsers/np-div/fields/tags/candidates/span/read/css",
+          "value": "a[href*=\"tags=\"] > span.tags"
+        },
         {
           "op": "replace",
           "path": "/pages/list/request/query/resource-tag",
