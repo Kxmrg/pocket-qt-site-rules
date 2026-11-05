@@ -4,7 +4,7 @@ Pocket Evo 是 Pocket Qt 的完全重制版，在用户交互、站点适配、�
 
 | 规则版本 | 更新时间（北京时间） | 支持 PT 站点 | 已测试完美适配站点 |
 | --- | --- | --- | --- |
-| version 50 | 2026-10-25 00:13:29 | 200+ | 108 |
+| version 51 | 2026-11-05 00:11:32 | 200+ | 108 |
 
 **在线更新源：** https://raw.githubusercontent.com/Kxmrg/pocket-qt-site-rules/main/manifest.json
 
