@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "type": "global",
   "id": "pocket-evo.web-rules",
-  "code": 51,
-  "publishedAt": 1793808692,
+  "code": 52,
+  "publishedAt": 1794920010,
   "compatibility": {
     "engine": 1,
     "features": []
@@ -7957,8 +7957,8 @@
       "schemaVersion": 1,
       "type": "site",
       "id": "farmm",
-      "code": 4,
-      "publishedAt": 1792046231,
+      "code": 5,
+      "publishedAt": 1794920010,
       "architecture": "nexusphp",
       "domains": [
         "pt.0ff.cc"
@@ -7966,7 +7966,8 @@
       "compatibility": {
         "engine": 1,
         "features": [
-          "tag-filter.v1"
+          "tag-filter.v1",
+          "profile-page.v1"
         ]
       },
       "base": {
@@ -7989,9 +7990,259 @@
               "chinese-subtitles": 6,
               "hdr": 7,
               "short-drama": 8,
+              "piggo-zero-magic": 9,
               "completed": 10,
+              "3d": 11,
               "ongoing": 12
             }
+          }
+        },
+        {
+          "op": "prepend",
+          "path": "/pages/list/parsers/semantic/fields/subtitle/candidates",
+          "value": [
+            {
+              "id": "farmm-v8-subtitle",
+              "read": {
+                "css": "table.torrentname td.embedded:first-child > .n8-tl-sub",
+                "mode": "text"
+              },
+              "then": [
+                "trim"
+              ]
+            }
+          ]
+        },
+        {
+          "op": "prepend",
+          "path": "/pages/list/parsers/semantic/fields/promotionRemainingSeconds/candidates",
+          "value": [
+            {
+              "id": "farmm-v8-countdown",
+              "read": {
+                "css": ".n8-tl-title > img[class*=\"pro_\"] ~ font > span[title]",
+                "mode": "text"
+              },
+              "then": [
+                "durationSeconds"
+              ]
+            }
+          ]
+        },
+        {
+          "op": "prepend",
+          "path": "/pages/list/parsers/anchor/fields/subtitle/candidates",
+          "value": [
+            {
+              "id": "farmm-v8-subtitle",
+              "read": {
+                "css": "table.torrentname td.embedded:first-child > .n8-tl-sub",
+                "mode": "text"
+              },
+              "then": [
+                "trim"
+              ]
+            }
+          ]
+        },
+        {
+          "op": "prepend",
+          "path": "/pages/list/parsers/anchor/fields/promotionRemainingSeconds/candidates",
+          "value": [
+            {
+              "id": "farmm-v8-countdown",
+              "read": {
+                "css": ".n8-tl-title > img[class*=\"pro_\"] ~ font > span[title]",
+                "mode": "text"
+              },
+              "then": [
+                "durationSeconds"
+              ]
+            }
+          ]
+        },
+        {
+          "op": "prepend",
+          "path": "/pages/list/states/empty",
+          "value": [
+            {
+              "css": "td.embedded",
+              "text": "^\\s*(?:搜索结果\\s*[\"“][^\"”\\r\\n]{0,512}[\"”]\\s*)?没有种子。请用准确的关键字重试。\\s*$"
+            }
+          ]
+        },
+        {
+          "op": "prepend",
+          "path": "/pages/account/parsers",
+          "value": [
+            {
+              "id": "farmm-v8-account",
+              "scope": ".n8-ubar",
+              "fields": {
+                "level": {
+                  "candidates": [
+                    {
+                      "id": "rank",
+                      "read": {
+                        "css": ".n8-ubar-rank",
+                        "mode": "text"
+                      },
+                      "then": [
+                        "trim"
+                      ]
+                    }
+                  ]
+                },
+                "ratio": {
+                  "candidates": [
+                    {
+                      "id": "ratio",
+                      "read": {
+                        "css": ":scope > .n8-ubar-list > .n8-ubar-i:nth-child(1)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "^分享率\\s*(.+)$",
+                          "group": 1
+                        },
+                        "ratio"
+                      ]
+                    }
+                  ]
+                },
+                "uploadedBytes": {
+                  "candidates": [
+                    {
+                      "id": "uploaded",
+                      "read": {
+                        "css": ":scope > .n8-ubar-list > .n8-ubar-i:nth-child(2)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "^(?:上传|上傳)\\s*(.+)$",
+                          "group": 1
+                        },
+                        "bytes"
+                      ]
+                    }
+                  ]
+                },
+                "downloadedBytes": {
+                  "candidates": [
+                    {
+                      "id": "downloaded",
+                      "read": {
+                        "css": ":scope > .n8-ubar-list > .n8-ubar-i:nth-child(3)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "^(?:下载|下載)\\s*(.+)$",
+                          "group": 1
+                        },
+                        "bytes"
+                      ]
+                    }
+                  ]
+                },
+                "bonus": {
+                  "candidates": [
+                    {
+                      "id": "exact-magic",
+                      "read": {
+                        "css": ":scope > .n8-ubar-list > .n8-ubar-i:nth-child(4)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "^魔力值\\s*([0-9][0-9,.]*)\\s*$",
+                          "group": 1
+                        },
+                        "decimal"
+                      ]
+                    }
+                  ]
+                },
+                "seeding": {
+                  "candidates": [
+                    {
+                      "id": "seeding",
+                      "read": {
+                        "css": ":scope > .n8-ubar-list > .n8-ubar-i:nth-child(8)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "^(?:活动|活動)\\s*↑\\s*([0-9,]+)",
+                          "group": 1
+                        },
+                        "integer"
+                      ]
+                    }
+                  ]
+                },
+                "leeching": {
+                  "candidates": [
+                    {
+                      "id": "leeching",
+                      "read": {
+                        "css": ":scope > .n8-ubar-list > .n8-ubar-i:nth-child(8)",
+                        "mode": "text"
+                      },
+                      "then": [
+                        {
+                          "regex": "^(?:活动|活動)\\s*↑\\s*[0-9,]+\\s*↓\\s*([0-9,]+)\\s*$",
+                          "group": 1
+                        },
+                        "integer"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op": "add",
+          "path": "/pages/profile",
+          "value": {
+            "request": {
+              "target": {
+                "from": "accountUrl"
+              }
+            },
+            "states": {},
+            "parsers": [
+              {
+                "id": "farmm-v8-profile",
+                "scope": "body",
+                "fields": {
+                  "bonus": {
+                    "candidates": [
+                      {
+                        "id": "exact-magic",
+                        "read": {
+                          "label": [
+                            "魔力值"
+                          ],
+                          "within": "td.rowhead"
+                        },
+                        "then": [
+                          {
+                            "regex": "^([0-9][0-9,]*(?:\\.[0-9]+)?)(?:\\s|$)",
+                            "group": 1
+                          },
+                          "decimal"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
           }
         }
       ]
